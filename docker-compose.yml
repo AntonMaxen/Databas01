@@ -9,5 +9,5 @@ services:
     cap_add:
       - SYS_NICE
     environment:
-      MYSQL_ROOT_PASSWORD: v3ry53cr37
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: spareparts
