@@ -10,4 +10,4 @@ services:
       - SYS_NICE
     environment:
       MYSQL_ROOT_PASSWORD: v3ry53cr37
-      MYSQL_DATABASE: Spareparts_DB
+      MYSQL_DATABASE: spareparts
