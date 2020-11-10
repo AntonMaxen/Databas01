@@ -1,0 +1,11 @@
+Agenda
+Datum: 2020-11-09
+Närvarande: Anton Maxén, Marcus Johnsson, Måns ewards Öberg
+Punkter:
+  * Fyll i datum och ordförande, närvarande på mötet
+  * Uppdatera kort med nya idéer (ifall dom finns).
+  * Gå igenom aktuella plockade kort
+  * Granska PR
+  * Plocka kort
+  * Övriga kommentarer
+  * Bestämma nästa möte och nästa Ordförande

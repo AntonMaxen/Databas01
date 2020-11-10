@@ -1,0 +1,23 @@
+Datum: 2020-11-10
+Närvarande: Anton Maxén, Marcus Johnsson, Måns Ewards Öberg
+Mötehållare: Anton Maxén
+  * Fyll i datum och ordförande, närvarande på mötet
+    - x
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - x
+  * Gå igenom aktuella plockade kort
+    - x
+  * Granska PR
+    - Inga PR ännu
+  * Plocka kort
+   - Forward Engineer Schema into Database
+   - Fix docker setup for all contributors, shared "image"
+   - Setup project base on github
+   - Fix project file structure
+  * Övriga kommentarer
+   - Efter samtalet med Joakim, vi kör projektet 100% med SQLAlchemy
+  * Bestämma nästa möte och nästa Ordförande
+   - Marcus tar nästa möte
+   - Torsdag 09:00
+   
+   
