@@ -1,0 +1,12 @@
+Data to gather.
+customers
+	1. CompanyName
+	2. OrganisationNumber
+	3. FirstName
+	4. LastName
+	5. PhoneNumber
+	6. Email
+	7. Address
+	8. ZipCode
+	9. City
+	10. Country
