@@ -1,5 +1,9 @@
+from db import Base, engine, session
+from models.shops import Shop
+
+
 def main():
-    pass
+    Base.metadata.create_all(engine)
 
 
 if __name__ == '__main__':
