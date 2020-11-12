@@ -31,7 +31,7 @@ Creek,CRK
 Crescent,CRES
 Crossing,XING
 Dale,DL
-DamDM,
+Dam,DM
 Divide,DV
 Drive,DR
 Estates,EST
