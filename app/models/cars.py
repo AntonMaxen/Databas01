@@ -12,6 +12,5 @@ class Car(Base):
     color = sa.Column(sa.String(45))
     date = sa.Column(sa.DateTime)
 
-    @property
     def __repr__(self):
         return f'Car(=license_number{self.license_number} model_name={self.model_name}, prod_year={self.prod_year})'
