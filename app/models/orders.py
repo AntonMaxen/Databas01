@@ -14,9 +14,11 @@ class Order(Base):
     customer_id = sa.Column(sa.Integer, sa.ForeignKey('customers.id'))
     employee_id = sa.Column(sa.Integer, sa.ForeignKey('employees.id'))
     shop_id = sa.Column(sa.Integer, sa.ForeignKey('shops.id'))
-
-    # TODO: add relations, many->one between orders->shops, many->one between orders->customers
-    #  one->one between orders->employees
+    customer = relationship("Customer", back_populates="orders")
+    employee = relationship("Employee", back_populates="orders")
+    shop = relationship("Shop", back_populates="orders")
+    # TODO: Check to see if relations works. Create 'orders' variables in customer, employee and shop
+    #  to create a bidirectional relationship in one-to-many.
 
     def __repr__(self):
         return f'Order(id={self.id}, total_amount={self.total_amount}, payment_status={self.payment_status},' \
