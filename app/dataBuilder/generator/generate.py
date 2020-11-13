@@ -96,7 +96,7 @@ def generate_license_plate():
 
 
 def generate_car():
-    with open('files/carbrands_models.txt', encoding="utf8") as f:
+    with open(absolute_path('carbrands_models.txt'), encoding="utf8") as f:
         cars = []
         for line in f:
             brand_name = line.split(',')[0]
