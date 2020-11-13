@@ -3,11 +3,12 @@ import app.dataBuilder.generator.generate as gen
 
 class Car:
     def __init__(self):
-        self.license_number = gen.generate_car()['license_number'] # potentiellt problem... generera unik sträng?
-        self.brand_name = gen.generate_car()['brand_name']
-        self.model = gen.generate_car()['model']
-        self.color = gen.generate_car()['color']
-        self.prod_year = gen.generate_car()['prod_year']
+        car_dict = gen.generate_car()
+        self.license_number = car_dict['license_number'] # potentiellt problem... generera unik sträng?
+        self.brand_name = car_dict['brand_name']
+        self.model = car_dict['model']
+        self.color = car_dict['color']
+        self.prod_year = car_dict['prod_year']
 
 
     def __repr__(self):
@@ -22,7 +23,7 @@ class Car:
 
 def main():
     cars = []
-    for _ in range(10):
+    for _ in range(100):
         cars.append(Car())
 
     for car in cars:
