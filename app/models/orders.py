@@ -1,0 +1,26 @@
+from ..db import Base
+import sqlalchemy as sa
+from sqlalchemy.orm import relationship
+
+
+class Order(Base):
+
+    __tablename__ = 'orders'
+
+    id = sa.Column(sa.Integer, primary_key=True)
+    total_amount = sa.Column(sa.Integer, nullable=False)
+    payment_status = sa.Column(sa.String(100), nullable=False)
+    shipping_date = sa.Column(sa.DateTime, nullable=False)
+    customer_id = sa.Column(sa.Integer, sa.ForeignKey('customers.id'))
+    employee_id = sa.Column(sa.Integer, sa.ForeignKey('employees.id'))
+    shop_id = sa.Column(sa.Integer, sa.ForeignKey('shops.id'))
+    customer = relationship("Customer", back_populates="orders")
+    employee = relationship("Employee", back_populates="orders")
+    shop = relationship("Shop", back_populates="orders")
+    # TODO: Check to see if relations works. Create 'orders' variables in customer, employee and shop
+    #  to create a bidirectional relationship in one-to-many.
+
+    def __repr__(self):
+        return f'Order(id={self.id}, total_amount={self.total_amount}, payment_status={self.payment_status},' \
+               f' shipping_date={self.shipping_date}, customer_id={self.customer_id}, ' \
+               f'employee_id={self.employee_id}, shop_id={self.shop_id})'
