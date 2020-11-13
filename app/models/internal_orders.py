@@ -10,7 +10,7 @@ class InternalOrder(Base):
     id = sa.Column(sa.Integer, primary_key=True)
     lead_time = sa.Column(sa.DateTime, nullable=False)
     products = relationship('Product', back_populates='internal_order')
-    # TODO: Make one->many relations work. Add InternalOrders FK in products.py
+    #  TODO: Make many-> many relations with products and internal_orders
 
     def __repr__(self):
         return f'InternalOrder(id={self.id}, lead_time={self.lead_time}, products={self.products})'

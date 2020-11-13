@@ -1,5 +1,6 @@
 from db import Base
 import sqlalchemy as sa
+from sqlalchemy.orm import relationship
 
 
 class Shop(Base):
@@ -13,7 +14,11 @@ class Shop(Base):
     address_line_two = sa.Column(sa.String(100), nullable=False)
     city = sa.Column(sa.String(192), nullable=False)
     country = sa.Column(sa.String(60), nullable=False)
+    employee = relationship("Employee", back_populates="shop")
+    orders = relationship("Order", back_populates="shop")
+    products = relationship('Product', back_populates='shop')
 
     def __repr__(self):
         return f'Shop(id={self.id}, phone={self.phone}, email={self.email}, address_line_one={self.address_line_one},' \
-               f'address_line_two={self.address_line_two}, city={self.city}, country={self.country} )'
+               f'address_line_two={self.address_line_two}, city={self.city}, country={self.country},' \
+               f'employee={self.employee}, orders={self.orders}, products={self.products} )'
