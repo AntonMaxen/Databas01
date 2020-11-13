@@ -14,9 +14,8 @@ class Employee(Base):
     email = sa.Column(sa.String(45), nullable=False)
     reports_to = sa.Column(sa.Integer, nullable=False)
     shop_id = sa.Column(sa.Integer, sa.ForeignKey('shops.id'))
-    shop = relationship('Shop', back_populates='employees')
-    orders = relationship("Order", back_populates="employees")
-    # TODO: See if relations work.
+    shop = relationship('Shop', back_populates='employee')
+    orders = relationship("Order", back_populates="employee")
 
     def __repr__(self):
         return f'Employee(id={self.id}, first_name={self.first_name}, last_name={self.last_name},' \
