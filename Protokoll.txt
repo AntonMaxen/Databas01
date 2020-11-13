@@ -19,5 +19,28 @@ Mötehållare: Anton Maxén
   * Bestämma nästa möte och nästa Ordförande
    - Marcus tar nästa möte
    - Torsdag 09:00
-   
-   
+
+-------
+Datum: 2020-11-12
+Närvarande: Anton Maxén, Marcus Johnsson, Måns Ewards Öberg
+Mötehållare: Marcus Johnsson
+
+  * Fyll i datum och ordförande, närvarande på mötet
+    - x
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - x
+  * Gå igenom aktuella plockade kort
+    - Marcus påbörjade Project Brief men blev inte klar, underskattade "scoopet", PR på "cars model".
+    - Anton tog på sig "Generate/import data script". Stort kort som behöver brytas ner i mindre delar. PR på "person generator".
+    - Måns färdigställde flera modeller. PR på "Shops model", "Customer model", "contact person model"
+  * Granska PR
+    - Alla PR granskade och mergade in i master
+  * Plocka kort
+    - Marcus fortsätter med "project brief"-kortet.
+    - Anton fortsätter med "Generate/import data script"
+    - Måns fortsätter plocka modell-kort
+  * Övriga kommentarer
+   - Genomgång av arbetsflödet med "master-branch-PR-mergetomaster"-cykeln. All good.
+  * Bestämma nästa möte och nästa Ordförande
+   - Måns tar ordföranderollen
+   - 2020-11-13 09:00
