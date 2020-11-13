@@ -15,7 +15,8 @@ class Shop(Base):
     city = sa.Column(sa.String(192), nullable=False)
     country = sa.Column(sa.String(60), nullable=False)
     storage = relationship('Storage', back_populate='shop')
-
+    
     def __repr__(self):
         return f'Shop(id={self.id}, phone={self.phone}, email={self.email}, address_line_one={self.address_line_one},' \
-               f'address_line_two={self.address_line_two}, city={self.city}, country={self.country} )'
+               f'address_line_two={self.address_line_two}, city={self.city}, country={self.country},' \
+               f'employee={self.employee}, orders={self.orders}, products={self.products} )'

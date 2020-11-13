@@ -1,6 +1,6 @@
 from ..db import Base
 import sqlalchemy as sa
-
+from sqlalchemy.orm import relationship
 
 class Customer(Base):
 
@@ -18,6 +18,8 @@ class Customer(Base):
     zip_code = sa.Column(sa.String(45), nullable=False)
     city = sa.Column(sa.String(100), nullable=False)
     country = sa.Column(sa.String(100), nullable=True)
+    orders = relationship("Order", back_populates="customer")
+    #  TODO: Make many-> many relations with customers and cars
 
     def __repr__(self):
         return f'Customer(id={self.id}, first_name={self.first_name}, last_name{self.last_name}, ' \
