@@ -1,5 +1,6 @@
 from app.utils import get_project_root
 import random
+import string
 import os
 
 
@@ -79,6 +80,36 @@ def generate_organisation_number():
 def random_number_string(amount, minimum=0, maximum=9):
     return "".join([str(random.randint(minimum, maximum)) for _ in range(amount)])
 
+
+def return_random_color(file_name):
+    with open(absolute_path(file_name), encoding="utf8") as f:
+        colors = [line for line in f]
+        color = random.choice(colors)
+    return color.rstrip('\n')
+
+
+def generate_license_plate():
+    chars_list = [random.choice(string.ascii_uppercase) for _ in range(3)]
+    nums_list = [random.choice(range(1,9)) for _ in range(3)]
+    license_plate = ''.join(map(str, chars_list)) + ' ' + ''.join(map(str, nums_list))
+    return license_plate
+
+
+def generate_car():
+    with open('files/carbrands_models.txt', encoding="utf8") as f:
+        cars = []
+        for line in f:
+            brand_name = line.split(',')[0]
+            model = line.split(',')[1].rstrip('\n')
+            car = {
+                'license_number': generate_license_plate(),
+                'brand_name': brand_name,
+                'model': model,
+                'color': return_random_color('colors.txt'),
+                'prod_year': random.choice(range(1990, 2020))
+            }
+            cars.append(car)
+        return random.choice(cars)
 
 def main():
     pass
