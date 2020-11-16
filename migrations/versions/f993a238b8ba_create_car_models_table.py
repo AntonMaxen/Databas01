@@ -18,12 +18,14 @@ depends_on = None
 
 
 def upgrade():
-    sa.Column('id', sa.Integer, primary_key=True)
-    sa.Column('car_brand', sa.String(100), nullable=False)
-    sa.Column('model_name', sa.String(100), nullable=False)
-    sa.Column('production_year', sa.String(100), nullable=False)
-    sa.Column('colour', sa.String(45), nullable=True)
-
+    op.create.table(
+        'car_models',
+        sa.Column('id', sa.Integer, primary_key=True),
+        sa.Column('car_brand', sa.String(100), nullable=False),
+        sa.Column('model_name', sa.String(100), nullable=False),
+        sa.Column('production_year', sa.String(100), nullable=False),
+        sa.Column('colour', sa.String(45), nullable=True)
+    )
 
 def downgrade():
     conn = op.get_bind()
