@@ -10,6 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+from sqlalchemy.engine.reflection import Inspector
+
 revision = 'd021d31441aa'
 down_revision = 'efdf44b6f92b'
 branch_labels = None
@@ -17,8 +19,19 @@ depends_on = None
 
 
 def upgrade():
-    pass
+    op.create_table(
+        'contact_persons',
+        sa.Column('id', sa.Integer, primary_key=True),
+        sa.Column('name', sa.String(45), nullable=False),
+        sa.Column('phone', sa.String(45), nullable=False),
+        sa.Column('email', sa.String(45), nullable=False),
+        sa.Column('category', sa.String(45), nullable=False)
+    )
 
 
 def downgrade():
-    pass
+    conn = op.get_bind()
+    inspector = Inspector.from_engine(conn)
+    tables = inspector.get_table_names()
+    if 'contact_persons' in tables:
+        op.drop_table('contact_persons')
