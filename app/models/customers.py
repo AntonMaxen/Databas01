@@ -12,7 +12,7 @@ class Customer(Base):
     phone = sa.Column(sa.String(45), nullable=False)
     email = sa.Column(sa.String(100), nullable=False)
     company_name = sa.Column(sa.String(100), nullable=True)
-    organization_number = sa.Column(sa.String(100), nullable=True)
+    organisation_number = sa.Column(sa.String(100), nullable=True)
     address_line_one = sa.Column(sa.String(100), nullable=False)
     address_line_two = sa.Column(sa.String(100), nullable=True)
     zip_code = sa.Column(sa.String(45), nullable=False)
