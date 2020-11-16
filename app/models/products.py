@@ -12,8 +12,9 @@ class Product(Base):
     description = sa.Column(sa.String(100), nullable=False)
     purchase_price = sa.Column(sa.String(45), nullable=False)
     retail_price = sa.Column(sa.String(100), nullable=False)
-    internal_orders = relationship('InternalOrder', back_populate='products')
-    storage = relationship('Storage', back_populate='products')
+    internal_orders = relationship('InternalOrder', back_populates='products')
+    storage = relationship('Storage', back_populates='products')
+
     #  TODO: Make many-> many relations with product and associates.
     #   Make many-> many relations with products and order
     #   Make many-> many relations with products and car_models
