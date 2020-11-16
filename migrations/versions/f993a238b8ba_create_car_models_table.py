@@ -18,7 +18,7 @@ depends_on = None
 
 
 def upgrade():
-    op.create.table(
+    op.create_table(
         'car_models',
         sa.Column('id', sa.Integer, primary_key=True),
         sa.Column('car_brand', sa.String(100), nullable=False),
