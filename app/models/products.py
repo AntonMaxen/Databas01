@@ -15,9 +15,9 @@ class Product(Base):
     shop_id = sa.Column(sa.Integer, sa.ForeignKey('shops.id'))
     storage_id = sa.Column(sa.Integer, sa.ForeignKey('storages.id'))
     internal_orders_id = sa.Column(sa.Integer, sa.ForeignKey('internal_orders.id'))
-    internal_orders = relationship('InternalOrder', back_populate='products')
-    shop = relationship('Shop', back_populate='products')
-    storage = relationship('Storage', back_populate='products')
+    internal_orders = relationship('InternalOrder', back_populates='products')
+    shop = relationship('Shop', back_populates='products')
+    storage = relationship('Storage', back_populates='products')
     #  TODO: Make many-> many relations with product and associates.
     #   Make many-> many relations with products and order
     #   Make many-> many relations with products and car_models

@@ -5,6 +5,7 @@ import random
 from app.models.shops import Shop
 from app.models.customers import Customer
 
+
 # Not needed if using the more generic function for data
 def add_generated_customer(amount):
     for _ in range(amount):
