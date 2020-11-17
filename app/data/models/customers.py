@@ -18,7 +18,7 @@ class Customer(Base):
     zip_code = sa.Column(sa.String(45), nullable=False)
     city = sa.Column(sa.String(100), nullable=False)
     country = sa.Column(sa.String(100), nullable=True)
-    orders = relationship('Order', back_populates='customer')
+    orders = relationship('Order', back_populates='customers')
     customer_has_cars = relationship('CustomerCar', back_populates='customers')
 
     def __repr__(self):
