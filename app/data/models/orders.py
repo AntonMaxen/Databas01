@@ -14,10 +14,10 @@ class Order(Base):
     customer_id = sa.Column(sa.Integer, sa.ForeignKey('customers.id'))
     employee_id = sa.Column(sa.Integer, sa.ForeignKey('employees.id'))
     shop_id = sa.Column(sa.Integer, sa.ForeignKey('shops.id'))
-    customer = relationship("Customer", back_populates="orders")
-    employee = relationship("Employee", back_populates="orders")
-    shop = relationship("Shop", back_populates="orders")
-    # TODO:  Make many-> many relations with product and orders.
+    customers = relationship("Customer", back_populates="orders")
+    employees = relationship("Employee", back_populates="orders")
+    shops = relationship("Shop", back_populates="orders")
+
 
     def __repr__(self):
         return f'Order(id={self.id}, total_amount={self.total_amount}, payment_status={self.payment_status},' \
