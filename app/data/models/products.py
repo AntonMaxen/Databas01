@@ -18,7 +18,6 @@ class Product(Base):
     orders_has_products = relationship('OrderProduct', back_populates='products')
     products_has_associates = relationship('ProductAssociate', back_populates='products')
 
-
     def __repr__(self):
         return f'Product(id={self.id}, product_name={self.product_name}, description={self.description},' \
                f'purchase_price={self.purchase_price}, retail_price={self.retail_price}, shops_id={self.shop_id},' \

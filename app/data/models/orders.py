@@ -17,6 +17,7 @@ class Order(Base):
     customers = relationship("Customer", back_populates="orders")
     employees = relationship("Employee", back_populates="orders")
     shops = relationship("Shop", back_populates="orders")
+    order_has_products = relationship("OrderProduct", back_populates="orders")
 
 
     def __repr__(self):
