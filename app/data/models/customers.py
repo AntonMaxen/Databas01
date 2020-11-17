@@ -19,7 +19,7 @@ class Customer(Base):
     city = sa.Column(sa.String(100), nullable=False)
     country = sa.Column(sa.String(100), nullable=True)
     orders = relationship('Order', back_populates='customers')
-    customer_has_cars = relationship('CustomerCar', back_populates='customers')
+    customers_has_cars = relationship('CustomerCar', back_populates='customers')
 
     def __repr__(self):
         return f'Customer(id={self.id}, first_name={self.first_name}, last_name{self.last_name}, ' \
