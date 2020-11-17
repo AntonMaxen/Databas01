@@ -4,9 +4,7 @@ from sqlalchemy.orm import relationship
 
 
 class ContactPerson(Base):
-
     __tablename__ = 'contact_persons'
-
     id = sa.Column(sa.Integer, primary_key=True)
     first_name = sa.Column(sa.String(45), nullable=False)
     last_name = sa.Column(sa.String(45), nullable=False)
