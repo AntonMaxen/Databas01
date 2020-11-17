@@ -1,9 +1,8 @@
-from app.db import Base, engine, session
+from app.data.db import Base, engine, session
 from app.dataBuilder.person import Person
 from app.dataBuilder.company import CompanyPerson
 import random
-from app.models.shops import Shop
-from app.models.customers import Customer
+from app.data.models.customers import Customer
 
 
 # Not needed if using the more generic function for data

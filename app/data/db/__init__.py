@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from db.db_settings import DB_DATABASE, DB_HOST, DB_PORT, DB_USER, DB_PASSWORD
+from app.data.db.db_settings import DB_DATABASE, DB_HOST, DB_PORT, DB_USER, DB_PASSWORD
 
 # mysql+mysqlconnector://pyuser:password@127.0.0.1:33006/carparts
 engine = sqlalchemy.create_engine(
