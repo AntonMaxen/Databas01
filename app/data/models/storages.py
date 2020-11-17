@@ -11,8 +11,8 @@ class Storage(Base):
     min_amount = sa.Column(sa.String(100), nullable=False)
     reorder_amount = sa.Column(sa.Integer, nullable=False)
     shop_id = sa.Column(sa.Integer, sa.ForeignKey('shops.id'))
-    shop = relationship('Shop', back_populates='storage')
-    products = relationship('Product', back_populates='storage')
+    shops = relationship('Shop', back_populates='storages')
+    products = relationship('Product', back_populates='storages')
 
     def __repr__(self):
         return f'Storage(id={self.id}, product_amount={self.product_amount}, min_amount={self.min_amount},' \
