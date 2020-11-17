@@ -7,6 +7,7 @@ Create Date: 2020-11-16 14:30:05.974626
 """
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy.engine.reflection import Inspector
 
 
 # revision identifiers, used by Alembic.
@@ -17,8 +18,16 @@ depends_on = None
 
 
 def upgrade():
-    pass
+    op.create_table(
+        "compatibilitys",
+        sa.Column('ProductId', sa.Integer, sa.ForeignKey('products.id'), primary_key=True),
+        sa.Column('ModelId', sa.Integer, sa.ForeignKey('car_models.id'), primary_key=True)
+    )
 
 
 def downgrade():
-    pass
+    conn = op.get_bind()
+    inspector = Inspector.from_engine(conn)
+    tables = inspector.get_table_names()
+    if 'compatibilitys' in tables:
+        op.drop_table('compatibilitys')

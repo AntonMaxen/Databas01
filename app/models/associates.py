@@ -8,7 +8,7 @@ class Associate(Base):
     __tablename__ = 'associates'
 
     id = sa.Column(sa.Integer, primary_key=True)
-    associates_name = sa.Column(sa.String(100), nullable=False)
+    name = sa.Column(sa.String(100), nullable=False)
     phone = sa.Column(sa.String(45), nullable=False)
     email = sa.Column(sa.String(100), nullable=False)
     address_line_one = sa.Column(sa.String(100), nullable=False)
@@ -22,7 +22,7 @@ class Associate(Base):
     #   TODO: Make many-> many relations with product and associates.
 
     def __repr__(self):
-        return f'Associate(id={self.id,}, associate_name={self.associates_name}, phone={self.phone},' \
+        return f'Associate(id={self.id,}, associate_name={self.name}, phone={self.phone},' \
                f'email={self.email}, address_line_one={self.address_line_one},' \
                f'address_line_two={self.address_line_two}, zip_code={self.zip_code}, city={self.city},' \
                f'country={self.country}, associates_role={self.associates_role}, ' \
