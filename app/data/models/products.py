@@ -12,13 +12,11 @@ class Product(Base):
     description = sa.Column(sa.String(100), nullable=False)
     purchase_price = sa.Column(sa.String(45), nullable=False)
     retail_price = sa.Column(sa.String(100), nullable=False)
-    internal_orders = relationship('InternalOrder', back_populates='products')
-    storage = relationship('Storage', back_populates='products')
+    products_has_internal_orders = relationship('ProductInternalOrder', back_populates='products')
+    shops_has_storage = relationship('ShopStorage', back_populates='products')
+    compatibilities = relationship('Compatibility', back_populates='products')
+    order_has_products = relationship('OrderProduct', back_populates='products')
 
-    #  TODO: Make many-> many relations with product and associates.
-    #   Make many-> many relations with products and order
-    #   Make many-> many relations with products and car_models
-    #   Make many-> many relations with products and internal_orders
 
     def __repr__(self):
         return f'Product(id={self.id}, product_name={self.product_name}, description={self.description},' \
