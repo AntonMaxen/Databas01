@@ -5,8 +5,8 @@ from sqlalchemy.orm import relationship
 
 class ShopStorage(Base):
     __tablename__ = 'shops_has_storages'
-    ShopId = sa.Column(sa.Integer, sa.ForeignKey('shops.id'), primary_key=True),
-    StorageId = sa.Column(sa.Integer, sa.ForeignKey('storages.id'), primary_key=True),
+    ShopId = sa.Column(sa.Integer, sa.ForeignKey('shops.id'), primary_key=True)
+    StorageId = sa.Column(sa.Integer, sa.ForeignKey('storages.id'), primary_key=True)
     ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'))
 
     shops = relationship('Shop', back_populates='shops_has_storages')

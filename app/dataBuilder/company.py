@@ -6,7 +6,7 @@ class CompanyPerson(Person):
     def __init__(self):
         super().__init__()
         self.company_name = ge.generate_company_name()
-        self.organization_number = ge.generate_organisation_number()
+        self.organisation_number = ge.generate_organisation_number()
 
     def __repr__(self):
         return (

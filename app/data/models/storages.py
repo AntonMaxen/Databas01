@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 class Storage(Base):
     __tablename__ = 'storages'
 
-    id = sa.Column(sa.Integer, foreign_key=True)
+    id = sa.Column(sa.Integer, primary_key=True)
     product_amount = sa.Column(sa.String(45), nullable=False)
     min_amount = sa.Column(sa.String(100), nullable=False)
     reorder_amount = sa.Column(sa.Integer, nullable=False)

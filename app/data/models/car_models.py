@@ -12,7 +12,7 @@ class CarModel(Base):
     model_name = sa.Column(sa.String(100), nullable=False)
     production_year = sa.Column(sa.String(100), nullable=False)
     colour = sa.Column(sa.String(45), nullable=True)
-    compatibilitys = relationship('Compatibility', back_populates='car_models')
+    compatibilities = relationship('Compatibility', back_populates='car_models')
 
     def __repr__(self):
         return f'CarModels(id={self.id}, car_brand={self.car_brand}, model_name{self.model_name},' \
