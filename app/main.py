@@ -32,7 +32,7 @@ def add_generated_customer(amount):
             phone=generated_customer.phone,
             email=generated_customer.email,
             company_name=getattr(generated_customer, "company_name", None),
-            organization_number=getattr(generated_customer, "organisation_number", None),
+            organisation_number=getattr(generated_customer, "organisation_number", None),
             address_line_one=generated_customer.address_line_one,
             address_line_two=generated_customer.address_line_two,
             zip_code=generated_customer.zip_code,

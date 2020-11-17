@@ -24,6 +24,6 @@ class Customer(Base):
     def __repr__(self):
         return f'Customer(id={self.id}, first_name={self.first_name}, last_name{self.last_name}, ' \
                f'phone={self.phone}, email={self.email}, company_name={self.company_name}, ' \
-               f'organization_number={self.organization_number},' \
+               f'organisation_number={self.organisation_number},' \
                f'address_line_one={self.address_line_one}, address_line_two={self.address_line_two}, ' \
                f'zip_code={self.zip_code}, city={self.city}, country={self.country})'

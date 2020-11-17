@@ -14,7 +14,7 @@ class Shop(Base):
     address_line_two = sa.Column(sa.String(100), nullable=False)
     city = sa.Column(sa.String(192), nullable=False)
     country = sa.Column(sa.String(60), nullable=False)
-    storages = relationship('ShopStorage', back_populates='shops')
+    shops_has_storages = relationship('ShopStorage', back_populates='shops')
     employees = relationship('Employee', back_populates='shops')
     orders = relationship("Order", back_populates="shops")
     
