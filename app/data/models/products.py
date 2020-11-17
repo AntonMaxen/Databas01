@@ -13,9 +13,9 @@ class Product(Base):
     purchase_price = sa.Column(sa.String(45), nullable=False)
     retail_price = sa.Column(sa.String(100), nullable=False)
     products_has_internal_orders = relationship('ProductInternalOrder', back_populates='products')
-    shops_has_storage = relationship('ShopStorage', back_populates='products')
+    shops_has_storages = relationship('ShopStorage', back_populates='products')
     compatibilities = relationship('Compatibility', back_populates='products')
-    order_has_products = relationship('OrderProduct', back_populates='products')
+    orders_has_products = relationship('OrderProduct', back_populates='products')
 
 
     def __repr__(self):
