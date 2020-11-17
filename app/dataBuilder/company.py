@@ -1,5 +1,5 @@
-from dataBuilder.person import Person
-import dataBuilder.generator.generate as ge
+from app.dataBuilder.person import Person
+import app.dataBuilder.generator.generate as ge
 
 
 class CompanyPerson(Person):

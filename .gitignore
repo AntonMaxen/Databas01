@@ -1,4 +1,4 @@
 venv/
 .idea/
-app/db/db_settings/
+app/data/db/db_settings/
 *__pycache__

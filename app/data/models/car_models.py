@@ -1,6 +1,5 @@
-from ..db import Base
+from app.data.db import Base
 import sqlalchemy as sa
-from sqlalchemy.orm import relationship
 
 
 class CarModels(Base):
