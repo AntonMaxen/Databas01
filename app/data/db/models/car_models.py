@@ -1,8 +1,9 @@
 from app.data.db import Base
 import sqlalchemy as sa
+from sqlalchemy.orm import relationship
 
 
-class CarModels(Base):
+class CarModel(Base):
 
     __tablename__ = 'car_models'
 
@@ -11,8 +12,9 @@ class CarModels(Base):
     model_name = sa.Column(sa.String(100), nullable=False)
     production_year = sa.Column(sa.String(100), nullable=False)
     colour = sa.Column(sa.String(45), nullable=True)
-    # TODO: Make many->many relations with products and car_models
+    compatibilitys = relationship('Compatibility', back_populates='car_models')
 
     def __repr__(self):
         return f'CarModels(id={self.id}, car_brand={self.car_brand}, model_name{self.model_name},' \
-               f'production_year={self.production_year}, colour={self.colour})'
+               f'production_year={self.production_year}, colour={self.colour},' \
+               f' compatibilitys={self.compatibilitys})'
