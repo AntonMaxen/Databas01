@@ -18,8 +18,8 @@ class Associate(Base):
     country = sa.Column(sa.String(100), nullable=False)
     associates_role = sa.Column(sa.String(100), nullable=False)
     contact_person_id = sa.Column(sa.Integer, sa.ForeignKey('contact_persons.id'))
-    contact_person = relationship('ContactPerson', back_populates='company_name')
-    #   TODO: Make many-> many relations with product and associates.
+    contact_persons = relationship('ContactPerson', back_populates='company_names')
+    associates_products = relationship('ProductAssociate', back_populates='associates')
 
     def __repr__(self):
         return f'Associate(id={self.id,}, associate_name={self.name}, phone={self.phone},' \
