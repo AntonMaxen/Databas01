@@ -13,6 +13,6 @@ class ShopStorage(Base):
     storages = relationship('Storage', back_populates='shops_has_storages')
     products = relationship('Product', back_populates='shops_has_storages')
 
-
     def __repr__(self):
-        return f'Compatibility(=ProductId{self.ProductId} modelId={self.ModelId})'
+        return f'ShopStorage(=ShopId{self.ShopId} StorageId={self.StorageId}' \
+               f'ProductId={self.ProductId})'
