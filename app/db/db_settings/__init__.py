@@ -1,5 +1,0 @@
-DB_DATABASE = 'Spareparts_DB'
-DB_USER = 'pyuser'
-DB_PASSWORD = 'v3ry53cr37'
-DB_HOST = 'localhost'
-DB_PORT = '33007'
