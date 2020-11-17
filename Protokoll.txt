@@ -69,4 +69,32 @@ Mötehållare: Måns Ewards Öberg
   * Bestämma nästa möte och nästa Ordförande
    - Anton tar ordföranderollen
    - 2020-11-17 09:00
+   
+Datum: 2020-11-17
+Närvarande: Anton Maxén, Marcus Johnsson, Måns Ewards Öberg
+Mötehållare: Anton Maxén
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - Uppdatera kort för ny projektstruktur.
+    - Färdigställ datagenerering
+    - Färdigställa modeller
+    - Färdig Migrering
+    - Testa databas och dess relationer
+  * Gå igenom aktuella plockade kort
+   - Måns gjorde klart internal orders
+   - Anton gjorde klart migreringar
+   - Marcus gjorde klart cars migrering
+  * Granska PR
+    - Alla pr är mergade, inga konflikter woho.
+  * Plocka kort
+    - Products has internal orders gemensamt
+    - Kolla över modeller gemensamt och skapa kort.
+  * Övriga kommentarer
+   - Flyter på bra, marcus är superglad och Måns är också glad.
+  * Bestämma nästa möte och nästa Ordförande
+   - Marcus tar nästa möte
+   - 2020-11-19 09:00
+
 
