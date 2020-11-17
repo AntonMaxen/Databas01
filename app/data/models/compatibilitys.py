@@ -5,8 +5,8 @@ from sqlalchemy.orm import relationship
 
 class Compatibility(Base):
     __tablename__ = 'compatibilitys'
-    ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'), primary_key=True),
-    ModelId = sa.Column(sa.Integer, sa.ForeignKey('car_models.id'), primary_key=True),
+    ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'), primary_key=True)
+    ModelId = sa.Column(sa.Integer, sa.ForeignKey('car_models.id'), primary_key=True)
     products = relationship('Product', back_populates='compatibilitys')
     car_models = relationship('CarModel', back_populates='compatibilitys')
 
