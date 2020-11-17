@@ -16,6 +16,7 @@ class Product(Base):
     shops_has_storages = relationship('ShopStorage', back_populates='products')
     compatibilities = relationship('Compatibility', back_populates='products')
     orders_has_products = relationship('OrderProduct', back_populates='products')
+    products_has_associates = relationship('ProductAssociate', back_populates='products')
 
 
     def __repr__(self):
