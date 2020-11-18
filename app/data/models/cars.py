@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 class Car(Base):
     __tablename__ = 'cars'
 
-    license_number = sa.Column(sa.Integer, primary_key=True)
+    license_number = sa.Column(sa.String, primary_key=True, autoincrement=False, unique=True)
     brand_name = sa.Column(sa.String(45), nullable=False)
     model_name = sa.Column(sa.String(100), nullable=False)
     prod_year = sa.Column(sa.Integer, nullable=False)
