@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class Customer(Base):
     __tablename__ = 'customers'
+
     id = sa.Column(sa.Integer, primary_key=True)
     first_name = sa.Column(sa.String(100), nullable=False)
     last_name = sa.Column(sa.String(100), nullable=False)

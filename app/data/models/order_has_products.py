@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class OrderProduct(Base):
     __tablename__ = 'order_has_products'
+
     OrderId = sa.Column(sa.Integer, sa.ForeignKey('orders.id'), primary_key=True)
     ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'), primary_key=True)
     Amount = sa.Column(sa.Integer, nullable=False)

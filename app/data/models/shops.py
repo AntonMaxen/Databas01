@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class Shop(Base):
     __tablename__ = 'shops'
+
     id = sa.Column(sa.Integer, primary_key=True)
     phone = sa.Column(sa.String(25), nullable=False)
     email = sa.Column(sa.String(45), nullable=False)

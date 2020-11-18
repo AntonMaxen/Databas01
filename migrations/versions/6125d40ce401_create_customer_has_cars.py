@@ -21,7 +21,7 @@ def upgrade():
     op.create_table(
         "customers_has_cars",
         sa.Column("CustomerId", sa.Integer, sa.ForeignKey("customers.id"), primary_key=True),
-        sa.Column("CarId", sa.Integer, sa.ForeignKey("cars.id"), primary_key=True)
+        sa.Column("LicenseNumber", sa.String(45), sa.ForeignKey("cars.license_number"), primary_key=True)
     )
 
 

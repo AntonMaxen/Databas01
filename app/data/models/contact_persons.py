@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class ContactPerson(Base):
     __tablename__ = 'contact_persons'
+
     id = sa.Column(sa.Integer, primary_key=True)
     first_name = sa.Column(sa.String(45), nullable=False)
     last_name = sa.Column(sa.String(45), nullable=False)
@@ -16,4 +17,4 @@ class ContactPerson(Base):
     def __repr__(self):
         return f'ContactPerson(id={self.id}, first_name={self.first_name}, last_name={self.last_name},' \
                f' phone={self.phone}, email={self.email}, category={self.category}, ' \
-               f'company_name={self.company_name})'
+               f'company_name={self.company_names})'

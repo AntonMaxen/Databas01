@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class CarModel(Base):
     __tablename__ = 'car_models'
+
     id = sa.Column(sa.Integer, primary_key=True)
     car_brand = sa.Column(sa.String(100), nullable=False)
     model_name = sa.Column(sa.String(100), nullable=False)

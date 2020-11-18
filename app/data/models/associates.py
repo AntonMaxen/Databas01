@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class Associate(Base):
     __tablename__ = 'associates'
+
     id = sa.Column(sa.Integer, primary_key=True)
     name = sa.Column(sa.String(100), nullable=False)
     phone = sa.Column(sa.String(45), nullable=False)

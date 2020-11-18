@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class Order(Base):
     __tablename__ = 'orders'
+
     id = sa.Column(sa.Integer, primary_key=True)
     total_amount = sa.Column(sa.Integer, nullable=False)
     payment_status = sa.Column(sa.String(100), nullable=False)

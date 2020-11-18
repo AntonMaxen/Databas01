@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 
 class Employee(Base):
     __tablename__ = 'employees'
+
     id = sa.Column(sa.Integer, primary_key=True)
     first_name = sa.Column(sa.String(100), nullable=False)
     last_name = sa.Column(sa.String(100), nullable=False)
