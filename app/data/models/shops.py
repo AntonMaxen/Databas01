@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 
 
 class Shop(Base):
-
     __tablename__ = 'shops'
 
     id = sa.Column(sa.Integer, primary_key=True)

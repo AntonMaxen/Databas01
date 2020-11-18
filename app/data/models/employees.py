@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 
 
 class Employee(Base):
-
     __tablename__ = 'employees'
 
     id = sa.Column(sa.Integer, primary_key=True)

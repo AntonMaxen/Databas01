@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 
 
 class Associate(Base):
-
     __tablename__ = 'associates'
 
     id = sa.Column(sa.Integer, primary_key=True)

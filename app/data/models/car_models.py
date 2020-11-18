@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 
 
 class CarModel(Base):
-
     __tablename__ = 'car_models'
 
     id = sa.Column(sa.Integer, primary_key=True)

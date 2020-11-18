@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship
 
 
 class InternalOrder(Base):
-
     __tablename__ = 'internal_orders'
 
     id = sa.Column(sa.Integer, primary_key=True)
