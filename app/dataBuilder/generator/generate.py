@@ -111,6 +111,7 @@ def generate_car():
             cars.append(car)
         return random.choice(cars)
 
+
 def main():
     pass
 
