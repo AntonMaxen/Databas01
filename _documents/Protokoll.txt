@@ -98,3 +98,43 @@ Mötehållare: Anton Maxén
    - 2020-11-19 09:00
 
 
+Datum: 2020-11-19
+Närvarande: Anton Maxén, Marcus Johnsson, Måns Ewards Öberg
+Mötehållare: Marcus Johnsson
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    -
+  * Gå igenom aktuella plockade kort
+   -
+  * Granska PR
+    -
+  * Plocka kort
+  -
+  * Övriga kommentarer
+   -
+  * Bestämma nästa möte och nästa Ordförande
+   -
+
+Datum: 2020-11-19
+Närvarande: Anton Maxén, Marcus Johnsson, Måns ewards Öberg
+Marcus vid protokoll.
+Punkter:
+  * Fyll i datum och ordförande, närvarande på mötet
+  * Uppdatera kort med nya idéer (ifall dom finns).
+      - Generera datan till databasen
+      Välja en "primär" model var. Customer, Orders etc och bygg hela flödet genom alla skikten.
+  * Gå igenom aktuella plockade kort
+      - Vi omstrukturerade kort. Bröt ut större att göra från att göra.
+  * Granska PR
+      - all merged
+  * Plocka kort
+     - Marcus : Main Menu Products
+     - Anton : Main Menu Customer
+     - Måns : Main Menu Shops
+  * Övriga kommentarer
+    - Possitivt!
+  * Bestämma nästa möte och nästa Ordförande
+    2020-11-20 kl13:00
+    Måns vid rodret
