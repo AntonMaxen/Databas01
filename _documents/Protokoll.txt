@@ -138,3 +138,24 @@ Punkter:
   * Bestämma nästa möte och nästa Ordförande
     2020-11-20 kl13:00
     Måns vid rodret
+
+Datum: 2020-11-20
+Närvarande: Anton Maxén, Måns Ewards Öberg
+Mötehållare: Måns Ewards Öberg
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - Vi bryter ned de 'BigStuff' i takt med att arbetet fortlöper
+  * Gå igenom aktuella plockade kort
+    - Alla fortsätter med respektive kort
+  * Granska PR
+    -
+  * Plocka kort
+    - Fortsätter med respektive kort plockade förgående möte
+  * Övriga kommentarer
+   - Marcus fick förhinder för mötet. Fortsätter på sitt innehavande kort.
+   -Vi briefar Marcus och informerar om datum och tid för nästkommande möte
+  * Bestämma nästa möte och nästa Ordförande
+   - Anton
+   - 2020-11-24 09:00

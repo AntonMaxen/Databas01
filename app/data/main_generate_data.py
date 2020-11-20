@@ -4,6 +4,7 @@ from app.data.db import Base, engine, session
 from app.dataBuilder.person import Person
 from app.dataBuilder.company import CompanyPerson
 from app.dataBuilder.car import Car as genCar
+from app.dataBuilder.shop import Shop as genShop
 # model imports
 from app.data.models.customers import Customer
 from app.data.models.shops import Shop
@@ -70,8 +71,9 @@ def populate_db_random(model, data_classes, amount=1):
 
 
 def main():
-    populate_db_random(Customer, [Person, CompanyPerson], 100)
-    populate_db_random(Car, genCar, 100)
+    #populate_db_random(Customer, [Person, CompanyPerson], 100)
+    #populate_db_random(Car, genCar, 100)
+    populate_db_random(Shop, genShop, 10)
 
 
 if __name__ == '__main__':
