@@ -1,21 +1,15 @@
-from app.UI.menus import main_menus
+from app.UI.customer_menu import customer_menu
+from app.UI.menu_shops import shop_menu
+from app.UI.menus import menu
+
+main_menus = {
+    "1": customer_menu,
+    "2": shop_menu
+}
 
 
 def main_menu():
-    running = True
-    while running:
-        present_menus(main_menus)
-        answer = input('>')
-        if answer in main_menus:
-            menu = main_menus[answer]
-            menu()
-        else:
-            running = False
-
-
-def present_menus(menu_dict):
-    for key, menu in menu_dict.items():
-        print(f'{key}) {menu.__name__}')
+    menu(main_menus)
 
 
 if __name__ == "__main__":

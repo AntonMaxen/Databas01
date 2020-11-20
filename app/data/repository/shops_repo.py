@@ -1,5 +1,5 @@
-from data.models.shops import Shop
-from data.db import session
+from app.data.models.shops import Shop
+from app.data.db import session
 
 
 def show_all_shops():
@@ -12,3 +12,7 @@ def show_shop_address(shopid):
 
 def show_shop_phone(shopid):
     return session.query(Shop).filer(Shop.id == shopid, Shop.phone)
+
+
+if __name__ == '__main__':
+    show_all_shops()
