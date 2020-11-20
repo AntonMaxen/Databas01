@@ -20,4 +20,4 @@ class Shop(Base):
     def __repr__(self):
         return f'Shop(id={self.id}, phone={self.phone}, email={self.email}, address_line_one={self.address_line_one},' \
                f'address_line_two={self.address_line_two}, city={self.city}, country={self.country},' \
-               f'storages={self.storages}, employees={self.employees}, orders={self.orders})'
+               f'storages={self.shops_has_storages}, employees={self.employees}, orders={self.orders})'

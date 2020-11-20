@@ -1,10 +1,17 @@
-from app.UI.customer_menu import customer_menu
+def menu(menu_dict):
+    running = True
+    while running:
+        present_menus(menu_dict)
+        answer = input('>')
+        if answer in menu_dict:
+            menu = menu_dict[answer]
+            menu()
+        else:
+            print("exiting menu")
+            running = False
 
 
-main_menus = {
-    "1": customer_menu
-}
-
-
-
+def present_menus(menu_dict):
+    for key, menu in menu_dict.items():
+        print(f'{key}) {menu.__name__}')
 
