@@ -4,14 +4,13 @@ def menu(menu_dict):
         present_menus(menu_dict)
         answer = input('>')
         if answer in menu_dict:
-            menu = menu_dict[answer]
-            menu()
+            func = menu_dict[answer].get("func", lambda: None)
+            func()
         else:
             print("exiting menu")
             running = False
 
 
 def present_menus(menu_dict):
-    for key, menu in menu_dict.items():
-        print(f'{key}) {menu.__name__}')
-
+    for key, d in menu_dict.items():
+        print(f'{key}) {d.get("info", "no description")}')
