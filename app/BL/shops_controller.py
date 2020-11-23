@@ -1,19 +1,37 @@
 import app.data.repository.shops_repo as sr
 from app.data.model_imports import *
+from app.BL.utils import modelobj_to_dict as mdict
 
 
 def show_all_shops():
-    rows = sr.show_all_shops()
-    for index, row in enumerate(rows):
-        print(f'{row.id}: phone: {row.phone}, address: {row.address_line_one}')
+    shops = sr.show_all_shops()
+    return [mdict(shop) for shop in shops]
 
 
-def show_shop_address(shopid):
-    return sr.show_shop_address(shopid)
+def show_shop_by_id(shop_id):
+    shop = sr.show_shop_by_id(shop_id)
+    return shop
 
 
-def show_shop_phone(shopid):
-    return sr.show_shop_phone(shopid)
+def show_shop_by_columnvalue(column_name, value):
+    shops = sr.show_shop_by_columnvalue(column_name, value)
+    return [mdict(shop) for shop in shops]
+
+
+def update_shop_column(shop, column, value):
+    sr.update_shop_column(shop, column, value)
+
+
+def add_shop(insert_dict):
+    sr.add_shop(insert_dict)
+
+
+def drop_shop(shop_id):
+    sr.drop_shop(shop_id)
+
+
+def get_columns():
+    return sr.get_columns()
 
 
 if __name__ == '__main__':
