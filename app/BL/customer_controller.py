@@ -1,8 +1,5 @@
 import app.data.repository.customers_repo as cr
-
-
-def modelobj_to_dict(modelobj):
-    return {name: modelobj.__dict__[name] for name in cr.get_columns()}
+from app.BL.utils import modelobj_to_dict
 
 
 def get_all_customers():
@@ -16,12 +13,12 @@ def get_customer_by_id(c_id):
 
 
 def get_customers_by_name(c_name):
-    customers = cr.get_customers_by_name(c_name)
+    customers = cr.get_customers_by_columnvalue("first_name", c_name)
     return [modelobj_to_dict(customer) for customer in customers]
 
 
-def get_customers_by_columnvalue(column_name, name):
-    customers = cr.get_customers_by_columnvalue(column_name, name)
+def get_customers_by_columnvalue(column_name, value):
+    customers = cr.get_customers_by_columnvalue(column_name, value)
     return [modelobj_to_dict(customer) for customer in customers]
 
 
@@ -32,6 +29,6 @@ def get_columns():
 if __name__ == '__main__':
     ccustomers = get_all_customers()
     for ccustomer in ccustomers:
-        for key, value in ccustomer.items():
-            print(f'{key}: {value}')
+        for key, v in ccustomer.items():
+            print(f'{key}: {v}')
         print("-" * 30)

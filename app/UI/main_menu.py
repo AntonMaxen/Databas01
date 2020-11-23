@@ -5,7 +5,7 @@ from app.UI.menus import menu
 main_menus = {
     "1": {
         "info": "customer menu",
-        "func": customer_menu
+        "func": customer_menu,
     },
     "2": {
         "info": "shop menu",

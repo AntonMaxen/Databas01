@@ -1,29 +1,26 @@
 from app.data.db import session
 from app.data.model_imports import *
+import app.data.repository.table_functions as tf
 
 
 def get_all_customers():
-    return session.query(Customer).all()
+    return tf.get_all_assets(Customer)
 
 
 def get_customer_by_id(c_id):
-    return session.query(Customer).filter(Customer.id == c_id).first()
+    return tf.get_asset_by_id(Customer, c_id)
 
 
-def get_customers_by_name(c_name):
-    return session.query(Customer).filter(Customer.first_name.ilike(f'%{c_name}%')).all()
-
-
-def get_customers_by_columnvalue(column_name, name):
-    return session.query(Customer).filter(getattr(Customer, column_name).ilike(f'%{name}%')).all()
+def get_customers_by_columnvalue(column_name, value):
+    return tf.get_assets_by_columnvalue(Customer, column_name, value)
 
 
 def get_columns():
-    return [customer.key for customer in Customer.__table__.columns]
+    return tf.get_columns(Customer)
 
 
 def main():
-    print(get_customers_by_columnvalue("first_name", "anna"))
+    pass
 
 
 if __name__ == "__main__":
