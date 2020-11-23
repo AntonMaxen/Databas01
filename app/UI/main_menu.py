@@ -3,8 +3,14 @@ from app.UI.menu_shops import shop_menu
 from app.UI.menus import menu
 
 main_menus = {
-    "1": customer_menu,
-    "2": shop_menu
+    "1": {
+        "info": "customer menu",
+        "func": customer_menu,
+    },
+    "2": {
+        "info": "shop menu",
+        "func": shop_menu
+    }
 }
 
 
