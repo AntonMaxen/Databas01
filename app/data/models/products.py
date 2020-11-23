@@ -8,7 +8,7 @@ class Product(Base):
 
     id = sa.Column(sa.Integer, primary_key=True)
     product_name = sa.Column(sa.String(100), nullable=False)
-    description = sa.Column(sa.String(100), nullable=False)
+    description = sa.Column(sa.String(2000), nullable=False)
     purchase_price = sa.Column(sa.String(45), nullable=False)
     retail_price = sa.Column(sa.String(100), nullable=False)
     products_has_internal_orders = relationship('ProductInternalOrder', back_populates='products')
