@@ -1,9 +1,11 @@
 from app.UI.menus import menu
 import app.BL.customer_controller as cc
+import app.BL.utils as utils
+from app.data.db import session
 
 
 def f_input():
-    return input('> ')
+    return input('---> ')
 
 
 def print_amount_matches(my_list):
@@ -65,6 +67,45 @@ def get_customers_by_columnvalue(column_name):
     print_amount_matches(customers)
 
 
+def update_customer():
+    print("enter a customer id: ")
+    c_id = f_input()
+    customer = cc.get_customer_by_id(c_id)
+
+    def inner(column, customer):
+        return lambda: update_customer_column(column, customer)
+
+    menu({str(i + 1): {"info": c, "func": inner(c, customer)} for i, c in enumerate(cc.get_columns())})
+
+    # -----> c_id
+    # columns <------
+    # c_obj <--------
+    # -----> c_obj, column_name, value
+
+
+def update_customer_column(column, customer):
+    print("Enter new value: ")
+    value = f_input()
+    cc.update_customer_column(customer, column, value)
+    print_dict(utils.modelobj_to_dict(customer))
+    divider()
+
+
+def add_customer():
+    insert_dict = {}
+    for column in cc.get_columns():
+        if column != "id":
+            insert_dict[column] = input(f'{column}: ')
+
+    cc.add_customer(insert_dict)
+
+
+def drop_customer_by_id():
+    print("Enter a customer id to delete customer")
+    c_id = int(f_input())
+    cc.drop_customer(c_id)
+
+
 def customer_menu():
     menu({
         "1": {
@@ -82,6 +123,18 @@ def customer_menu():
         "4": {
             "info": "search customers",
             "func": search_customers_menu
+        },
+        "5": {
+            "info": "update a customer by id and column",
+            "func": update_customer
+        },
+        "6": {
+            "info": "add a customer",
+            "func": add_customer
+        },
+        "7": {
+            "info": "drop customer by id",
+            "func": drop_customer_by_id
         }
     })
 
