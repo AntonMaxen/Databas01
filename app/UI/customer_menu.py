@@ -48,17 +48,10 @@ def get_customers_by_name():
 
 
 def search_customers_menu():
-    def customer_by_column(column):
+    def inner(column):
         return lambda: get_customers_by_columnvalue(column)
 
-    options_dict = {}
-    for index, column_name in enumerate(cc.get_columns()):
-        options_dict[str(index+1)] = {
-            "info": column_name,
-            "func": customer_by_column(column_name)
-        }
-
-    menu(options_dict)
+    menu({str(i+1): {"info": c, "func": inner(c)} for i, c in enumerate(cc.get_columns())})
 
 
 def get_customers_by_columnvalue(column_name):
