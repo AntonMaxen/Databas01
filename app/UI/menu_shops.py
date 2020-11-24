@@ -33,7 +33,7 @@ def show_shop_by_id():
     print("Enter a Shop Id")
     shop_id = f_input()
     shop = sc.show_shop_by_id(shop_id)
-    print(shop)
+    print_dict(utils.modelobj_to_dict(shop))
     divider()
 
 
