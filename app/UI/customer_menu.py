@@ -2,6 +2,7 @@ from app.UI.menus import menu
 import app.BL.customer_controller as cc
 import app.BL.utils as utils
 from app.UI.car_menu import add_car
+from app.UI.customer_car_menu import combine_customer_car
 from app.UI.ui_functions import f_input, print_amount_matches, divider, \
     print_dict, print_list_of_tablerows, print_tablerow
 
@@ -63,11 +64,7 @@ def update_customer_column(column, customer):
 def add_customer_car(customer):
     car = add_car()
     if car:
-        license_number = car.license_number
-        customer_id = customer.id
-        # TODO connect with customer_car_table
-        print(license_number)
-        print(customer_id)
+        combine_customer_car(customer.id, car.license_number)
 
 
 def bind_add_customer_car(customer):
