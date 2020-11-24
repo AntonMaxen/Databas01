@@ -158,3 +158,22 @@ Mötehållare: Måns Ewards Öberg
   * Bestämma nästa möte och nästa Ordförande
    - Anton
    - 2020-11-24 09:00
+   
+Närvarande: Anton Maxén, Måns Ewards Öberg, Marcus Johnsson
+Mötehållare: Anton Maxén
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - Employees needs to be done pretty soon. formatting
+  * Gå igenom aktuella plockade kort
+    - marcus sitter med products, måns sitter med associate anton sätter sig med cars
+  * Granska PR
+    - merged [pr 70, pr 71]
+  * Plocka kort
+    - Kort redan valde sen innan
+  * Övriga kommentarer
+   - Vi gjorde Co coding Generalisering på CRUD funktionerna, [pr 69]
+  * Bestämma nästa möte och nästa Ordförande
+   - Marcus
+   - 2020-11-26 09:00
