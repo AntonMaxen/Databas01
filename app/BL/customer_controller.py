@@ -1,25 +1,20 @@
 import app.data.repository.customers_repo as cr
-from app.BL.utils import modelobj_to_dict
 
 
 def get_all_customers():
-    customers = cr.get_all_customers()
-    return [modelobj_to_dict(customer) for customer in customers]
+    return cr.get_all_customers()
 
 
 def get_customer_by_id(c_id):
-    customer = cr.get_customer_by_id(c_id)
-    return customer
+    return cr.get_customer_by_id(c_id)
 
 
 def get_customers_by_name(c_name):
-    customers = cr.get_customers_by_columnvalue("first_name", c_name)
-    return [modelobj_to_dict(customer) for customer in customers]
+    return cr.get_customers_by_columnvalue("first_name", c_name)
 
 
 def get_customers_by_columnvalue(column_name, value):
-    customers = cr.get_customers_by_columnvalue(column_name, value)
-    return [modelobj_to_dict(customer) for customer in customers]
+    return cr.get_customers_by_columnvalue(column_name, value)
 
 
 def update_customer_column(customer, column, value):
@@ -27,7 +22,7 @@ def update_customer_column(customer, column, value):
 
 
 def add_customer(insert_dict):
-    cr.add_customer(insert_dict)
+    return cr.add_customer(insert_dict)
 
 
 def drop_customer(t_id):

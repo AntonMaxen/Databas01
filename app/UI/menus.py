@@ -14,3 +14,4 @@ def menu(menu_dict):
 def present_menus(menu_dict):
     for key, d in menu_dict.items():
         print(f'{key}) {d.get("info", "no description")}')
+    print("-" * 20)

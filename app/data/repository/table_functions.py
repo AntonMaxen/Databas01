@@ -35,6 +35,13 @@ def add_row(model_obj, insert_dict):
     except:
         print("rollback")
         session.rollback()
+        return None
+
+    return row
+
+
+def refresh_row(row_obj):
+    session.refresh(row_obj)
 
 
 def drop_row_by_id(model_obj, t_id, column_name="id"):
