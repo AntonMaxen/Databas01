@@ -6,6 +6,7 @@ from app.dataBuilder.company import CompanyPerson
 from app.dataBuilder.car import Car as genCar
 from app.dataBuilder.shop import Shop as genShop
 from app.dataBuilder.product import Product as genProduct
+from app.dataBuilder.contact_person import ContactPerson as genCP
 # model imports
 from app.data.model_imports import *
 
@@ -60,6 +61,7 @@ def main():
     populate_db_random(Car, genCar, 100)
     populate_db_random(Shop, genShop, 100)
     populate_db_random(Product, genProduct, 100)
+    populate_db_random(ContactPerson, genCP, 100)
 
 
 if __name__ == '__main__':

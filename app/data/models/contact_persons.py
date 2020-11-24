@@ -11,8 +11,9 @@ class ContactPerson(Base):
     last_name = sa.Column(sa.String(45), nullable=False)
     phone = sa.Column(sa.String(45), nullable=False)
     email = sa.Column(sa.String(45), nullable=False)
-    category = sa.Column(sa.String(45), nullable=False)
+    category = relationship('Associate', back_populates='associates_role')
     company_names = relationship('Associate', back_populates='contact_persons')
+
 
     def __repr__(self):
         return f'ContactPerson(id={self.id}, first_name={self.first_name}, last_name={self.last_name},' \
