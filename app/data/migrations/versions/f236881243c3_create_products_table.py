@@ -22,7 +22,7 @@ def upgrade():
         "products",
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("product_name", sa.String(100), nullable=False),
-        sa.Column("description", sa.String(100), nullable=False),
+        sa.Column("description", sa.String(2000), nullable=False),
         sa.Column("purchase_price", sa.String(45), nullable=False),
         sa.Column("retail_price", sa.String(100), nullable=False)
     )
