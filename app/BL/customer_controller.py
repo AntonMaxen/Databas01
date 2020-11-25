@@ -34,8 +34,5 @@ def get_columns():
 
 
 if __name__ == '__main__':
-    ccustomers = get_all_customers()
-    for ccustomer in ccustomers:
-        for key, v in ccustomer.items():
-            print(f'{key}: {v}')
-        print("-" * 30)
+    pass
+
