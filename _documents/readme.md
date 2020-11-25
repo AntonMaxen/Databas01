@@ -1,10 +1,10 @@
 ### Binding Progress
- - [ ] Customers
- - [ ] Shops
- - [ ] Emplployee 
+ - [x] Customers
+ - [x] Shops
+ - [ ] Employee 
  - [ ] Orders
- - [ ] Cars
- - [ ] Customer_has_cars
+ - [x] Cars
+ - [x] Customer_has_cars
  - [ ] Products
  - [ ] Order_has_products
  - [ ] Storage
