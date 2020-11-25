@@ -10,6 +10,7 @@ from app.UI.shop_storage_menu import shop_storage_menu
 from app.UI.product_associate_menu import product_associate_menu
 from app.UI.car_model_menu import car_model_menu
 from app.UI.compatibilty_menu import compatibility_menu
+from app.UI.internal_order_menu import internal_order_menu
 from app.UI.menus import menu
 
 main_menus = {
@@ -60,6 +61,10 @@ main_menus = {
     "12": {
         "info": "compatibility menu",
         "func": compatibility_menu
+    },
+    "13": {
+        "info": "internal order menu",
+        "func": internal_order_menu
     }
 
 }
