@@ -1,32 +1,15 @@
 from app.UI.menus import menu
 import app.BL.customer_controller as cc
 import app.BL.utils as utils
-from app.data.db import session
-
-
-def f_input():
-    return input('---> ')
-
-
-def print_amount_matches(my_list):
-    print(f'found {len(my_list)} matches')
-
-
-def divider():
-    print('-' * 20)
-
-
-def print_dict(my_dict):
-    for key, value in my_dict.items():
-        print(f'{key}: {value}')
+from app.UI.car_menu import add_car
+from app.UI.customer_car_menu import combine_customer_car
+from app.UI.ui_functions import f_input, print_amount_matches, divider, \
+    print_dict, print_list_of_tablerows, print_tablerow
 
 
 def get_all_customers():
     customers = cc.get_all_customers()
-    for customer in customers:
-        print_dict(customer)
-        divider()
-
+    print_list_of_tablerows(customers)
     print_amount_matches(customers)
 
 
@@ -34,18 +17,14 @@ def get_customer_by_id():
     print("Enter a Customer Id")
     c_id = f_input()
     customer = cc.get_customer_by_id(c_id)
-    print_dict(customer)
-    divider()
+    print_tablerow(customer)
 
 
 def get_customers_by_name():
     print("Enter a Customer Name")
     c_name = f_input()
     customers = cc.get_customers_by_name(c_name)
-    for customer in customers:
-        print_dict(customer)
-        divider()
-
+    print_list_of_tablerows(customers)
     print_amount_matches(customers)
 
 
@@ -60,10 +39,7 @@ def get_customers_by_columnvalue(column_name):
     print(f"enter searchvalue for {column_name}")
     name = f_input()
     customers = cc.get_customers_by_columnvalue(column_name, name)
-    for customer in customers:
-        print_dict(customer)
-        divider()
-
+    print_list_of_tablerows(customers)
     print_amount_matches(customers)
 
 
@@ -77,18 +53,22 @@ def update_customer():
 
     menu({str(i + 1): {"info": c, "func": inner(c, customer)} for i, c in enumerate(cc.get_columns())})
 
-    # -----> c_id
-    # columns <------
-    # c_obj <--------
-    # -----> c_obj, column_name, value
-
 
 def update_customer_column(column, customer):
     print("Enter new value: ")
     value = f_input()
     cc.update_customer_column(customer, column, value)
-    print_dict(utils.modelobj_to_dict(customer))
-    divider()
+    print_tablerow(customer)
+
+
+def add_customer_car(customer):
+    car = add_car()
+    if car:
+        combine_customer_car(customer.id, car.license_number)
+
+
+def bind_add_customer_car(customer):
+    return lambda: add_customer_car(customer)
 
 
 def add_customer():
@@ -96,8 +76,17 @@ def add_customer():
     for column in cc.get_columns():
         if column != "id":
             insert_dict[column] = input(f'{column}: ')
+    divider()
 
-    cc.add_customer(insert_dict)
+    customer = cc.add_customer(insert_dict)
+    if customer:
+        print_tablerow(customer)
+        menu({
+            "1": {
+                "info": "add car",
+                "func": bind_add_customer_car(customer)
+            }
+        })
 
 
 def drop_customer_by_id():

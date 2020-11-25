@@ -1,7 +1,6 @@
 from app.data.db import session
 from app.data.model_imports import *
 import app.data.repository.table_functions as tf
-from sqlalchemy.exc import DatabaseError, CircularDependencyError, TimeoutError
 
 
 def get_all_customers():
@@ -25,7 +24,7 @@ def update_customer_column(customer_obj, column_name, value):
 
 
 def add_customer(insert_dict):
-    tf.add_row(Customer, insert_dict)
+    return tf.add_row(Customer, insert_dict)
 
 
 def drop_customer(t_id, column_name="id"):
