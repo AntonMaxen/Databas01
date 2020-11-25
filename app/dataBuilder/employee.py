@@ -9,18 +9,16 @@ class Employee:
         self.job_title = gen.get_random_from_file("job-titles.txt").title()
         self.email = gen.generate_email(self.first_name, self.last_name)
         self.reports_to = 1
+        self.shop_id = 1
 
     def __repr__(self):
         return (
             f'first_name: {self.first_name}\n'
             f'last_name: {self.last_name}\n'
-            f'country: {self.country}\n'
-            f'city: {self.city}\n'
-            f'zip: {self.zip_code}\n'
-            f'addressOne: {self.address_line_one}\n'
-            f'addressTwo: {self.address_line_two}\n'
-            f'phonenumber: {self.phone}\n'
+            f'job_title: {self.job_title}\n'
             f'email: {self.email}\n'
+            f'reports_to: {self.reports_to}\n'
+            f'shop_id {self.shop_id}'
         )
 
 
@@ -29,8 +27,8 @@ def main():
     for _ in range(100):
         employees.append(Employee())
 
-    for e in employees:
-        print(e.__dict__)
+    for o in employees:
+        print(o.__dict__)
 
 
 if __name__ == '__main__':

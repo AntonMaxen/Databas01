@@ -112,6 +112,10 @@ def generate_car():
         return random.choice(cars)
 
 
+def build_repr(**kwargs):
+    return "\n".join([f'{k}: {v}' for k, v in kwargs.items()])
+
+
 def main():
     pass
 
