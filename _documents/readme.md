@@ -14,5 +14,5 @@
  - [x] Products_has_associates
  - [x] Car_models
  - [x] compatibilitys
- - [ ] Internal_orders
+ - [x] Internal_orders
  - [ ] Products_has_internal_orders
