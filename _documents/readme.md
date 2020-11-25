@@ -8,7 +8,7 @@
  - [ ] Products
  - [x] Order_has_products
  - [x] Storage
- - [ ] shops_has_storage
+ - [x] shops_has_storage
  - [ ] Contact_persons
  - [ ] Associates
  - [ ] Products_has_associates
