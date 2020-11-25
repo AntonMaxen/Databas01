@@ -6,7 +6,7 @@ def get_all_order_products():
     return tf.get_all_assets(OrderProduct)
 
 
-def get_order_product_by_id(c_id, column_name="id"):
+def get_order_product_by_id(c_id, column_name="OrderdId"):
     return tf.get_asset_by_id(OrderProduct, c_id, column_name=column_name)
 
 

@@ -6,6 +6,7 @@ from app.UI.employee_menu import employee_menu
 from app.UI.order_menu import order_menu
 from app.UI.order_product_menu import order_product_menu
 from app.UI.storage_menu import storage_menu
+from app.UI.shop_storage_menu import shop_storage_menu
 from app.UI.menus import menu
 
 main_menus = {
@@ -40,6 +41,10 @@ main_menus = {
     "8": {
         "info": "storage menu",
         "func": storage_menu
+    },
+    "9": {
+        "info": "shop storage menu",
+        "func": shop_storage_menu
     }
 }
 
