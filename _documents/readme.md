@@ -13,6 +13,6 @@
  - [ ] Associates
  - [x] Products_has_associates
  - [x] Car_models
- - [ ] compatibilitys
+ - [x] compatibilitys
  - [ ] Internal_orders
  - [ ] Products_has_internal_orders
