@@ -15,4 +15,4 @@
  - [x] Car_models
  - [x] compatibilitys
  - [x] Internal_orders
- - [ ] Products_has_internal_orders
+ - [x] Products_has_internal_orders
