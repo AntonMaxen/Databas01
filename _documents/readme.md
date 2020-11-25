@@ -12,7 +12,7 @@
  - [ ] Contact_persons
  - [ ] Associates
  - [x] Products_has_associates
- - [ ] Car_models
+ - [x] Car_models
  - [ ] compatibilitys
  - [ ] Internal_orders
  - [ ] Products_has_internal_orders
