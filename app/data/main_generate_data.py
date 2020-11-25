@@ -11,6 +11,7 @@ from app.dataBuilder.employee import Employee as genEmployee
 from app.dataBuilder.order import Order as genOrder
 from app.dataBuilder.storage import Storage as genStorage
 from app.dataBuilder.car_model import CarModel as genCarModel
+from app.dataBuilder.internal_order import InternalOrder as genInternalOrder
 # model imports
 from app.data.model_imports import *
 
@@ -70,6 +71,7 @@ def main():
     populate_db_random(Order, genOrder, 100)
     populate_db_random(Storage, genStorage, 100)
     populate_db_random(CarModel, genCarModel, 100)
+    populate_db_random(InternalOrder, genInternalOrder, 100)
 
 
 if __name__ == '__main__':
