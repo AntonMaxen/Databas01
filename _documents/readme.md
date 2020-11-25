@@ -7,7 +7,7 @@
  - [x] Customer_has_cars
  - [ ] Products
  - [x] Order_has_products
- - [ ] Storage
+ - [x] Storage
  - [ ] shops_has_storage
  - [ ] Contact_persons
  - [ ] Associates
