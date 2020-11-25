@@ -26,7 +26,6 @@ def upgrade():
         sa.Column('last_name', sa.String(45), nullable=False),
         sa.Column('phone', sa.String(45), nullable=False),
         sa.Column('email', sa.String(45), nullable=False),
-        sa.Column('category', sa.String(45), nullable=False)
     )
 
 

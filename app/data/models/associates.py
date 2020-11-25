@@ -15,7 +15,7 @@ class Associate(Base):
     zip_code = sa.Column(sa.String(45), nullable=False)
     city = sa.Column(sa.String(100), nullable=False)
     country = sa.Column(sa.String(100), nullable=False)
-    associates_role = sa.Column(sa.String(100), nullable=False)
+    associates_category = sa.Column(sa.String(100), nullable=False)
     contact_person_id = sa.Column(sa.Integer, sa.ForeignKey('contact_persons.id'))
     contact_persons = relationship('ContactPerson', back_populates='company_names')
     associates_products = relationship('ProductAssociate', back_populates='associates')
@@ -24,5 +24,5 @@ class Associate(Base):
         return f'Associate(id={self.id,}, associate_name={self.name}, phone={self.phone},' \
                f'email={self.email}, address_line_one={self.address_line_one},' \
                f'address_line_two={self.address_line_two}, zip_code={self.zip_code}, city={self.city},' \
-               f'country={self.country}, associates_role={self.associates_role}, ' \
-               f'contact_person_id={self.contact_person_id}, contact_person={self.contact_person}'
+               f'country={self.country}, associates_category={self.associates_category}, ' \
+               f'contact_person_id={self.contact_person_id}, contact_person={self.contact_persons}'
