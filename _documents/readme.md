@@ -1,17 +1,18 @@
-Customers - [x] \
-Shops - [] \
-Emplployee - [] \
-Orders - [] \
-Cars - [] \
-Customer_has_cars - [] \
-Products - [] \
-Order_has_products - [] \
-Storage - [] \
-shops_has_storage - [] \
-Contact_persons - [] \
-Associates - [] \
-Products_has_associates - [] \
-Car_models - [] \
-compatibilitys - [] \
-Internal_orders - [] \
-Products_has_internal_orders - [] \
+### Binding Progress
+ - [ ] Customers
+ - [ ] Shops
+ - [ ] Emplployee 
+ - [ ] Orders
+ - [ ] Cars
+ - [ ] Customer_has_cars
+ - [ ] Products
+ - [ ] Order_has_products
+ - [ ] Storage
+ - [ ] shops_has_storage
+ - [ ] Contact_persons
+ - [ ] Associates
+ - [ ] Products_has_associates
+ - [ ] Car_models
+ - [ ] compatibilitys
+ - [ ] Internal_orders
+ - [ ] Products_has_internal_orders
