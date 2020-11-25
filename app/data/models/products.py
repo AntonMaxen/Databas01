@@ -15,10 +15,9 @@ class Product(Base):
     shops_has_storages = relationship('ShopStorage', back_populates='products')
     compatibilities = relationship('Compatibility', back_populates='products')
     orders_has_products = relationship('OrderProduct', back_populates='products')
-    products_has_associates = relationship('ProductAssociate', back_populates='products')
+    pa = relationship('ProductAssociate', back_populates='products')
 
     def __repr__(self):
         return f'Product(id={self.id}, product_name={self.product_name}, description={self.description},' \
-               f'purchase_price={self.purchase_price}, retail_price={self.retail_price}, shops_id={self.shop_id},' \
-               f'storage_id={self.storage_id}, internal_orders_id={self.internal_orders_id},' \
-               f'internal_orders={self.internal_orders}, shop={self.shop}, storage={self.storage},)'
+               f'purchase_price={self.purchase_price}, retail_price={self.retail_price})'
+

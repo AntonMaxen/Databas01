@@ -27,7 +27,7 @@ def get_shop_storages_by_columnvalue(column_name):
 def update_shop_storage():
     print("enter a id: ")
     c_id = f_input()
-    shop_storage = cc.get_shop_storage_by_customer_id(c_id)
+    shop_storage = cc.get_shop_storage_by_id(c_id)
 
     def inner(column, shop_storage):
         return lambda: update_shop_storage_column(column, shop_storage)

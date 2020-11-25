@@ -27,7 +27,7 @@ def get_order_products_by_columnvalue(column_name):
 def update_order_product():
     print("enter a id: ")
     c_id = f_input()
-    order_product = cc.get_order_product_by_customer_id(c_id)
+    order_product = cc.get_order_product_by_id(c_id)
 
     def inner(column, order_product):
         return lambda: update_order_product_column(column, order_product)

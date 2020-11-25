@@ -5,7 +5,7 @@ def get_all_order_products():
     return cr.get_all_order_products()
 
 
-def get_order_product_by_customer_id(c_id):
+def get_order_product_by_id(c_id):
     return cr.get_order_product_by_id(c_id)
 
 

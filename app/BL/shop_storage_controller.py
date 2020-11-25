@@ -5,7 +5,7 @@ def get_all_shop_storages():
     return cr.get_all_shop_storages()
 
 
-def get_shop_storage_by_customer_id(c_id):
+def get_shop_storage_by_id(c_id):
     return cr.get_shop_storage_by_id(c_id)
 
 

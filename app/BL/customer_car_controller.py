@@ -5,7 +5,7 @@ def get_all_customer_cars():
     return cr.get_all_customer_cars()
 
 
-def get_customer_car_by_customer_id(c_id):
+def get_customer_car_by_id(c_id):
     return cr.get_customer_car_by_id(c_id)
 
 
