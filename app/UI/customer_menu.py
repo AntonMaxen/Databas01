@@ -1,10 +1,8 @@
 from app.UI.menus import menu
 import app.BL.customer_controller as cc
-import app.BL.utils as utils
 from app.UI.car_menu import add_car
 from app.UI.customer_car_menu import combine_customer_car
-from app.UI.ui_functions import f_input, print_amount_matches, divider, \
-    print_dict, print_list_of_tablerows, print_tablerow
+from app.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
 def get_all_customers():
@@ -130,4 +128,3 @@ def customer_menu():
 
 if __name__ == '__main__':
     customer_menu()
-    #print(cc.get_columns())
