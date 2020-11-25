@@ -6,7 +6,7 @@
  - [x] Cars
  - [x] Customer_has_cars
  - [ ] Products
- - [ ] Order_has_products
+ - [x] Order_has_products
  - [ ] Storage
  - [ ] shops_has_storage
  - [ ] Contact_persons
