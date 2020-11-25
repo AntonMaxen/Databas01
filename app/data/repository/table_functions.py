@@ -32,7 +32,7 @@ def add_row(model_obj, insert_dict):
         row = model_obj(**insert_dict)
         session.add(row)
         session.commit()
-    except ValueError:
+    except:
         print("rollback")
         session.rollback()
         return None
