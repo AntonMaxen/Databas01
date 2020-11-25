@@ -1,7 +1,7 @@
 ### Binding Progress
  - [x] Customers
  - [x] Shops
- - [ ] Employee 
+ - [x] Employee 
  - [ ] Orders
  - [x] Cars
  - [x] Customer_has_cars
