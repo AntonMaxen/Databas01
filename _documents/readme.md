@@ -11,7 +11,7 @@
  - [x] shops_has_storage
  - [ ] Contact_persons
  - [ ] Associates
- - [ ] Products_has_associates
+ - [x] Products_has_associates
  - [ ] Car_models
  - [ ] compatibilitys
  - [ ] Internal_orders
