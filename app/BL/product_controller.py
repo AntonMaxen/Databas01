@@ -3,8 +3,7 @@ from app.BL.utils import modelobj_to_dict
 
 
 def get_all_products():
-    products = pr.get_all_products()
-    return [modelobj_to_dict(product) for product in products]
+    return pr.get_all_products()
 
 
 def get_product_by_id(p_id):

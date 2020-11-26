@@ -1,11 +1,12 @@
 from app.UI.menus import menu
 import app.BL.product_controller as pc
 import app.UI.ui_utils as ui
+import app.BL.utils as utils
 
 
 def get_all_products():
-    products = pc.get_all_products()
-    for product in products:
+    p = pc.get_all_products()
+    for product in utils.modelobj_to_dict(p):
         ui.print_dict(product)
         ui.divider()
 
