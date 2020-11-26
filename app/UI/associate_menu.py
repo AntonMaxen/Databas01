@@ -14,14 +14,28 @@ def show_associate_by_id():
     print("Enter an Associate Id")
     a_id = f_input()
     associate = ac.show_associate_by_id(a_id)
-    print_tablerow(associate)
+
+    if associate:
+        print_tablerow(associate)
+        cp_id = associate.contact_person_id
+        print(f'Do you want to show >{associate.name}s< contact person?\n'
+              '1: Yes\n'
+              '2: No')
+        if int(f_input()) == 1:
+            contact_person = cpc.show_cp_by_id(cp_id)
+            print_tablerow(contact_person)
+
+        else:
+            return
 
 
 def search_associates_menu():
+    ass_column = ac.get_columns()
+
     def inner(column):
         return lambda: show_associate_by_columnvalue(column)
 
-    menu({str(i+1): {"info": a, "func": inner(a)} for i, a in enumerate(ac.get_columns())})
+    menu({str(i+1): {"info": a, "func": inner(a)} for i, a in enumerate(ass_column[0:-1])})
 
 
 def show_associate_by_columnvalue(column_name):
@@ -36,16 +50,11 @@ def update_associate():
     print("enter an Associate id: ")
     a_id = f_input()
     associate = ac.show_associate_by_id(a_id)
-    cp_id = associate.contact_person_id
     ass_column = ac.get_columns()
-    ass_column.insert(10, 'contact person')
 
     def inner(column, associate):
-        if column == 11:
-            update_contact_person()
 
-        else:
-            return lambda: update_associate_column(column, associate)
+        return lambda: update_associate_column(column, associate)
 
     menu({str(i + 1): {"info": a, "func": inner(a, associate)} for i, a in enumerate(ass_column[0:-1])})
 
@@ -108,8 +117,10 @@ def create_contact_person():
 
 
 def update_contact_person():
-    print("enter a contact person id: ")
-    cp_id = f_input()
+    print("enter an Associate id: ")
+    a_id = f_input()
+    associate = ac.show_associate_by_id(a_id)
+    cp_id = associate.contact_person_id
     contact_person = cpc.show_cp_by_id(cp_id)
 
     def inner(column, contact_person):
@@ -126,9 +137,23 @@ def update_contact_person_column(column, contact_person):
 
 
 def drop_contact_person():
-    print("Enter an CP id to delete CP")
+    print("Enter an Contact Persons id to delete that Contact Person")
     cp_id = int(f_input())
     cpc.drop_cp(cp_id)
+
+
+def update_menu():
+    menu({
+        "1": {
+            "info": "update associate",
+            "func": update_associate,
+        },
+        "2": {
+            "info": "update contact person",
+            "func": update_contact_person,
+        }
+    })
+
 
 
 def associate_menu():
@@ -147,8 +172,8 @@ def associate_menu():
             "func": search_associates_menu
         },
         "4": {
-            "info": "update an associate by id and column",
-            "func": update_associate
+            "info": "update an associate or contact person by id and column",
+            "func": update_menu
         },
         "5": {
             "info": "add an associate",
