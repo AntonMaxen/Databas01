@@ -177,3 +177,29 @@ Mötehållare: Anton Maxén
   * Bestämma nästa möte och nästa Ordförande
    - Marcus
    - 2020-11-26 09:00
+
+
+2020-11-26
+Närvarande: Anton Maxén, Måns Ewards Öberg, Marcus Johnsson
+Mötehållare: Marcus
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    // - Employees needs to be done pretty soon. formatting
+    Vi avslutar pågående kort och utvecklar queries för varsin resurs. Förbereder att byta ut DB-lager.
+    Börjar använda raise Issues func i github.
+  * Gå igenom aktuella plockade kort
+    // - marcus sitter med products, måns sitter med associate anton sätter sig med cars
+    Anton joinsatser för customer, Måns Associates & Contact Persons.
+  * Granska PR
+    // - merged [pr 70, pr 71]
+    Merged PR 85 - 97
+  * Plocka kort
+    Kort redan valde sen innan
+  * Övriga kommentarer
+    Anton hanterade alla kopplingarna, Praise be Anton! <3
+    Vi planerar att bli färdiga med Appen och redo för att byta DB-lagret på måndag.
+  * Bestämma nästa möte och nästa Ordförande
+    Måns
+    2020-11-27 09:00
