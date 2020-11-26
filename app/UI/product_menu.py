@@ -1,38 +1,25 @@
 from app.UI.menus import menu
 import app.BL.product_controller as pc
-import app.UI.ui_utils as ui
-import app.BL.utils as utils
+from app.UI.ui_functions import f_input, print_amount_matches, print_list_of_tablerows, print_tablerow
 
 
 def get_all_products():
-    p = pc.get_all_products()
-    for product in utils.modelobj_to_dict(p):
-        ui.print_dict(product)
-        ui.divider()
+    products = pc.get_all_products()
+    print_list_of_tablerows(products)
+    print_amount_matches(products)
 
 
 def get_product_by_id():
-    print("Enter a product ID: ")
-    product_obj, product_dict = pc.get_product_by_id(ui.f_input())
-    ui.print_dict(product_dict)
-    ui.divider()
-    ## TODO : Build query that joins associates and with product by ID and list there
-    print("Suppliers & Manufacturers:")
-    print("1) Associate - Attributes - ETC")
-    print("2) Bssociate - Attributes - ETC")
-    print("3) Csso.. build models to fetch associates... ")
-    ui.divider()
+    print("Enter a Product Id")
+    product = pc.get_product_by_id(f_input())
+    print_tablerow(product)
 
 
 def get_products_by_name():
     print("Enter a Product Name")
-    p_name = ui.f_input()
-    products = pc.get_products_by_name(p_name)
-    for product in products:
-        ui.print_dict(product)
-        ui.divider()
-
-    ui.print_amount_matches(products)
+    products = pc.get_products_by_name(f_input())
+    print_list_of_tablerows(products)
+    print_amount_matches(products)
 
 
 def search_products_menu():
@@ -43,33 +30,27 @@ def search_products_menu():
 
 
 def get_products_by_columnvalue(column_name):
-    print(f"enter search value for {column_name}")
-    name = ui.f_input()
-    products = pc.get_products_by_columnvalue(column_name, name)
-    for products in products:
-        ui.print_dict(products)
-        ui.divider()
-
-    ui.print_amount_matches(products)
+    print(f"Enter searchvalue for {column_name}")
+    products = pc.get_products_by_columnvalue(column_name, f_input())
+    print_list_of_tablerows(products)
+    print_amount_matches(products)
 
 
 def update_product():
-    print("enter a product id: ")
-    p_id = ui.f_input()
-    product_obj, product_dict = pc.get_product_by_id(p_id)
+    pass
+    print("Enter a product id: ")
+    product = pc.get_product_by_id(f_input())
 
-    def inner(column, product_obj):
-        return lambda: update_product_column(column, product_obj, product_dict)
+    def inner(column, product):
+        return lambda: update_product_column(column, product)
 
-    menu({str(i + 1): {"info": c, "func": inner(c, product_obj)} for i, c in enumerate(pc.get_columns())})
+    menu({str(i + 1): {"info": p, "func": inner(p, product)} for i, p in enumerate(pc.get_columns())})
 
 
-def update_product_column(column, product_obj, product_dict):
+def update_product_column(column, product):
     print("Enter new value: ")
-    value = ui.f_input()
-    pc.update_product_column(product_obj, column, value)
-    ui.print_dict(product_dict)
-    ui.divider()
+    pc.update_product_column(product, column, f_input())
+    print_tablerow(product)
 
 
 def add_product():
@@ -83,8 +64,7 @@ def add_product():
 
 def delete_product_by_id():
     print("Enter a product id to delete product")
-    p_id = int(ui.f_input())
-    pc.delete_product(p_id)
+    pc.delete_product(int(f_input()))
 
 
 def product_menu():

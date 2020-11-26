@@ -7,18 +7,15 @@ def get_all_products():
 
 
 def get_product_by_id(p_id):
-    product = pr.get_product_by_id(p_id)
-    return product, modelobj_to_dict(product)
+    return pr.get_product_by_id(p_id)
 
 
 def get_products_by_name(p_name):
-    products = pr.get_products_by_columnvalue("product_name", p_name)
-    return [modelobj_to_dict(product) for product in products]
+    return pr.get_products_by_columnvalue("product_name", p_name)
 
 
 def get_products_by_columnvalue(column_name, value):
-    products = pr.get_products_by_columnvalue(column_name, value)
-    return [modelobj_to_dict(product) for product in products]
+    return pr.get_products_by_columnvalue(column_name, value)
 
 
 def get_columns():
