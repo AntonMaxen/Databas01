@@ -11,4 +11,4 @@ class InternalOrder(Base):
     products_has_internal_orders = relationship('ProductInternalOrder', back_populates='internal_orders')
 
     def __repr__(self):
-        return f'InternalOrder(id={self.id}, lead_time={self.lead_time}, products={self.products})'
+        return f'InternalOrder(id={self.id}, lead_time={self.lead_time})'

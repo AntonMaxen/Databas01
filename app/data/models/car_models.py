@@ -16,4 +16,4 @@ class CarModel(Base):
     def __repr__(self):
         return f'CarModels(id={self.id}, car_brand={self.car_brand}, model_name{self.model_name},' \
                f'production_year={self.production_year}, colour={self.colour},' \
-               f' compatibilitys={self.compatibilitys})'
+               f' compatibilitys={self.compatibilities})'

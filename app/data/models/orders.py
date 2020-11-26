@@ -22,5 +22,5 @@ class Order(Base):
     def __repr__(self):
         return f'Order(id={self.id}, total_amount={self.total_amount}, payment_status={self.payment_status},' \
                f' shipping_date={self.shipping_date}, customer_id={self.customer_id}, ' \
-               f'employee_id={self.employee_id}, shop_id={self.shop_id}, customer={self.customer},' \
-               f'employee={self.employee}, shop={self.shop})'
+               f'employee_id={self.employee_id}, shop_id={self.shop_id}, customer={self.customers},' \
+               f'employee={self.employees}, shop={self.shops})'

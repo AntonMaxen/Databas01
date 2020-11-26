@@ -27,7 +27,7 @@ def get_customer_cars_by_columnvalue(column_name):
 def update_customer_car():
     print("enter a license number: ")
     c_id = f_input()
-    customer_car = cc.get_customer_car_by_customer_id(c_id)
+    customer_car = cc.get_customer_car_by_id(c_id)
 
     def inner(column, customer_car):
         return lambda: update_customer_car_column(column, customer_car)

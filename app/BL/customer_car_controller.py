@@ -5,7 +5,7 @@ def get_all_customer_cars():
     return cr.get_all_customer_cars()
 
 
-def get_customer_car_by_customer_id(c_id):
+def get_customer_car_by_id(c_id):
     return cr.get_customer_car_by_id(c_id)
 
 
@@ -30,8 +30,5 @@ def get_columns():
 
 
 if __name__ == '__main__':
-    ccustomer_cars = get_all_customer_cars()
-    for ccustomer_car in ccustomer_cars:
-        for key, v in ccustomer_car.items():
-            print(f'{key}: {v}')
-        print("-" * 30)
+    pass
+

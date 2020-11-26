@@ -18,7 +18,7 @@ class Associate(Base):
     associates_category = sa.Column(sa.String(100), nullable=False)
     contact_person_id = sa.Column(sa.Integer, sa.ForeignKey('contact_persons.id'))
     contact_persons = relationship('ContactPerson', back_populates='company_names')
-    associates_products = relationship('ProductAssociate', back_populates='associates')
+    pa = relationship('ProductAssociate', back_populates='associates')
 
     def __repr__(self):
         return f'Associate(id={self.id,}, associate_name={self.name}, phone={self.phone},' \

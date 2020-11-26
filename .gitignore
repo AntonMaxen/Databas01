@@ -2,5 +2,3 @@ venv/
 .idea/
 app/data/db/db_settings/
 *__pycache__
-alembic.ini
-

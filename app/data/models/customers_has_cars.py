@@ -12,4 +12,4 @@ class CustomerCar(Base):
     cars = relationship('Car', back_populates='customers_has_cars')
 
     def __repr__(self):
-        return f'CustomerCar(CustomerId{self.CustomerId} CarId={self.CarId})'
+        return f'CustomerCar(CustomerId{self.CustomerId})'

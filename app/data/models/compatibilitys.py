@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 
 
 class Compatibility(Base):
-    __tablename__ = 'compatibilities'
+    __tablename__ = 'compatibilitys'
 
     ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'), primary_key=True)
     ModelId = sa.Column(sa.Integer, sa.ForeignKey('car_models.id'), primary_key=True)

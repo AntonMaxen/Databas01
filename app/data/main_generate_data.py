@@ -7,6 +7,11 @@ from app.dataBuilder.car import Car as genCar
 from app.dataBuilder.shop import Shop as genShop
 from app.dataBuilder.product import Product as genProduct
 from app.dataBuilder.contact_person import ContactPerson as genCP
+from app.dataBuilder.employee import Employee as genEmployee
+from app.dataBuilder.order import Order as genOrder
+from app.dataBuilder.storage import Storage as genStorage
+from app.dataBuilder.car_model import CarModel as genCarModel
+from app.dataBuilder.internal_order import InternalOrder as genInternalOrder
 # model imports
 from app.data.model_imports import *
 
@@ -62,6 +67,11 @@ def main():
     populate_db_random(Shop, genShop, 100)
     populate_db_random(Product, genProduct, 100)
     populate_db_random(ContactPerson, genCP, 100)
+    populate_db_random(Employee, genEmployee, 100)
+    populate_db_random(Order, genOrder, 100)
+    populate_db_random(Storage, genStorage, 100)
+    populate_db_random(CarModel, genCarModel, 100)
+    populate_db_random(InternalOrder, genInternalOrder, 100)
 
 
 if __name__ == '__main__':
