@@ -2,6 +2,8 @@ from app.data.db import session
 from app.data.model_imports import *
 import app.data.repository.table_functions as tf
 from sqlalchemy.exc import DatabaseError, CircularDependencyError, TimeoutError
+from sqlalchemy import join
+from sqlalchemy.sql import select
 
 
 def get_all_products():
@@ -30,6 +32,16 @@ def add_product(insert_dict):
 
 def delete_product(t_id, column_name="id"):
     tf.drop_row_by_id(Product, t_id, column_name=column_name)
+
+
+def product_in_stores_by_id(p_id):
+    q = session.query(Shop, ShopStorage).join(Shop).join(ShopStorage).filter(ShopStorage.ProductId.ilike(f'%{p_id}%')).all()
+    # qry = (session.query(Shop, ShopStorage)
+    #        .join(Shop)
+    #        .join(ShopStorage)
+    #        ).all()
+    return q
+
 
 
 def main():

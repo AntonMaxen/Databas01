@@ -13,6 +13,11 @@ def get_product_by_id():
     print("Enter a Product Id")
     product = pc.get_product_by_id(f_input())
     print_tablerow(product)
+    shops = pc.product_in_stores_by_id(product.id)
+    print(type(shops))
+    print(shops)
+
+
 
 
 def get_products_by_name():

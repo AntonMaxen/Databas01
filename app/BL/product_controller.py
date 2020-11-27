@@ -34,5 +34,9 @@ def delete_product(t_id):
     pr.delete_product(t_id)
 
 
+def product_in_stores_by_id(p_id):
+    pr.product_in_stores_by_id(p_id)
+
+
 if __name__ == '__main__':
     pass
