@@ -35,13 +35,14 @@ def delete_product(t_id, column_name="id"):
 
 
 def product_in_stores_by_id(p_id):
-    q = session.query(Shop, ShopStorage).join(Shop).join(ShopStorage).filter(ShopStorage.ProductId.ilike(f'%{p_id}%')).all()
-    # qry = (session.query(Shop, ShopStorage)
-    #        .join(Shop)
-    #        .join(ShopStorage)
-    #        ).all()
-    return q
 
+    query = session.query(Shop.city, Shop.address_line_one, Storage.product_amount). \
+        join(ShopStorage, Shop.id == ShopStorage.ShopId). \
+        join(Storage, Storage.id == ShopStorage.ShopId). \
+        filter(ShopStorage.ProductId == p_id). \
+        all()
+
+    return query
 
 
 def main():

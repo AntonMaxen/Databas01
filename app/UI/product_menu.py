@@ -1,6 +1,6 @@
 from app.UI.menus import menu
 import app.BL.product_controller as pc
-from app.UI.ui_functions import f_input, print_amount_matches, print_list_of_tablerows, print_tablerow
+from app.UI.ui_functions import *
 
 
 def get_all_products():
@@ -14,10 +14,8 @@ def get_product_by_id():
     product = pc.get_product_by_id(f_input())
     print_tablerow(product)
     shops = pc.product_in_stores_by_id(product.id)
-    print(type(shops))
-    print(shops)
-
-
+    for s in shops:
+        print(f'Shop Location: {s[0]} | Address: {s[1]} | Product Stock: {s[2]}')
 
 
 def get_products_by_name():
