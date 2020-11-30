@@ -13,6 +13,7 @@ from app.UI.compatibilty_menu import compatibility_menu
 from app.UI.internal_order_menu import internal_order_menu
 from app.UI.product_internal_order_menu import product_internal_order_menu
 from app.UI.product_menu import product_menu
+from app.UI.associate_menu import associate_menu
 from app.UI.menus import menu
 
 main_menus = {
@@ -76,6 +77,10 @@ main_menus = {
         "info": "product",
         "func": product_menu
     },
+    '16': {
+        "info": "associates menu",
+        "func": associate_menu
+    }
 }
 
 
