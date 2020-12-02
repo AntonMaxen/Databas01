@@ -12,6 +12,7 @@ from app.dataBuilder.order import Order as genOrder
 from app.dataBuilder.storage import Storage as genStorage
 from app.dataBuilder.car_model import CarModel as genCarModel
 from app.dataBuilder.internal_order import InternalOrder as genInternalOrder
+from app.dataBuilder.shops_storage import ShopStorage as genShopStorage
 from app.dataBuilder.associate import Associate as genAs
 # model imports
 from app.data.model_imports import *
@@ -62,18 +63,36 @@ def populate_db_random(model, data_classes, amount=1):
     commit_db()
 
 
+def connecting_table(model, generated_data, amount):
+
+    x, y, z = 1, 1, 1
+    for _ in range(amount):
+        gen = generated_data(x, y, z)
+        populate_db(model, gen.__dict__)
+        x += 1
+        y = random.randrange(1, amount)
+        z = random.randrange(1, amount)
+
+    commit_db()
+
+
 def main():
-    populate_db_random(Customer, [Person, CompanyPerson], 100)
-    populate_db_random(Car, genCar, 100)
-    populate_db_random(Shop, genShop, 100)
-    populate_db_random(Product, genProduct, 100)
-    populate_db_random(ContactPerson, genCP, 100)
-    populate_db_random(Employee, genEmployee, 100)
-    populate_db_random(Order, genOrder, 100)
-    populate_db_random(Storage, genStorage, 100)
-    populate_db_random(CarModel, genCarModel, 100)
-    populate_db_random(InternalOrder, genInternalOrder, 100)
-    populate_db_random(Associate, genAs, 100)
+
+    quantity = 100
+
+    populate_db_random(Customer, [Person, CompanyPerson], quantity)
+    populate_db_random(Car, genCar, quantity)
+    populate_db_random(Shop, genShop, quantity)
+    populate_db_random(Product, genProduct, quantity)
+    populate_db_random(ContactPerson, genCP, quantity)
+    populate_db_random(Employee, genEmployee, quantity)
+    populate_db_random(Order, genOrder, quantity)
+    populate_db_random(Storage, genStorage, quantity)
+    populate_db_random(CarModel, genCarModel, quantity)
+    populate_db_random(InternalOrder, genInternalOrder, quantity)
+    connecting_table(ShopStorage, genShopStorage, quantity)
+    populate_db_random(Associate, genAs, quantity)
+
 
 
 if __name__ == '__main__':
