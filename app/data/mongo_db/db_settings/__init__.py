@@ -1,0 +1,5 @@
+DB_DATABASE = 'mongospareparts'
+DB_HOST = '127.0.0.1'
+DB_PORT = '27016'
+DB_USER = 'root'
+DB_PASSWORD = 'password'
