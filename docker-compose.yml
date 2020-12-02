@@ -1,13 +1,21 @@
-version: "3"
+version: '3.1'
 
 services:
-  db:
-    image: mysql:8.0.22
-    container_name: "MySQL_DB"
+
+  mongo:
+    image: mongo
+    restart: always
     ports:
-      - "33006:3306"
-    cap_add:
-      - SYS_NICE
+      - 27016:27017
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: spareparts
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
