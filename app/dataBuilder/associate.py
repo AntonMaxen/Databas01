@@ -13,6 +13,7 @@ class Associate:
         self.address_line_two = self.address_line_one
         self.zip_code = ge.generate_zip()
         self.associates_category = random.choice(['Supplier', 'Manufacturer'])
+        self.contact_person_id = random.randint(1, 101)
 
     def __repr__(self):
         return (
@@ -24,7 +25,8 @@ class Associate:
             f'city: {self.city}\n'
             f'zip_code: {self.zip_code}\n'
             f'country: {self.country}\n'
-            f'associate_category: {self.associates_category}'
+            f'associate_category: {self.associates_category}\n'
+            f'contact_person: {self.contact_person_id}'
         )
 
 

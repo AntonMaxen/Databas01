@@ -30,7 +30,7 @@ def upgrade():
         sa.Column('city', sa.String(100), nullable=False),
         sa.Column('country', sa.String(100), nullable=False),
         sa.Column('associates_category', sa.String(100), nullable=False),
-        sa.Column('contact_person_id', sa.Integer, sa.ForeignKey('contact_persons.id'))
+        sa.Column('contact_person_id', sa.Integer, sa.ForeignKey('contact_persons.id'), nullable=False)
     )
 
 

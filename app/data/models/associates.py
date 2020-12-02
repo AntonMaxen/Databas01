@@ -16,7 +16,7 @@ class Associate(Base):
     city = sa.Column(sa.String(100), nullable=False)
     country = sa.Column(sa.String(100), nullable=False)
     associates_category = sa.Column(sa.String(100), nullable=False)
-    contact_person_id = sa.Column(sa.Integer, sa.ForeignKey('contact_persons.id'))
+    contact_person_id = sa.Column(sa.Integer, sa.ForeignKey('contact_persons.id'), nullable=False)
     contact_persons = relationship('ContactPerson', back_populates='company_names')
     pa = relationship('ProductAssociate', back_populates='associates')
 
