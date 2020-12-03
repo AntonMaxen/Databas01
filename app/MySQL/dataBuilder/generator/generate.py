@@ -5,7 +5,7 @@ import os
 
 
 def absolute_path(file_name):
-    abs_path = os.path.join(get_project_root(), "app", "dataBuilder", "files")
+    abs_path = os.path.join(get_project_root(), "app", "MySQL", "dataBuilder", "files")
     return os.path.join(abs_path, file_name)
 
 
