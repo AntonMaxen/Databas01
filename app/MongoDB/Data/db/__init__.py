@@ -2,8 +2,9 @@ from pymongo import MongoClient
 from abc import ABC
 
 
-client = MongoClient('mongodb://root:s3cr37@localhost:27027')
+client = MongoClient(f'mongodb://root:password@localhost:27027')
 db = client.classic
+
 
 class ResultList(list):
     def first_or_none(self):

@@ -23,12 +23,13 @@ services:
         ME_CONFIG_MONGODB_ADMINPASSWORD: password
 
 
-    mysql:
-      image: mysql
-      restart: always
+    db:
+      image: mysql:8.0.22
+      container_name: "MySQL_DB"
+      ports:
+        - "33006:3306"
+      cap_add:
+        - SYS_NICE
       environment:
         MYSQL_ROOT_PASSWORD: password
-      ports:
-        - 33006:3306
-      volumes:
-        - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+        MYSQL_DATABASE: spareparts
