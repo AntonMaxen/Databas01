@@ -65,11 +65,13 @@ def populate_db_random(model, data_classes, amount=1):
 
 
 def connecting_table(model, generated_data, amount):
-
-    x, y, z = 1, 1, 1
+    count = session.query(model).count()
+    x = count + 1
+    y, z = 1, 1
     for _ in range(amount):
         gen = generated_data(x, y, z)
         populate_db(model, gen.__dict__)
+
         x += 1
         y = random.randrange(1, amount)
         z = random.randrange(1, amount)
