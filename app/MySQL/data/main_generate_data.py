@@ -1,5 +1,5 @@
 import random
-from app.MySqlData.db import session
+from app.MySQL.data.db import session
 # dataBuilder imports
 from MySQL.dataBuilder.person import Person
 from MySQL.dataBuilder.company import CompanyPerson
@@ -15,7 +15,7 @@ from MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
 from MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
 from MySQL.dataBuilder.associate import Associate as genAs
 # model imports
-from app.MySqlData.model_imports import *
+from app.MySQL.data.model_imports import *
 
 
 # Not needed if using the more generic function for data
@@ -92,7 +92,6 @@ def main():
     populate_db_random(InternalOrder, genInternalOrder, quantity)
     connecting_table(ShopStorage, genShopStorage, quantity)
     populate_db_random(Associate, genAs, quantity)
-
 
 
 if __name__ == '__main__':

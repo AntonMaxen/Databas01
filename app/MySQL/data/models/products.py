@@ -1,4 +1,4 @@
-from app.MySqlData.db import Base
+from app.MySQL.data.db import Base
 import sqlalchemy as sa
 from sqlalchemy.orm import relationship
 
