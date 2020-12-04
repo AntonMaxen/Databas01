@@ -14,7 +14,6 @@ def fix_employees():
             del as_dict['reports_to']
 
         mongo_employee = mm.Employee(as_dict)
-
         mongo_employee.save()
 
     employees = mm.Employee.all()
@@ -24,9 +23,30 @@ def fix_employees():
             employee.save()
 
 
+def fix_car_models():
+
+    car_models = session.query(CarModel).all()
+    product_compatability = session.query(Compatibility).all()
+    for car in car_models:
+        car_dict = car.__dict__
+        car_dict['car_brand'] = str(car_dict['car_brand'])
+        car_dict['model_name'] = str(car_dict['model_name'])
+        car_dict['production_year'] = str(car_dict['production_year'])
+        car_dict['colour'] = str(car_dict['colour'])
+        car_dict['compatability'] = []
+        for pc in product_compatability:
+            if car_dict['id'] == pc.ModelId:
+                car_dict['compatability'].append(pc.ProductId)
+        del car_dict['_sa_instance_state']
+        del car_dict['id']
+        mongo_car_model = mm.CarModel(car_dict)
+        mongo_car_model.save()
+
+
+
 def main():
     fix_employees()
-
+    fix_car_models()
 
 if __name__ == "__main__":
     main()
