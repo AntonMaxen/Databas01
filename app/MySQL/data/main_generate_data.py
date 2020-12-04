@@ -1,5 +1,5 @@
 import random
-from app.MySqlData.db import session
+from app.MySQL.data.db import session
 # dataBuilder imports
 from MySQL.dataBuilder.person import Person
 from MySQL.dataBuilder.company import CompanyPerson
@@ -13,9 +13,10 @@ from MySQL.dataBuilder.storage import Storage as genStorage
 from MySQL.dataBuilder.car_model import CarModel as genCarModel
 from MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
 from MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
+from MySQL.dataBuilder.compatability import Compatability as genComp
 from MySQL.dataBuilder.associate import Associate as genAs
 # model imports
-from app.MySqlData.model_imports import *
+from app.MySQL.data.model_imports import *
 
 
 # Not needed if using the more generic function for data
@@ -80,19 +81,19 @@ def main():
 
     quantity = 100
 
-    populate_db_random(Customer, [Person, CompanyPerson], quantity)
-    populate_db_random(Car, genCar, quantity)
-    populate_db_random(Shop, genShop, quantity)
-    populate_db_random(Product, genProduct, quantity)
-    populate_db_random(ContactPerson, genCP, quantity)
-    populate_db_random(Employee, genEmployee, quantity)
-    populate_db_random(Order, genOrder, quantity)
-    populate_db_random(Storage, genStorage, quantity)
-    populate_db_random(CarModel, genCarModel, quantity)
-    populate_db_random(InternalOrder, genInternalOrder, quantity)
-    connecting_table(ShopStorage, genShopStorage, quantity)
+    # populate_db_random(Customer, [Person, CompanyPerson], quantity)
+    # populate_db_random(Car, genCar, quantity)
+    # populate_db_random(Shop, genShop, quantity)
+    # populate_db_random(Product, genProduct, quantity)
+    # populate_db_random(ContactPerson, genCP, quantity)
+    # populate_db_random(Employee, genEmployee, quantity)
+    # populate_db_random(Order, genOrder, quantity)
+    # populate_db_random(Storage, genStorage, quantity)
+    # populate_db_random(CarModel, genCarModel, quantity)
+    # populate_db_random(InternalOrder, genInternalOrder, quantity)
+    # connecting_table(ShopStorage, genShopStorage, quantity)
     populate_db_random(Associate, genAs, quantity)
-
+    connecting_table(Compatibility, genComp, quantity)
 
 
 if __name__ == '__main__':
