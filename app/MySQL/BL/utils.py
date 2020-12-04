@@ -1,4 +1,4 @@
-import app.MySqlData.repository.table_functions as tf
+import app.MySQL.data.repository.table_functions as tf
 
 
 def modelobj_to_dict(modelobj):

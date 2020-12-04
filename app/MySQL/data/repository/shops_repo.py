@@ -1,6 +1,6 @@
-from app.MySqlData.models.shops import Shop
-from app.MySqlData.db import session
-import app.MySqlData.repository.table_functions as tf
+from app.MySQL.data.models.shops import Shop
+from app.MySQL.data.db import session
+import app.MySQL.data.repository.table_functions as tf
 
 
 def show_all_shops():

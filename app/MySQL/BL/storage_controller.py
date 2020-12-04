@@ -1,4 +1,4 @@
-import app.MySqlData.repository.storages_repo as cr
+import app.MySQL.data.repository.storages_repo as cr
 
 
 def get_all_storages():

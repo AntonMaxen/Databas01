@@ -1,4 +1,4 @@
-import app.MySqlData.repository.associates_repo as ar
+import app.MySQL.data.repository.associates_repo as ar
 
 
 def show_all_associates():

@@ -1,4 +1,4 @@
-import app.MySqlData.repository.contact_persons_repo as cpr
+import app.MySQL.data.repository.contact_persons_repo as cpr
 
 
 def show_all_cp():

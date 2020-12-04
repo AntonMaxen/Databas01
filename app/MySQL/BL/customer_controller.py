@@ -1,4 +1,4 @@
-import app.MySqlData.repository.customers_repo as cr
+import app.MySQL.data.repository.customers_repo as cr
 
 
 def get_all_customers():

@@ -1,4 +1,4 @@
-import app.MySqlData.repository.shop_storage_repo as cr
+import app.MySQL.data.repository.shop_storage_repo as cr
 
 
 def get_all_shop_storages():

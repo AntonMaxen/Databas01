@@ -1,5 +1,5 @@
 import MySQL.BL.shops_controller as sc
-from app.UI.menus import menu
+from app.MySQL.UI.menus import menu
 import MySQL.BL.utils as utils
 
 

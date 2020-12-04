@@ -1,8 +1,8 @@
-from app.UI.menus import menu
-import MySQL.BL.customer_controller as cc
-from app.UI.car_menu import add_car
-from app.UI.customer_car_menu import combine_customer_car
-from app.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
+from app.MySQL.UI.menus import menu
+import app.MySQL.BL.customer_controller as cc
+from app.MySQL.UI.car_menu import add_car
+from app.MySQL.UI.customer_car_menu import combine_customer_car
+from app.MySQL.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
 def get_all_customers():

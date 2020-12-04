@@ -1,4 +1,4 @@
-import app.MySqlData.repository.car_models_repo as cr
+import app.MySQL.data.repository.car_models_repo as cr
 
 
 def get_all_car_models():

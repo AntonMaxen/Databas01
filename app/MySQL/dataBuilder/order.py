@@ -1,6 +1,6 @@
 import random
 import datetime
-import MySQL.dataBuilder.generator.generate as gen
+import app.MySQL.dataBuilder.generator.generate as gen
 
 
 class Order:

@@ -1,7 +1,7 @@
-from app.UI.menus import menu
+from app.MySQL.UI.menus import menu
 import datetime
-import MySQL.BL.internal_order_controller as cc
-from app.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
+import app.MySQL.BL.internal_order_controller as cc
+from app.MySQL.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
 def get_all_internal_orders():

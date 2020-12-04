@@ -1,4 +1,4 @@
-import app.MySqlData.repository.employees_repo as cr
+import app.MySQL.data.repository.employees_repo as cr
 
 
 def get_all_employees():
