@@ -14,6 +14,7 @@ from app.MySQL.dataBuilder.car_model import CarModel as genCarModel
 from app.MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
 from app.MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
 from app.MySQL.dataBuilder.associate import Associate as genAs
+from app.MySQL.dataBuilder.compatability import Compatability as genComp
 # model imports
 from app.MySQL.data.model_imports import *
 
@@ -91,7 +92,9 @@ def main():
     populate_db_random(CarModel, genCarModel, quantity)
     populate_db_random(InternalOrder, genInternalOrder, quantity)
     connecting_table(ShopStorage, genShopStorage, quantity)
+    connecting_table(Compatibility, genComp, quantity)
     populate_db_random(Associate, genAs, quantity)
+
 
 
 if __name__ == '__main__':
