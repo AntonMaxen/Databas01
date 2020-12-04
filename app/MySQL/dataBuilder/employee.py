@@ -23,7 +23,7 @@ class Employee:
 
 def main():
     employees = []
-    for _ in range(100):
+    for _ in range(2):
         employees.append(Employee())
 
     for o in employees:

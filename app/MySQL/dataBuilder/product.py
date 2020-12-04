@@ -1,6 +1,7 @@
 from random import randint
 import app.MySQL.dataBuilder.generator.generate as gen
 
+
 class Product:
     def __init__(self):
         #prod_dict = gen.generate_car()

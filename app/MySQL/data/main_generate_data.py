@@ -79,24 +79,107 @@ def connecting_table(model, generated_data, amount):
     commit_db()
 
 
+def link_two_tables(table_obj_one={}, table_obj_two={}, relation_table={}, extra_attributes={}):
+    # Models
+    relation_model = relation_table.get("model", None)
+    model_one = table_obj_one.get("model", None)
+    model_two = table_obj_two.get("model", None)
+    # table rows
+    model_arr_one = session.query(model_one).all()
+    model_arr_two = session.query(model_two).all()
+    relation_arr = session.query(relation_model).all()
+    # models ids
+    row_one_id = table_obj_one.get("id", None)
+    row_two_id = table_obj_two.get("id", None)
+    link_attrname_one = relation_table.get("attribute_one", None)
+    link_attrname_two = relation_table.get("attribute_two", None)
+    for index, row_one in enumerate(model_arr_one):
+        if index < len(model_arr_two):
+            row_two = model_arr_two[index]
+            row_one_value = getattr(row_one, row_one_id, None)
+            row_two_value = getattr(row_two, row_two_id, None)
+            new_entry = True
+            for link_row in relation_arr:
+                link_value_one = getattr(link_row, link_attrname_one, None)
+                link_value_two = getattr(link_row, link_attrname_two, None)
+                if row_one_value == link_value_one and row_two_value == link_value_two:
+                    new_entry = False
+                    break
+
+            if new_entry:
+                insert_dict = {
+                    link_attrname_one: row_one_value,
+                    link_attrname_two: row_two_value,
+                    **extra_attributes
+                }
+                insertion = relation_model(**insert_dict)
+                session.add(insertion)
+
+    session.commit()
+
+
 def main():
+    generations = 50
+    quantity = 1
+    for _ in range(generations):
+        populate_db_random(Customer, [Person, CompanyPerson], quantity)
+        populate_db_random(Car, genCar, quantity)
+        populate_db_random(Shop, genShop, quantity)
+        populate_db_random(Product, genProduct, quantity)
+        populate_db_random(ContactPerson, genCP, quantity)
+        populate_db_random(Employee, genEmployee, quantity)
+        populate_db_random(Order, genOrder, quantity)
+        populate_db_random(Storage, genStorage, quantity)
+        populate_db_random(CarModel, genCarModel, quantity)
+        populate_db_random(InternalOrder, genInternalOrder, quantity)
+        populate_db_random(Associate, genAs, quantity)
 
-    quantity = 100
+        """
+            ##### relational table linking #####
+        """
+        # Customers_has_cars
+        link_two_tables(
+            table_obj_one=dict(model=Customer, id="id"),
+            table_obj_two=dict(model=Car, id="license_number"),
+            relation_table=dict(model=CustomerCar, attribute_one="CustomerId", attribute_two="LicenseNumber")
+        )
 
-    populate_db_random(Customer, [Person, CompanyPerson], quantity)
-    populate_db_random(Car, genCar, quantity)
-    populate_db_random(Shop, genShop, quantity)
-    populate_db_random(Product, genProduct, quantity)
-    populate_db_random(ContactPerson, genCP, quantity)
-    populate_db_random(Employee, genEmployee, quantity)
-    populate_db_random(Order, genOrder, quantity)
-    populate_db_random(Storage, genStorage, quantity)
-    populate_db_random(CarModel, genCarModel, quantity)
-    populate_db_random(InternalOrder, genInternalOrder, quantity)
-    connecting_table(ShopStorage, genShopStorage, quantity)
-    connecting_table(Compatibility, genComp, quantity)
-    populate_db_random(Associate, genAs, quantity)
+        # orders_has_products
+        link_two_tables(
+            table_obj_one=dict(model=Order, id="id"),
+            table_obj_two=dict(model=Product, id="id"),
+            relation_table=dict(model=OrderProduct, attribute_one="OrderId", attribute_two="ProductId"),
+            extra_attributes=dict(Amount=random.randint(50, 500))
+        )
 
+        # shops_has_storages
+        link_two_tables(
+            table_obj_one=dict(model=Shop, id="id"),
+            table_obj_two=dict(model=Storage, id="id"),
+            relation_table=dict(model=ShopStorage, attribute_one="ShopId", attribute_two="StorageId"),
+            extra_attributes=dict(ProductId=session.query(Product).count())
+        )
+
+        # products_has_associates
+        link_two_tables(
+            table_obj_one=dict(model=Product, id="id"),
+            table_obj_two=dict(model=Associate, id="id"),
+            relation_table=dict(model=ProductAssociate, attribute_one="ProductId", attribute_two="AssociateId"),
+        )
+
+        # Compatibility
+        link_two_tables(
+            table_obj_one=dict(model=Product, id="id"),
+            table_obj_two=dict(model=CarModel, id="id"),
+            relation_table=dict(model=Compatibility, attribute_one="ProductId", attribute_two="ModelId")
+        )
+
+        # products_has_internal_orders
+        link_two_tables(
+            table_obj_one=dict(model=Product, id="id"),
+            table_obj_two=dict(model=InternalOrder, id="id"),
+            relation_table=dict(model=ProductInternalOrder, attribute_one="ProductId", attribute_two="InternalOrderId")
+        )
 
 
 if __name__ == '__main__':
