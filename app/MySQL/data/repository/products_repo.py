@@ -1,6 +1,6 @@
-from app.data.db import session
-from app.data.model_imports import *
-import app.data.repository.table_functions as tf
+from app.MySQL.data.db import session
+from app.MySQL.data.model_imports import *
+import app.MySQL.data.repository.table_functions as tf
 from sqlalchemy.exc import DatabaseError, CircularDependencyError, TimeoutError
 from sqlalchemy import join
 from sqlalchemy.sql import select

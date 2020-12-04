@@ -1,5 +1,5 @@
 import random
-import MySQL.dataBuilder.generator.generate as ge
+import app.MySQL.dataBuilder.generator.generate as ge
 
 
 class Associate:

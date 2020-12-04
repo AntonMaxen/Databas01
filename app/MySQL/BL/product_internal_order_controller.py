@@ -1,4 +1,4 @@
-import app.MySqlData.repository.product_internal_order_repo as cr
+import app.MySQL.data.repository.product_internal_order_repo as cr
 
 
 def get_all_product_internal_orders():

@@ -1,5 +1,5 @@
-import app.MySqlData.repository.shops_repo as sr
-from MySQL.BL.utils import modelobj_to_dict as mdict
+import app.MySQL.data.repository.shops_repo as sr
+from app.MySQL.BL.utils import modelobj_to_dict as mdict
 
 
 def show_all_shops():

@@ -1,6 +1,6 @@
-from app.UI.menus import menu
-import MySQL.BL.product_controller as pc
-from app.UI.ui_functions import *
+from app.MySQL.UI.menus import menu
+import app.MySQL.BL.product_controller as pc
+from app.MySQL.UI.ui_functions import *
 
 
 def get_all_products():

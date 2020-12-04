@@ -1,6 +1,6 @@
 
-from app.MySqlData.model_imports import *
-import app.MySqlData.repository.table_functions as tf
+from app.MySQL.data.model_imports import *
+import app.MySQL.data.repository.table_functions as tf
 
 
 def show_all_cp():

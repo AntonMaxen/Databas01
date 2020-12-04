@@ -1,5 +1,5 @@
 from random import randint
-import MySQL.dataBuilder.generator.generate as gen
+import app.MySQL.dataBuilder.generator.generate as gen
 
 class Product:
     def __init__(self):

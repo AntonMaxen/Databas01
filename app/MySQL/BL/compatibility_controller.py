@@ -1,4 +1,4 @@
-import app.MySqlData.repository.compatibilitys_repo as cr
+import app.MySQL.data.repository.compatibilitys_repo as cr
 
 
 def get_all_compatibilitys():

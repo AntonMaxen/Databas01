@@ -1,6 +1,6 @@
-from app.UI.menus import menu
-import MySQL.BL.car_controller as cc
-from app.UI.ui_functions import print_list_of_tablerows, print_amount_matches, f_input, print_tablerow
+from app.MySQL.UI.menus import menu
+import app.MySQL.BL.car_controller as cc
+from app.MySQL.UI.ui_functions import print_list_of_tablerows, print_amount_matches, f_input, print_tablerow
 import datetime
 
 

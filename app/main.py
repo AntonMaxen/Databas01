@@ -1,4 +1,4 @@
-from app.UI.main_menu import main_menu
+from app.MySQL.UI.main_menu import main_menu
 
 
 def main():

@@ -1,4 +1,4 @@
-import MySQL.BL.utils as utils
+import app.MySQL.BL.utils as utils
 
 
 def f_input():

@@ -1,5 +1,5 @@
-from app.MySqlData.db import session
-from app.MySqlData.model_imports import *
+from app.MySQL.data.db import session
+from app.MySQL.data.model_imports import *
 
 
 def get_all_assets(model_obj):

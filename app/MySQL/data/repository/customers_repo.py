@@ -1,6 +1,6 @@
-from app.MySqlData.db import session
-from app.MySqlData.model_imports import *
-import app.MySqlData.repository.table_functions as tf
+from app.MySQL.data.db import session
+from app.MySQL.data.model_imports import *
+import app.MySQL.data.repository.table_functions as tf
 
 
 def get_all_customers():

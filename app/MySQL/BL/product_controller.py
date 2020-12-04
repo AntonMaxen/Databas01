@@ -1,4 +1,4 @@
-import app.MySqlData.repository.products_repo as pr
+import app.MySQL.data.repository.products_repo as pr
 
 
 def get_all_products():

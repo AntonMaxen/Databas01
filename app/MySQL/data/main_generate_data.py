@@ -1,20 +1,20 @@
 import random
 from app.MySQL.data.db import session
 # dataBuilder imports
-from MySQL.dataBuilder.person import Person
-from MySQL.dataBuilder.company import CompanyPerson
-from MySQL.dataBuilder.car import Car as genCar
-from MySQL.dataBuilder.shop import Shop as genShop
-from MySQL.dataBuilder.product import Product as genProduct
-from MySQL.dataBuilder.contact_person import ContactPerson as genCP
-from MySQL.dataBuilder.employee import Employee as genEmployee
-from MySQL.dataBuilder.order import Order as genOrder
-from MySQL.dataBuilder.storage import Storage as genStorage
-from MySQL.dataBuilder.car_model import CarModel as genCarModel
-from MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
-from MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
-from MySQL.dataBuilder.associate import Associate as genAs
-from MySQL.dataBuilder.compatability import Compatability as genComp
+from app.MySQL.dataBuilder.person import Person
+from app.MySQL.dataBuilder.company import CompanyPerson
+from app.MySQL.dataBuilder.car import Car as genCar
+from app.MySQL.dataBuilder.shop import Shop as genShop
+from app.MySQL.dataBuilder.product import Product as genProduct
+from app.MySQL.dataBuilder.contact_person import ContactPerson as genCP
+from app.MySQL.dataBuilder.employee import Employee as genEmployee
+from app.MySQL.dataBuilder.order import Order as genOrder
+from app.MySQL.dataBuilder.storage import Storage as genStorage
+from app.MySQL.dataBuilder.car_model import CarModel as genCarModel
+from app.MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
+from app.MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
+from app.MySQL.dataBuilder.associate import Associate as genAs
+from app.MySQL.dataBuilder.compatability import Compatability as genComp
 # model imports
 from app.MySQL.data.model_imports import *
 

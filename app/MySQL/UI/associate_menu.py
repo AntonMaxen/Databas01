@@ -1,7 +1,7 @@
-from app.UI.menus import menu
-import MySQL.BL.associates_controller as ac
-import MySQL.BL.contact_person_controller as cpc
-from app.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
+from app.MySQL.UI.menus import menu
+import app.MySQL.BL.associates_controller as ac
+import app.MySQL.BL.contact_person_controller as cpc
+from app.MySQL.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
 def show_all_associates():

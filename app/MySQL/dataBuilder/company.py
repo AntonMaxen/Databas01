@@ -1,5 +1,5 @@
-from MySQL.dataBuilder.person import Person
-import MySQL.dataBuilder.generator.generate as ge
+from app.MySQL.dataBuilder.person import Person
+import app.MySQL.dataBuilder.generator.generate as ge
 
 
 class CompanyPerson(Person):

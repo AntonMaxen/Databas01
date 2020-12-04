@@ -1,4 +1,4 @@
-import app.MySqlData.repository.product_associate_repo as cr
+import app.MySQL.data.repository.product_associate_repo as cr
 
 
 def get_all_product_associates():
