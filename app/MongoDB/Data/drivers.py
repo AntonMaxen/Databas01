@@ -25,14 +25,13 @@ def fix_employees():
 
 def fix_car_models():
 
-    car_models = session.query(CarModel).all()
+    car_models = session.query(Car).all()
     product_compatability = session.query(Compatibility).all()
     for car in car_models:
         car_dict = car.__dict__
-        car_dict['car_brand'] = str(car_dict['car_brand'])
+        car_dict['brand_name'] = str(car_dict['brand_name'])
         car_dict['model_name'] = str(car_dict['model_name'])
-        car_dict['production_year'] = str(car_dict['production_year'])
-        car_dict['colour'] = str(car_dict['colour'])
+        car_dict['prod_year'] = str(car_dict['prod_year'])
         car_dict['compatability'] = []
         for pc in product_compatability:
             if car_dict['id'] == pc.ModelId:
