@@ -10,7 +10,6 @@ from app.MySQL.dataBuilder.contact_person import ContactPerson as genCP
 from app.MySQL.dataBuilder.employee import Employee as genEmployee
 from app.MySQL.dataBuilder.order import Order as genOrder
 from app.MySQL.dataBuilder.storage import Storage as genStorage
-from app.MySQL.dataBuilder.car_model import CarModel as genCarModel
 from app.MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
 from app.MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
 from app.MySQL.dataBuilder.associate import Associate as genAs
@@ -130,7 +129,6 @@ def main():
         populate_db_random(Employee, genEmployee, quantity)
         populate_db_random(Order, genOrder, quantity)
         populate_db_random(Storage, genStorage, quantity)
-        populate_db_random(CarModel, genCarModel, quantity)
         populate_db_random(InternalOrder, genInternalOrder, quantity)
         populate_db_random(Associate, genAs, quantity)
 
@@ -140,8 +138,8 @@ def main():
         # Customers_has_cars
         link_two_tables(
             table_obj_one=dict(model=Customer, id="id"),
-            table_obj_two=dict(model=Car, id="license_number"),
-            relation_table=dict(model=CustomerCar, attribute_one="CustomerId", attribute_two="LicenseNumber")
+            table_obj_two=dict(model=Car, id="id"),
+            relation_table=dict(model=CustomerCar, attribute_one="CustomerId", attribute_two="CarId")
         )
 
         # orders_has_products
@@ -170,7 +168,7 @@ def main():
         # Compatibility
         link_two_tables(
             table_obj_one=dict(model=Product, id="id"),
-            table_obj_two=dict(model=CarModel, id="id"),
+            table_obj_two=dict(model=Car, id="id"),
             relation_table=dict(model=Compatibility, attribute_one="ProductId", attribute_two="ModelId")
         )
 

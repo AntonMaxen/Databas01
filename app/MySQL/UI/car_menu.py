@@ -1,7 +1,6 @@
 from app.MySQL.UI.menus import menu
 import app.MySQL.BL.car_controller as cc
-from app.MySQL.UI.ui_functions import print_list_of_tablerows, print_amount_matches, f_input, print_tablerow
-import datetime
+from app.MySQL.UI.ui_functions import print_list_of_tablerows, print_amount_matches, f_input, print_tablerow, divider
 
 
 def get_all_cars():
@@ -10,10 +9,10 @@ def get_all_cars():
     print_amount_matches(cars)
 
 
-def get_car_by_licensenumber():
-    print("Enter a License Number")
-    license_number = f_input()
-    car = cc.get_car_by_id(license_number)
+def get_car_by_id():
+    print("Enter a id")
+    c_id = f_input()
+    car = cc.get_car_by_id(c_id)
     if car:
         print_tablerow(car)
     else:
@@ -56,22 +55,20 @@ def update_car_column(column, car):
 def add_car():
     insert_dict = {}
     for column in cc.get_columns():
-        if column == "date":
-            insert_dict[column] = datetime.datetime.now()
-        else:
+        if column != "id":
             insert_dict[column] = input(f'{column}: ')
 
     car = cc.add_car(insert_dict)
     if car:
         print_tablerow(car)
+        divider()
+        return car
 
-    return car
 
-
-def drop_car_by_licensenumber():
-    print("Enter a licensenumber to delete car")
-    license_number = f_input()
-    cc.drop_car(license_number)
+def drop_car_by_id():
+    print("Enter a id to delete car")
+    c_id = f_input()
+    cc.drop_car(c_id)
 
 
 def car_menu():
@@ -81,8 +78,8 @@ def car_menu():
             "func": get_all_cars
         },
         "2": {
-            "info": "get car by license number",
-            "func": get_car_by_licensenumber
+            "info": "get car by id",
+            "func": get_car_by_id
         },
         "3": {
             "info": "search cars",
@@ -97,7 +94,7 @@ def car_menu():
             "func": add_car
         },
         "6": {
-            "info": "drop car",
-            "func": drop_car_by_licensenumber
+            "info": "drop car by id",
+            "func": drop_car_by_id
         }
     })

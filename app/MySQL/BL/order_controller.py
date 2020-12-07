@@ -9,7 +9,7 @@ def get_order_by_id(c_id):
     return cr.get_order_by_id(c_id)
 
 
-def get_orders_by_columnvalue(column_name, value):
+def get_orders_by_name(column_name, value):
     return cr.get_orders_by_columnvalue(column_name, value)
 
 

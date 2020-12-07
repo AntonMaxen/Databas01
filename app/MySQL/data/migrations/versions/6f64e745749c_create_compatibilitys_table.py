@@ -12,7 +12,7 @@ from sqlalchemy.engine.reflection import Inspector
 
 # revision identifiers, used by Alembic.
 revision = '6f64e745749c'
-down_revision = 'f993a238b8ba'
+down_revision = '25f698c417da'
 branch_labels = None
 depends_on = None
 
@@ -21,7 +21,7 @@ def upgrade():
     op.create_table(
         "compatibilitys",
         sa.Column('ProductId', sa.Integer, sa.ForeignKey('products.id'), primary_key=True),
-        sa.Column('ModelId', sa.Integer, sa.ForeignKey('car_models.id'), primary_key=True)
+        sa.Column('ModelId', sa.Integer, sa.ForeignKey('cars.id'), primary_key=True)
     )
 
 

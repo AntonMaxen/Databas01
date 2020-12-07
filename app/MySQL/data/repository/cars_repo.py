@@ -6,7 +6,7 @@ def get_all_cars():
     return tf.get_all_assets(Car)
 
 
-def get_car_by_id(c_id, column_name="license_number"):
+def get_car_by_id(c_id, column_name="id"):
     return tf.get_asset_by_id(Car, c_id, column_name=column_name)
 
 
@@ -26,5 +26,5 @@ def add_car(insert_dict):
     return tf.add_row(Car, insert_dict)
 
 
-def drop_car(t_id, column_name="license_number"):
+def drop_car(t_id, column_name="id"):
     tf.drop_row_by_id(Car, t_id, column_name=column_name)
