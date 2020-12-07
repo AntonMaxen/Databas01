@@ -43,10 +43,17 @@ def fix_car_models():
         mongo_car_model.save()
 
 
+def fix_customers():
+    customers = session.query(Customer).all()
+    for customer in customers:
+        customer_dict = customer.__dict__
+        print(customer_dict)
+
+
+
 
 def main():
-    fix_employees()
-    fix_car_models()
+    fix_customers()
 
 if __name__ == "__main__":
     main()
