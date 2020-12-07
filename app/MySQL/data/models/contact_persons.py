@@ -15,4 +15,4 @@ class ContactPerson(Base):
 
     def __repr__(self):
         return f'ContactPerson(id={self.id}, first_name={self.first_name}, last_name={self.last_name},' \
-               f' phone={self.phone}, email={self.email}, company_name={self.company_names})'
+               f' phone={self.phone}, email={self.email}'

@@ -1,5 +1,8 @@
 import random
 import app.MySQL.dataBuilder.generator.generate as ge
+from app.MySQL.data.db import session
+from app.MySQL.data.model_imports import *
+
 
 
 class Associate:
@@ -13,6 +16,7 @@ class Associate:
         self.address_line_two = self.address_line_one
         self.zip_code = ge.generate_zip()
         self.associates_category = random.choice(['Supplier', 'Manufacturer'])
+        self.contact_person_id = session.query(ContactPerson).count()
 
     def __repr__(self):
         return (
