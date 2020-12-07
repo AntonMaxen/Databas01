@@ -5,12 +5,12 @@ import datetime
 class Car:
     def __init__(self):
         car_dict = gen.generate_car()
-        self.license_number = car_dict['license_number']
+        # self.license_number = car_dict['license_number']
         self.brand_name = car_dict['brand_name']
         self.model_name = car_dict['model']
-        self.color = car_dict['color']
+        # self.color = car_dict['color']
         self.prod_year = car_dict['prod_year']
-        self.date = datetime.datetime.now()
+        # self.date = datetime.datetime.now()
 
     def __repr__(self):
         return (

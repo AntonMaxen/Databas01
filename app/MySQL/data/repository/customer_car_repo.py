@@ -6,7 +6,7 @@ def get_all_customer_cars():
     return tf.get_all_assets(CustomerCar)
 
 
-def get_customer_car_by_id(c_id, column_name="id"):
+def get_customer_car_by_id(c_id, column_name="CustomerId"):
     return tf.get_asset_by_id(CustomerCar, c_id, column_name=column_name)
 
 
@@ -26,7 +26,7 @@ def add_customer_car(insert_dict):
     return tf.add_row(CustomerCar, insert_dict)
 
 
-def drop_customer_car(t_id, column_name="license_number"):
+def drop_customer_car(t_id, column_name="CustomerId"):
     tf.drop_row_by_id(CustomerCar, t_id, column_name=column_name)
 
 

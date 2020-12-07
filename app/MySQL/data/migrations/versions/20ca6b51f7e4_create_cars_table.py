@@ -21,12 +21,10 @@ depends_on = None
 def upgrade():
     op.create_table(
         'cars',
-        sa.Column('license_number', sa.String(45), primary_key=True, unique=True, autoincrement=False),
+        sa.Column('id', sa.Integer, primary_key=True, autoincrement=True),
         sa.Column('brand_name', sa.String(45), nullable=False),
         sa.Column('model_name', sa.String(100), nullable=False),
         sa.Column('prod_year', sa.Integer, nullable=False),
-        sa.Column('color', sa.String(45), nullable=False),
-        sa.Column('date', sa.DateTime, nullable=False)
     )
 
 

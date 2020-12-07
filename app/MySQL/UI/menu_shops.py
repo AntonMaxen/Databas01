@@ -1,6 +1,6 @@
-import MySQL.BL.shops_controller as sc
+import app.MySQL.BL.shops_controller as sc
 from app.MySQL.UI.menus import menu
-import MySQL.BL.utils as utils
+import app.MySQL.BL.utils as utils
 
 
 def f_input():
