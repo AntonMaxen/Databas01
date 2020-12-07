@@ -1,6 +1,7 @@
 from app.MySQL.UI.menus import menu
 import app.MySQL.BL.customer_car_controller as cc
 from app.MySQL.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
+from app.MySQL.BL.utils import refresh_row
 
 
 def get_all_customer_cars():
@@ -25,7 +26,7 @@ def get_customer_cars_by_columnvalue(column_name):
 
 
 def update_customer_car():
-    print("enter a license number: ")
+    print("id: ")
     c_id = f_input()
     customer_car = cc.get_customer_car_by_id(c_id)
 
@@ -42,27 +43,41 @@ def update_customer_car_column(column, customer_car):
     print_tablerow(customer_car)
 
 
-def combine_customer_car(customer_id, license_number):
-    cc.add_customer_car({
+def combine_customer_car(customer_id, car_id):
+    insert_dict = {
         "CustomerId": customer_id,
-        "LicenseNumber": license_number
-    })
+        "CarId": car_id
+    }
+    for column in cc.get_columns():
+        if column != "CustomerId" and column != "CarId":
+            insert_dict[column] = input(f'{column}: ')
+
+    divider()
+    customer_car = cc.add_customer_car(insert_dict)
+
+    if customer_car:
+        refresh_row(customer_car)
+        print_tablerow(customer_car)
 
 
 def add_customer_car():
     insert_dict = {}
     for column in cc.get_columns():
-        if column != "id":
-            insert_dict[column] = input(f'{column}: ')
+        insert_dict[column] = input(f'{column}: ')
     divider()
 
     customer_car = cc.add_customer_car(insert_dict)
 
+    if customer_car:
+        refresh_row(customer_car)
+        print_tablerow(customer_car)
+        divider()
 
-def drop_customer_car_by_license_number():
+
+def drop_customer_car_by_id():
     print("Enter a license number to delete customer_car")
     c_id = f_input()
-    cc.drop_customer_car_by_license_number(c_id)
+    cc.drop_customer_car_by_id(c_id)
 
 
 def customer_car_menu():
@@ -84,8 +99,8 @@ def customer_car_menu():
             "func": add_customer_car
         },
         "5": {
-            "info": "drop customer_car by license number",
-            "func": drop_customer_car_by_license_number
+            "info": "drop customer_car by id",
+            "func": drop_customer_car_by_id
         }
     })
 

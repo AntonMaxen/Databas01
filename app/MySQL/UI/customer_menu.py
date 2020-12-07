@@ -62,7 +62,7 @@ def update_customer_column(column, customer):
 def add_customer_car(customer):
     car = add_car()
     if car:
-        combine_customer_car(customer.id, car.license_number)
+        combine_customer_car(customer.id, car.id)
 
 
 def bind_add_customer_car(customer):

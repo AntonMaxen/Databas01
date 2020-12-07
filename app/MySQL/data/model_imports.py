@@ -11,7 +11,6 @@ from app.MySQL.data.models.shopStorages import ShopStorage
 from app.MySQL.data.models.contact_persons import ContactPerson
 from app.MySQL.data.models.associates import Associate
 from app.MySQL.data.models.products_has_associates import ProductAssociate
-from app.MySQL.data.models.car_models import CarModel
 from app.MySQL.data.models.compatibilitys import Compatibility
 from app.MySQL.data.models.internal_orders import InternalOrder
 from app.MySQL.data.models.products_has_internal_orders import ProductInternalOrder

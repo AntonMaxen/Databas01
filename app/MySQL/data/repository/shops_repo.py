@@ -1,5 +1,4 @@
 from app.MySQL.data.models.shops import Shop
-from app.MySQL.data.db import session
 import app.MySQL.data.repository.table_functions as tf
 
 

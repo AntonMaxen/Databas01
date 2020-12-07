@@ -21,7 +21,7 @@ def add_customer_car(insert_dict):
     return cr.add_customer_car(insert_dict)
 
 
-def drop_customer_car_by_license_number(t_id):
+def drop_customer_car_by_id(t_id):
     cr.drop_customer_car(t_id)
 
 

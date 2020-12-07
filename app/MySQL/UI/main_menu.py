@@ -8,7 +8,6 @@ from app.MySQL.UI.order_product_menu import order_product_menu
 from app.MySQL.UI.storage_menu import storage_menu
 from app.MySQL.UI.shop_storage_menu import shop_storage_menu
 from app.MySQL.UI.product_associate_menu import product_associate_menu
-from app.MySQL.UI.car_model_menu import car_model_menu
 from app.MySQL.UI.compatibilty_menu import compatibility_menu
 from app.MySQL.UI.internal_order_menu import internal_order_menu
 from app.MySQL.UI.product_internal_order_menu import product_internal_order_menu
@@ -58,26 +57,22 @@ main_menus = {
         "func": product_associate_menu
     },
     "11": {
-        "info": "car model menu",
-        "func": car_model_menu
-    },
-    "12": {
         "info": "compatibility menu",
         "func": compatibility_menu
     },
-    "13": {
+    "12": {
         "info": "internal order menu",
         "func": internal_order_menu
     },
-    "14": {
+    "13": {
         "info": "product internal order menu",
         "func": product_internal_order_menu
     },
-    "15": {
+    "14": {
         "info": "product",
         "func": product_menu
     },
-    '16': {
+    '15': {
         "info": "associates menu",
         "func": associate_menu
     }

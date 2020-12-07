@@ -34,7 +34,7 @@ def search_orders_menu():
 def get_orders_by_columnvalue(column_name):
     print(f"enter searchvalue for {column_name}")
     name = f_input()
-    orders = cc.get_orders_by_columnvalue(column_name, name)
+    orders = cc.get_orders_by_name(column_name, name)
     print_list_of_tablerows(orders)
     print_amount_matches(orders)
 
