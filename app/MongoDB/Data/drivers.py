@@ -57,9 +57,9 @@ def clean_employee_shop():
 
 
 def fix_car_models():
-
     car_models = session.query(Car).all()
     product_compatability = session.query(Compatibility).all()
+
     for car in car_models:
         car_dict = car.__dict__
         car_dict['brand_name'] = str(car_dict['brand_name'])
@@ -68,11 +68,42 @@ def fix_car_models():
         car_dict['compatability'] = []
         for pc in product_compatability:
             if car_dict['id'] == pc.ModelId:
-                car_dict['compatability'].append(pc.ProductId)
+                car_dict['compatibility'].append(pc.ProductId)
         del car_dict['_sa_instance_state']
         del car_dict['id']
         mongo_car_model = mm.CarModel(car_dict)
         mongo_car_model.save()
+
+
+def fix_associates():
+    associates = session.query(Associate).all()
+    contact_persson = session.query(ContactPerson).all()
+    for associate in associates:
+        associate_dict = associate.__dict__
+        associate_dict['name'] = str(associate_dict['name'])
+        associate_dict['phone'] = str(associate_dict['phone'])
+        associate_dict['email'] = str(associate_dict['email'])
+        associate_dict['phone'] = str(associate_dict['phone'])
+        associate_dict['associates_category'] = str(associate_dict["associates_category"])
+        associate_dict['address_line_one'] = str(associate_dict["address_line_one"])
+        associate_dict['address_line_two'] = str(associate_dict["address_line_two"])
+        associate_dict['zip_code'] = str(associate_dict["zip_code"])
+        associate_dict['city'] = str(associate_dict["city"])
+        associate_dict['country'] = str(associate_dict["country"])
+        for cp in contact_persson:
+            if associate_dict['contact_person_id'] == cp.id:
+                associate_dict['contact_person'] = {
+                    'first_name': cp.first_name,
+                    'last_name': cp.last_name,
+                    'email': cp.email,
+                    'phone': cp.phone
+                }
+        del associate_dict['id']
+        del associate_dict['contact_person_id']
+        del associate_dict['_sa_instance_state']
+
+        mongo_associate = mm.Associate(associate_dict)
+        mongo_associate.save()
 
 
 def fix_customers():
@@ -83,8 +114,11 @@ def fix_customers():
 
 
 def main():
+    fix_associates()
+    fix_customers()
     fix_customers()
     clean_employee_shop()
+
 
 if __name__ == "__main__":
     main()
