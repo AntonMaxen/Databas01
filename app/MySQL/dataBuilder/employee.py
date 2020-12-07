@@ -1,4 +1,6 @@
 import app.MySQL.dataBuilder.generator.generate as gen
+from app.MySQL.data.db import session
+from app.MySQL.data.model_imports import *
 import random
 
 class Employee:
@@ -8,7 +10,7 @@ class Employee:
         self.job_title = gen.get_random_from_file("job-titles.txt").title()
         self.email = gen.generate_email(self.first_name, self.last_name)
         self.reports_to = 1
-        self.shop_id = random.randint(1, 10)
+        self.shop_id = session.query(Shop).count()
 
     def __repr__(self):
         return (
