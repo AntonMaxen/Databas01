@@ -132,11 +132,9 @@ def fix_products():
         product_dict['description'] = str(product_dict['description'])
         product_dict['purchase_price'] = float(product_dict['purchase_price'])
         product_dict['retail_price'] = float(product_dict['retail_price'])
-
         product_dict['storage_info'] = []
         for ss in shop_storage:
             if product_dict['id'] == ss.ProductId:
-
                 for s in storage:
                     if s.id == ss.StorageId:
                         for mms in mm_shops:
@@ -163,8 +161,6 @@ def fix_products():
             if product_dict['id'] == po.ProductId: # ._id is resolved with associates_prod_list_fix()
                 product_dict['associate'].append(po.AssociateId)
         del product_dict['_sa_instance_state']
-
-        #print(product_dict)
         mongo_product = mm.Product(product_dict)
         mongo_product.save()
 
