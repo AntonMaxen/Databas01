@@ -139,8 +139,6 @@ def fix_products():
 
                 for s in storage:
                     if s.id == ss.StorageId:
-                        # print('Shoooops: ', mm_shops)
-                        # print('------------------')
                         for mms in mm_shops:
                             if ss.ShopId == mms.id:
                                 for pio in product_internal_order:
