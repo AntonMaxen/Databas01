@@ -130,10 +130,10 @@ def fix_orders():
         order_dict = order.__dict__
         order_dict['employee_id'] = mm.Employee.find(id=order.employee_id).first_or_none()._id
         del order_dict['_sa_instance_state']
-        order_dict['customer_info'] = []
+        order_dict['customer_info'] = {}
         for customer in customers:
             if order_dict['customer_id'] == customer.id:
-                order_dict['customer_info'].append({
+                order_dict['customer_info']=({
                     'customer_id': customer.id,
                     'first_name': customer.first_name,
                     'last_name': customer.last_name,
