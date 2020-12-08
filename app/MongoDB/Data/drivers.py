@@ -147,6 +147,9 @@ def fix_customers():
 def fix_orders():
     orders = session.query(Order).all()
     customers = session.query(Customer).all()
+    products = session.query(Product).all()
+    order_products = session.query(OrderProduct).all()
+    products_storage = session.query(ShopStorage).all()
 
     for order in orders:
         order_dict = order.__dict__
@@ -162,6 +165,8 @@ def fix_orders():
                     'address': customer.address_line_one,
                     'phone': customer.phone
                 })
+            elif customer.id is None:
+                return
 
         del order_dict['id']
         del order_dict['customer_id']
