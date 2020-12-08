@@ -39,9 +39,11 @@ def fix_shop():
         mongo_shop.save()
 
 
-def clean_employee_shop():
+def clean_mongo_models():
     fix_employees()
     fix_shop()
+    fix_orders()
+    orders = mm.Order.all()
     shops = mm.Shop.all()
     employees = mm.Employee.all()
 
@@ -50,10 +52,17 @@ def clean_employee_shop():
             if employee.shop_id == shop.id:
                 employee.shop_id = shop._id
                 employee.save()
+    for order in orders:
+        for shop in shops:
+            if order.shop_id == shop.id:
+                order.shop_id = shop._id
+                order.save()
     for shop in shops:
         shop.delete_field('id')
     for employee in employees:
         employee.delete_field('id')
+    for order in orders:
+        order.delete_field('id')
 
 
 def fix_car_models():
@@ -136,10 +145,36 @@ def fix_customers():
 
 
 
+def fix_orders():
+    orders = session.query(Order).all()
+    customers = session.query(Customer).all()
+
+    for order in orders:
+        order_dict = order.__dict__
+        order_dict['employee_id'] = mm.Employee.find(id=order.employee_id).first_or_none()._id
+        del order_dict['_sa_instance_state']
+        order_dict['customer_info'] = []
+        for customer in customers:
+            if order_dict['customer_id'] == customer.id:
+                order_dict['customer_info'].append({
+                    'customer_id': customer.id,
+                    'first_name': customer.first_name,
+                    'last_name': customer.last_name,
+                    'address': customer.address_line_one,
+                    'phone': customer.phone
+                })
+
+        del order_dict['customer_id']
+        del order_dict['id']
+
+        mongo_orders = mm.Order(order_dict)
+        mongo_orders.save()
+
+
 def main():
     fix_associates()
     fix_customers()
-    clean_employee_shop()
+    clean_mongo_models()
 
 
 if __name__ == "__main__":
