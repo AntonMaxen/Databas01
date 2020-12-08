@@ -59,8 +59,7 @@ def populate_db_random(model, data_classes, amount=1):
     for _ in range(amount):
         generated_data = random.choice(data_classes)()
         populate_db(model, generated_data.__dict__)
-
-    commit_db()
+        commit_db()
 
 
 def connecting_table(model, generated_data, amount):

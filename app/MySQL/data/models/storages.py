@@ -14,5 +14,5 @@ class Storage(Base):
 
     def __repr__(self):
         return f'Storage(id={self.id}, product_amount={self.product_amount}, min_amount={self.min_amount},' \
-               f'reorder_amount={self.reorder_amount}, shop_id={self.shop_id}, shop={self.shop},' \
+               f'reorder_amount={self.reorder_amount},' \
                f'shop_has_storages={self.shops_has_storages})'
