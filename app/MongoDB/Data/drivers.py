@@ -156,8 +156,9 @@ def fix_orders():
         order_dict['employee_id'] = mm.Employee.find(id=order.employee_id).first_or_none()._id
         del order_dict['_sa_instance_state']
         c = mm.Customer.find(id=order.customer_id).first_or_none()
-        if c:
+        if c is not None:
             customer_id = c._id
+
             for customer in customers:
                 if order_dict['customer_id'] == customer.id:
                     order_dict['customer_info'] = ({
