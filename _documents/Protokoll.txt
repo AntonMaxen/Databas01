@@ -203,3 +203,24 @@ Mötehållare: Marcus
   * Bestämma nästa möte och nästa Ordförande
     Måns
     2020-11-27 09:00
+    
+2020-12-08
+Närvarande: Anton Maxén, Måns Ewards Öberg, Marcus Johnsson
+Mötehållare: Anton
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - Blir klara, få ihop mongodb med UI lager, Skapa repo, fixes beroende av tid.
+  * Gå igenom aktuella plockade kort
+    - Måns är nästan klar med mongo orders fix, Marcus sitter med products och kommer bli färdig inom närmsta timman. Anton Sitter med Customer mongo och
+    siktar på att blir färdig inom närmsta timman
+  * Granska PR
+    - PR har mergats löpande inga nya pr för stunden.
+  * Plocka kort
+    - Alla har något dom kan pilla med inga nya kort.
+  * Övriga kommentarer
+    - Vi upptäckte att vi inte har använt oss av alla sqlAlchemys funktioner som hade kunnat förenklat vårat arbete avsevärt.
+  * Bestämma nästa möte och nästa Ordförande
+    - Måns
+    2020-12-10 09:00
