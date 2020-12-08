@@ -13,5 +13,5 @@ class OrderProduct(Base):
     orders = relationship('Order', back_populates='orders_has_products')
 
     def __repr__(self):
-        return f'OrderProduct(OrderId={self.OrderIdId} ProductId={self.ProductId}' \
+        return f'OrderProduct(OrderId={self.OrderId} ProductId={self.ProductId}' \
                f'Amount={self.Amount})'
