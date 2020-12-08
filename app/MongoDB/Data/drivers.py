@@ -144,28 +144,33 @@ def fix_customers():
         mm.Customer(mongo_customer).save()
 
 
-
 def fix_orders():
     orders = session.query(Order).all()
     customers = session.query(Customer).all()
+    products = session.query(Product).all()
+    order_products = session.query(OrderProduct).all()
+    products_storage = session.query(ShopStorage).all()
 
     for order in orders:
         order_dict = order.__dict__
         order_dict['employee_id'] = mm.Employee.find(id=order.employee_id).first_or_none()._id
         del order_dict['_sa_instance_state']
-        order_dict['customer_info'] = []
-        for customer in customers:
-            if order_dict['customer_id'] == customer.id:
-                order_dict['customer_info'].append({
-                    'customer_id': customer.id,
-                    'first_name': customer.first_name,
-                    'last_name': customer.last_name,
-                    'address': customer.address_line_one,
-                    'phone': customer.phone
-                })
+        c = mm.Customer.find(id=order.customer_id).first_or_none()
+        if c is not None:
+            customer_id = c._id
 
-        del order_dict['customer_id']
+            for customer in customers:
+                if order_dict['customer_id'] == customer.id:
+                    order_dict['customer_info'] = ({
+                        'customer_id': customer_id,
+                        'first_name': customer.first_name,
+                        'last_name': customer.last_name,
+                        'address': customer.address_line_one,
+                        'phone': customer.phone
+                    })
+
         del order_dict['id']
+        del order_dict['customer_id']
 
         mongo_orders = mm.Order(order_dict)
         mongo_orders.save()
