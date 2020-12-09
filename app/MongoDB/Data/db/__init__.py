@@ -33,13 +33,25 @@ class Document(dict, ABC):
             return self.collection.update({'_id': self._id}, self.__dict__)
 
     def delete_field(self, field):
-        self.collection.update({'_id': self._id}, {"$unset": {field: ""}})
+        return self.collection.update({'_id': self._id}, {"$unset": {field: ""}})
+
+    def update_field(self, field, value):
+        return self.collection.update_one({'_id': self._id}, {"$set": {field: value}})
 
 
     @classmethod
     def insert_many(cls, items):
+        cl_objects = []
         for item in items:
-            cls(item).save()
+            cl_objects.append(cls.insert_one(item))
+
+        return cl_objects
+
+    @classmethod
+    def insert_one(cls, item):
+        cl_object = cls(item)
+        cl_object.save()
+        return cl_object
 
     @classmethod
     def all(cls):
@@ -50,8 +62,12 @@ class Document(dict, ABC):
         return ResultList(cls(item) for item in cls.collection.find(kwargs))
 
     @classmethod
-    def delete(cls, **kwargs):
-        cls.collection.delete_many(kwargs)
+    def delete_many(cls, **kwargs):
+        return cls.collection.delete_many(kwargs)
+
+    @classmethod
+    def delete_one(cls, **kwargs):
+        return cls.collection.delete_one(kwargs)
 
 
 

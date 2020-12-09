@@ -120,7 +120,6 @@ def fix_associates():
 
 
 def fix_customers():
-    fix_car_models()
     customers = session.query(Customer).all()
     customer_cars = session.query(CustomerCar).all()
     for customer in customers:
@@ -141,8 +140,8 @@ def fix_customers():
         )
 
         mongo_customer['cars'] = [dict(car_id=car._id, license_number=c.license_number, color=c.color)
-                            for car in mm.Car.all() for c in customer_cars
-                            if c.CustomerId == customer.id and car.id == c.CarId]
+                                  for car in mm.Car.all() for c in customer_cars
+                                  if c.CustomerId == customer.id and car.id == c.CarId]
 
         mongo_customer['orders'] = []
 
@@ -249,8 +248,9 @@ def associates_prod_list_fix():
 def main():
     associates_prod_list_fix()
     fix_associates()
+    fix_car_models()
     fix_customers()
-    clean_mongo_models()
+    #clean_mongo_models()
 
 
 if __name__ == "__main__":
