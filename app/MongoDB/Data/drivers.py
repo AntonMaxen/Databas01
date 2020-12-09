@@ -184,7 +184,7 @@ def fix_orders():
                             'bought in shop': order_dict['shop_id']
                         })
 
-        del order_dict['id']
+        #del order_dict['id']
         del order_dict['customer_id']
 
         mongo_orders = mm.Order(order_dict)
@@ -200,6 +200,7 @@ def fix_products():
     internal_order = session.query(InternalOrder).all()
     product_internal_order = session.query(ProductInternalOrder).all()
     mm_shops = mm.Shop.all()
+    mm_orders = mm.Order.all()
     mm_associates = mm.Associate.all()
     for product in products:
         product_dict = product.__dict__
@@ -230,11 +231,15 @@ def fix_products():
         product_dict['orders'] = []
         for op in order_product:
             if product_dict['id'] == op.ProductId: # add mongo._id
-                product_dict['orders'].append(op.ProductId)
+                for mmo in mm_orders:
+                    if mmo.id == op.ProductId:
+                        product_dict['orders'].append(mmo._id)
         product_dict['associate'] = []
         for po in product_associate:
-            if product_dict['id'] == po.ProductId: # ._id is resolved with associates_prod_list_fix()
-                product_dict['associate'].append(po.AssociateId)
+            if product_dict['id'] == po.ProductId:
+                for mma in mm_associates:
+                    if mma.id == po.AssociateId:
+                        product_dict['associate'].append(mma._id)
         del product_dict['_sa_instance_state']
         mongo_product = mm.Product(product_dict)
         mongo_product.save()
@@ -250,7 +255,7 @@ def associates_prod_list_fix():
                 print(msa.products, ' = ', mmp.id, ' => ', mmp._id)
                 msa.products = [mmp._id]
                 msa.save()
-            if mmp.associate[0] == msa.id:
+            if mmp.associate == msa.id:
                 print(mmp.associate, ' = ', msa.id, ' => ', msa._id)
                 mmp.associate = [msa._id]
                 mmp.save()
