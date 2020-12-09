@@ -172,6 +172,17 @@ def fix_orders():
                         'address': customer.address_line_one,
                         'phone': customer.phone
                     })
+        order_dict['products'] = []
+        for op in order_products:
+            if order_dict['id'] == op.OrderId:
+                for product in products:
+                    if product.id == op.ProductId:
+                        order_dict['products'].append({
+                            'product_id': product.id,
+                            'product_name': product.product_name,
+                            'retail_price': product.retail_price,
+                            'bought in shop': order_dict['shop_id']
+                        })
 
         del order_dict['id']
         del order_dict['customer_id']
@@ -257,7 +268,8 @@ def delete_documents():
 
 
 def main():
-    delete_documents()
+    #delete_documents()
+    fix_orders()
 
 
 if __name__ == "__main__":
