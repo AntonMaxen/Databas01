@@ -1,6 +1,6 @@
-from app.MySQL.UI.menus import menu
-import app.MySQL.BL.car_controller as cc
-from app.MySQL.UI.ui_functions import print_list_of_tablerows, print_amount_matches, f_input, print_tablerow, divider
+from app.MongoDB.UI.menus import menu
+import app.MongoDB.BL.car_controller as cc
+from app.MongoDB.UI.ui_functions import print_list_of_tablerows, print_amount_matches, f_input, print_tablerow, divider
 
 
 def get_all_cars():
@@ -55,7 +55,7 @@ def update_car_column(column, car):
 def add_car():
     insert_dict = {}
     for column in cc.get_columns():
-        if column != "id":
+        if column != "_id":
             insert_dict[column] = input(f'{column}: ')
 
     car = cc.add_car(insert_dict)
@@ -98,7 +98,3 @@ def car_menu():
             "func": drop_car_by_id
         }
     })
-
-
-if __name__ == "__main__":
-    car_menu()

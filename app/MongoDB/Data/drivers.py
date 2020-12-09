@@ -275,13 +275,12 @@ def main():
     delete_documents()
     fix_employees()
     fix_shop()
-    fix_associates()
     fix_orders()
     fix_products()
+    fix_associates()
     fix_car_models()
     fix_customers()
     associates_prod_list_fix()
-    fix_orders()
 
 
 if __name__ == "__main__":
