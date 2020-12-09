@@ -7,7 +7,8 @@ def get_all_assets(mongo_object):
 
 
 def get_asset_by_id(mongo_object, object_id):
-    return mongo_object.find(_id=ObjectId(object_id)).first_or_none()
+    if ObjectId.is_valid(object_id):
+        return mongo_object.find(_id=ObjectId(object_id)).first_or_none()
 
 
 def get_assets_by_columnvalue(mongo_object, column_name, value):
@@ -28,7 +29,11 @@ def get_assets_by_columnvalue(mongo_object, column_name, value):
 
 
 def get_columns(mongo_object):
-    return [key for key in mongo_object.find().first_or_none().__dict__]
+    dummy_request = mongo_object.find().first_or_none()
+    if dummy_request is not None:
+        return [key for key in dummy_request.__dict__]
+    else:
+        return []
 
 
 def update_asset_by_column(mongo_object, column_name, value):
