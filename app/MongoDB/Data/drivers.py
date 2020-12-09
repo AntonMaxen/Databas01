@@ -245,12 +245,19 @@ def associates_prod_list_fix():
                 mmp.save()
 
 
+def delete_documents():
+        documents = [mm.Customer, mm.Shop, mm.Employee, mm.Order, mm.Car, mm.CustomerCar,
+                     mm.Product, mm.OrderProduct, mm.Storage, mm.ShopStorage, mm.ContactPerson,
+                     mm.Associate, mm.ProductAssociate, mm.Compatibility,
+                     mm.InternalOrder, mm.ProductInternalOrder]
+        for document in documents:
+            delete_obj = document.collection.delete_many({})
+            print(f'Deleted {delete_obj.deleted_count}')
+
+
+
 def main():
-    associates_prod_list_fix()
-    fix_associates()
-    fix_car_models()
-    fix_customers()
-    #clean_mongo_models()
+    delete_documents()
 
 
 if __name__ == "__main__":
