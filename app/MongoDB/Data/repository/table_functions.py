@@ -1,5 +1,6 @@
 from app.MongoDB.Data.mongo_models import *
 from bson.objectid import ObjectId
+from app.MongoDB.Data.db import db
 
 
 def get_all_assets(mongo_object):
@@ -32,8 +33,8 @@ def get_columns(mongo_object):
 
 
 def update_asset_by_column(mongo_object, column_name, value):
-    if column_name in mongo_object:
-        mongo_object[column_name] = value
+    if column_name in mongo_object.__dict__:
+        setattr(mongo_object, column_name, value)
     mongo_object.save()
     return mongo_object
 
