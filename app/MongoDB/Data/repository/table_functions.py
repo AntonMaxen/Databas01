@@ -21,6 +21,9 @@ def get_assets_by_columnvalue(mongo_object, column_name, value):
     elif isinstance(data_type, dict):
         return []
     else:
+        if ObjectId.is_valid(value):
+            value = ObjectId(value)
+
         return mongo_object.find(**{
             column_name: {
                 "$regex": value
@@ -37,8 +40,8 @@ def get_columns(mongo_object):
 
 
 def update_asset_by_column(mongo_object, column_name, value):
-    if column_name in mongo_object:
-        mongo_object[column_name] = value
+    if column_name in mongo_object.__dict__:
+        setattr(mongo_object, column_name, value)
     mongo_object.save()
     return mongo_object
 
@@ -48,7 +51,8 @@ def add_row(mongo_object, insert_dict):
 
 
 def drop_row_by_id(mongo_object, object_id):
-    return mongo_object.delete_one(_id=ObjectId(object_id))
+    if ObjectId.is_valid(object_id):
+        return mongo_object.delete_one(_id=ObjectId(object_id))
 
 
 def refresh_row(mongo_object):
@@ -56,4 +60,7 @@ def refresh_row(mongo_object):
 
 
 if __name__ == "__main__":
-    print(get_columns(Customer))
+    asset = get_all_assets(Customer)[0]
+    update_asset_by_column(asset, "id", 2)
+    print(asset)
+

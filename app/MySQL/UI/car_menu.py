@@ -98,3 +98,7 @@ def car_menu():
             "func": drop_car_by_id
         }
     })
+
+
+if __name__ == "__main__":
+    car_menu()

@@ -1,7 +1,7 @@
 from app.MongoDB.UI.menus import menu
 import app.MongoDB.BL.customer_controller as cc
-#from app.MongoDB.UI.car_menu import add_car
-#from app.MongoDB.UI.customer_car_menu import combine_customer_car
+import app.MongoDB.BL.car_controller as car_controller
+from app.MongoDB.BL.utils import modelobj_to_dict
 from app.MongoDB.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
@@ -59,32 +59,55 @@ def update_customer_column(column, customer):
     print_tablerow(customer)
 
 
-def add_customer_car(customer):
-    car = add_car()
-    if car:
-        combine_customer_car(customer.id, car.id)
+def choose_cars():
+    cars = []
+    c_options = car_controller.get_all_cars()
+    running = True
+    while running:
+        option_dict = {}
+        for i, c_option in enumerate(c_options):
+            option_dict[str(i)] = c_option._id
+            formatted_info = " ".join([f'[{k}={v}]' for k, v in c_option.__dict__.items() if k != "_id" and k != "id"])
+            print(f'{i}: {formatted_info}')
 
+        print(f"Currently added cars: [{', '.join([str(car['car_id']) for car in cars])}]")
+        w_input = input("> ")
+        car_id = option_dict.get(w_input, None)
+        if car_id is None:
+            running = False
+        else:
+            car_object = {"car_id": car_id}
+            car_object['license_number'] = input("license_number: ")
+            car_object['color'] = input("color: ")
+            cars.append(car_object)
+            print(f"car: {car_object} is added to you")
 
-def bind_add_customer_car(customer):
-    return lambda: add_customer_car(customer)
+    return cars
 
 
 def add_customer():
     insert_dict = {}
     for column in cc.get_columns():
-        if column != "id":
-            insert_dict[column] = input(f'{column}: ')
+        if column != "_id" and column != "id":
+            if column == "cars":
+                value = choose_cars()
+            elif column == "address_info":
+                value = {}
+                value["address_line_one"] = input('address_line_one: ')
+                value["address_line_two"] = input('address_line_two: ')
+                value["zip_code"] = input('zip_code: ')
+                value["country"] = input('country: ')
+            elif column == "orders":
+                value = []
+            else:
+                value = input(f'{column}: ')
+
+            insert_dict[column] = value
     divider()
 
     customer = cc.add_customer(insert_dict)
-    if customer:
+    if customer is not None:
         print_tablerow(customer)
-        menu({
-            "1": {
-                "info": "add car",
-                "func": bind_add_customer_car(customer)
-            }
-        })
 
 
 def drop_customer_by_id():

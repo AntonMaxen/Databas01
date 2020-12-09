@@ -258,6 +258,14 @@ def delete_documents():
 
 def main():
     delete_documents()
+    fix_employees()
+    fix_shop()
+    fix_orders()
+    fix_products()
+    fix_associates()
+    fix_car_models()
+    fix_customers()
+    associates_prod_list_fix()
 
 
 if __name__ == "__main__":

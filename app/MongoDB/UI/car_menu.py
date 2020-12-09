@@ -55,7 +55,7 @@ def update_car_column(column, car):
 def add_car():
     insert_dict = {}
     for column in cc.get_columns():
-        if column != "id":
+        if column != "_id":
             insert_dict[column] = input(f'{column}: ')
 
     car = cc.add_car(insert_dict)
