@@ -22,7 +22,7 @@ def upgrade():
         "shops_has_storages",
         sa.Column("ShopId", sa.Integer, sa.ForeignKey("shops.id"), primary_key=True),
         sa.Column("StorageId", sa.Integer, sa.ForeignKey("storages.id"), primary_key=True),
-        sa.Column("ProductId", sa.Integer, sa.ForeignKey("products.id"))
+        sa.Column("ProductId", sa.Integer, sa.ForeignKey("products.id"), primary_key=True)
     )
 
 
