@@ -8,7 +8,7 @@ class ShopStorage(Base):
 
     ShopId = sa.Column(sa.Integer, sa.ForeignKey('shops.id'), primary_key=True)
     StorageId = sa.Column(sa.Integer, sa.ForeignKey('storages.id'), primary_key=True)
-    ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'))
+    ProductId = sa.Column(sa.Integer, sa.ForeignKey('products.id'), primary_key=True)
 
     shops = relationship('Shop', back_populates='shops_has_storages')
     storages = relationship('Storage', back_populates='shops_has_storages')
