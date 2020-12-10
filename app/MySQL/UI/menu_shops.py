@@ -34,6 +34,8 @@ def show_shop_by_id():
     shop_id = f_input()
     shop = sc.show_shop_by_id(shop_id)
     print_dict(utils.modelobj_to_dict(shop))
+    employees = sc.employees_in_shop(shop_id)
+    print(f'Employees: {employees}')
     divider()
 
 

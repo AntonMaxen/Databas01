@@ -33,5 +33,9 @@ def get_columns():
     return sr.get_columns()
 
 
+def employees_in_shop(s_id):
+    return sr.employees_in_shop(s_id)
+
+
 if __name__ == '__main__':
     show_all_shops()
