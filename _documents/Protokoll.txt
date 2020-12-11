@@ -224,3 +224,25 @@ Mötehållare: Anton
   * Bestämma nästa möte och nästa Ordförande
     - Måns
     2020-12-10 09:00
+
+
+----
+
+2020-12-11
+Närvarande: Anton Maxén, Måns Ewards Öberg, Marcus Johnsson
+Mötehållare: Anton
+
+ * Fyll i datum och ordförande, närvarande på mötet
+    - Check
+  * Uppdatera kort med nya idéer (ifall dom finns).
+    - Inga nya kort
+  * Gå igenom aktuella plockade kort
+    - Alla fortsätter med tidigare plockade kort. Avslutar dessa för inlämning.
+  * Granska PR
+    - Alla PR mergade.
+  * Plocka kort
+    - Vi har alla kort att arbeta med. Sista sprint.
+  * Övriga kommentarer
+    - Superroligt att arbeta tillsammans! / Alla....
+  * Bestämma nästa möte och nästa Ordförande
+    - no more!
