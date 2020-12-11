@@ -1,5 +1,8 @@
 from app.MySQL.data.models.shops import Shop
+from app.MySQL.data.models.employees import Employee
 import app.MySQL.data.repository.table_functions as tf
+from app.MySQL.data.db import session
+import re
 
 
 def show_all_shops():
@@ -30,5 +33,14 @@ def get_columns():
     return tf.get_columns(Shop)
 
 
+def employees_in_shop(s_id):
+
+    employees = session.query(Employee.first_name, Employee.last_name). \
+        join(Shop, Shop.id == Employee.shop_id). \
+        filter(Employee.shop_id == s_id). \
+        all()
+
+    return((str(employees).strip("[]''").replace(',', ''). replace("'", "")))
+
 if __name__ == '__main__':
-    show_all_shops()
+    get_columns()
