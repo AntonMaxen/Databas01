@@ -1,28 +1,12 @@
 from app.MongoDB.UI.menus import menu
 import app.MongoDB.BL.product_controller as pc
 import app.MongoDB.BL.associate_controller as ac
-import app.MongoDB.BL.shop_controller as sc
 from app.MongoDB.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
-
-
-def product_format(product):
-    ''' Compiles product with data from ._id in nested docs; ie shops, associates'''
-    print(f'ID: {product._id}')
-    print(f'Name: {product.product_name}')
-    print(f'Purchase Price: {product.purchase_price}')
-    print(f'Retail Price: {product.retail_price}')
-    for si in product.storage_info:
-        shop = sc.get_shop_by_id(si['shop_id'])
-        print(f'StorageInfo: {shop._id} | Store: {shop.address_line_one} @ {shop.city} | Stock: {si["product_amount"]}')
-    associate = ac.get_associate_by_id(product.associate[0])
-    print(f'Associate: {product.associate[0]} | {associate.name} | Role: {associate.associates_category} | Email: {associate.email}')
-    divider()
 
 
 def get_all_products():
     products = pc.get_all_products()
-    for p in products:
-        product_format(p)
+    print_list_of_tablerows(products)
     print_amount_matches(products)
 
 
@@ -30,7 +14,7 @@ def get_product_by_id():
     print("Enter a Product Id")
     p_id = f_input()
     product = pc.get_product_by_id(p_id)
-    product_format(product)
+    print_tablerow(product)
     divider()
 
 
@@ -38,9 +22,7 @@ def get_product_by_name():
     print("Enter a Product Name")
     p_name = f_input()
     products = pc.get_products_by_name(p_name)
-    for p in products:
-        product_format(p)
-    print_amount_matches(products)
+    print_list_of_tablerows(products)
 
 
 def search_products_menu():
@@ -54,8 +36,7 @@ def get_products_by_columnvalue(column_name):
     print(f"enter searchvalue for {column_name}")
     name = f_input()
     products = pc.get_products_by_columnvalue(column_name, name)
-    for p in products:
-        product_format(p)
+    print_list_of_tablerows(products)
     print_amount_matches(products)
 
 
@@ -63,6 +44,7 @@ def update_product():
     print("enter a product id: ")
     p_id = f_input()
     product = pc.get_product_by_id(p_id)
+    print(product)
 
     def inner(column, product):
         return lambda: update_product_column(column, product)

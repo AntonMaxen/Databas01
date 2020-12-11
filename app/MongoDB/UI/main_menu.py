@@ -1,5 +1,6 @@
 from app.MongoDB.UI.customer_menu import customer_menu
 from app.MongoDB.UI.employee_menu import employee_menu
+from app.MongoDB.UI.products_menu import product_menu
 from app.MongoDB.UI.shop_menu import shop_menu
 from app.MongoDB.UI.car_menu import car_menu
 from app.MongoDB.UI.order_menu import order_menu
@@ -25,6 +26,10 @@ main_menus = {
     "5": {
         "info": "orders menu",
         "func": order_menu
+    },
+    "6": {
+        "info": "products menu",
+        "func": product_menu
     }
 }
 
