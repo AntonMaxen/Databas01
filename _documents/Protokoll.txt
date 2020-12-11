@@ -225,8 +225,26 @@ Mötehållare: Anton
     - Måns
     2020-12-10 09:00
 
+2020-12-10
+Närvarande: Måns Ewards Öberg, Anton Maxén, Marcus Johnsson
+Mötehållare: Måns
 
-----
+ * Fyll i datum och ordförande, närvarande på mötet
+    - alla är närvarande, check.
+  * Uppdatera kort med nya idéer (ifall dom finns).
+   - Slutspurt, inga nya kort
+  * Gå igenom aktuella plockade kort
+    - Forsätter med kort
+  * Granska PR
+    -
+  * Plocka kort
+    -
+  * Övriga kommentarer
+    -Vi har under förmiddagen förberett för tentan
+  * Bestämma nästa möte och nästa Ordförande
+    - Marcus, avslutande möte
+    2020-12-11 09:00
+    
 
 2020-12-11
 Närvarande: Anton Maxén, Måns Ewards Öberg, Marcus Johnsson
@@ -246,3 +264,4 @@ Mötehållare: Anton
     - Superroligt att arbeta tillsammans! / Alla....
   * Bestämma nästa möte och nästa Ordförande
     - no more!
+
