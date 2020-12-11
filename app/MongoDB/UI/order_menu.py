@@ -67,7 +67,6 @@ def add_order():
                     dict_values = {
                         "product_name": input('product_name: '),
                         "retail_price": int(input('retail_price: ')),
-                        "storage_location": input('storage_location: '),
                     }
                     value.append(dict_values)
                     print('Do you want to add more products?\n'
