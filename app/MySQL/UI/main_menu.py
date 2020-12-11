@@ -29,52 +29,52 @@ main_menus = {
         "func": car_menu
     },
     "4": {
-        "info": "customer car menu",
-        "func": customer_car_menu
-    },
-    "5": {
         "info": "employee menu",
         "func": employee_menu
     },
-    "6": {
+    "5": {
         "info": "order menu",
         "func": order_menu
     },
-    "7": {
-        "info": "order has products menu",
-        "func": order_product_menu
-    },
-    "8": {
+    "6": {
         "info": "storage menu",
         "func": storage_menu
     },
-    "9": {
-        "info": "shop storage menu",
-        "func": shop_storage_menu
-    },
-    "10": {
-        "info": "product associates menu",
-        "func": product_associate_menu
-    },
-    "11": {
-        "info": "compatibility menu",
-        "func": compatibility_menu
-    },
-    "12": {
+    "7": {
         "info": "internal order menu",
         "func": internal_order_menu
     },
-    "13": {
-        "info": "product internal order menu",
-        "func": product_internal_order_menu
-    },
-    "14": {
+    "8": {
         "info": "product",
         "func": product_menu
     },
-    '15': {
+    '9': {
         "info": "associates menu",
         "func": associate_menu
+    },
+    "10": {
+            "info": "customer car menu",
+            "func": customer_car_menu
+    },
+    "11": {
+        "info": "product internal order menu",
+        "func": product_internal_order_menu
+    },
+    "12": {
+        "info": "compatibility menu",
+        "func": compatibility_menu
+    },
+    "13": {
+        "info": "product associates menu",
+        "func": product_associate_menu
+    },
+    "14": {
+            "info": "order has products menu",
+            "func": order_product_menu
+    },
+    "15": {
+        "info": "shop storage menu",
+        "func": shop_storage_menu
     }
 }
 

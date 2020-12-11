@@ -41,10 +41,19 @@ def get_columns(mongo_object):
 
 
 def update_asset_by_column(mongo_object, column_name, value):
+    result = mongo_object.find().first_or_none()
+    data_type = getattr(result, column_name, None)
     if column_name in mongo_object.__dict__:
-        setattr(mongo_object, column_name, value)
-    mongo_object.save()
-    return mongo_object
+        if isinstance(data_type, list):
+            my_list = getattr(mongo_object, column_name, None)
+
+            if my_list is not None:
+                my_list.append(value)
+        else:
+            setattr(mongo_object, column_name, value)
+
+        mongo_object.save()
+        return mongo_object
 
 
 def add_row(mongo_object, insert_dict):
@@ -62,6 +71,6 @@ def refresh_row(mongo_object):
 
 if __name__ == "__main__":
     asset = get_all_assets(Customer)[0]
-    update_asset_by_column(asset, "id", 2)
+    update_asset_by_column(asset, "orders", 3)
     print(asset)
 
