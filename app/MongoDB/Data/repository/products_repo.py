@@ -26,6 +26,10 @@ def get_columns():
     return tf.get_columns(Product)
 
 
+def add_product(insert_dict):
+    return tf.add_row(Product, insert_dict)
+
+
 def main():
     print(get_columns())
 

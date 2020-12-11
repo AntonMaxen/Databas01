@@ -6,6 +6,7 @@ from app.MongoDB.UI.ui_functions import f_input, print_amount_matches, divider, 
 
 
 def product_format(product):
+    ''' Compiles product with data from ._id in nested docs; ie shops, associates'''
     print(f'ID: {product._id}')
     print(f'Name: {product.product_name}')
     print(f'Purchase Price: {product.purchase_price}')
@@ -14,16 +15,17 @@ def product_format(product):
         shop = sc.get_shop_by_id(si['shop_id'])
         print(f'StorageInfo: {shop._id} | Store: {shop.address_line_one} @ {shop.city} | Stock: {si["product_amount"]}')
     associate = ac.get_associate_by_id(product.associate[0])
-    print(f'Associate: {product.associate[0]} | {associate.name} | Role: {associate.associates_category} | email {associate.associates_category}')
+    print(f'Associate: {product.associate[0]} | {associate.name} | Role: {associate.associates_category} | Email: {associate.email}')
     divider()
-    
+
+
 def get_all_products():
     products = pc.get_all_products()
     for p in products:
         product_format(p)
     print_amount_matches(products)
 
-#  5fd0bc15323105f9caf8de2a
+
 def get_product_by_id():
     print("Enter a Product Id")
     p_id = f_input()
@@ -36,7 +38,8 @@ def get_product_by_name():
     print("Enter a Product Name")
     p_name = f_input()
     products = pc.get_products_by_name(p_name)
-    print_list_of_tablerows(products)
+    for p in products:
+        product_format(p)
     print_amount_matches(products)
 
 
@@ -51,7 +54,8 @@ def get_products_by_columnvalue(column_name):
     print(f"enter searchvalue for {column_name}")
     name = f_input()
     products = pc.get_products_by_columnvalue(column_name, name)
-    print_list_of_tablerows(products)
+    for p in products:
+        product_format(p)
     print_amount_matches(products)
 
 
@@ -73,6 +77,34 @@ def update_product_column(column, product):
     print_tablerow(product)
 
 
+def choose_associate():
+    associates = []
+    opts = ac.get_all_associates()
+    running = True
+    while running:
+        option_dict = {}
+        for i, opts in enumerate(opts):
+            option_dict[str(i)] = opts._id
+            formatted_info = " ".join([f'[{k}={v}]' for k, v in opts.__dict__.items() if k != "_id" and k != "id"])
+            print(f'{i}: {formatted_info}')
+
+        print(f"Currently added associates: [{', '.join([str(associate['associate_id']) for associate in associates])}]")
+        w_input = input("> ")
+        associate_id = option_dict.get(w_input, None)
+        if associate_id is None:
+            running = False
+        else:
+            ass_object = {"associate_id": associate_id}
+            associates.append(ass_object)
+            print(f"Associate: {ass_object} linked to product")
+
+    return associates
+
+
+def choose_shop():
+    return '123456789' # same as choose associates...
+
+
 def add_product():
     insert_dict = {}
     for column in pc.get_columns():
@@ -80,7 +112,26 @@ def add_product():
             # hook up associates
             # hook up storage info
             # empty orders []
-            input(f'{column}: ')
+            if column == 'associate':
+                value = choose_associate()
+            elif column == 'storage_info':
+                value = {}
+                value["shop_id"] = choose_shop()
+                value["product_amount"] = input('product amount: ')
+                value["min_amount"] = input('minimum amount: ')
+                value["reorder_amount"] = input('re-order amount: ')
+                value["internal_order"] = []
+            elif column == 'orders':
+                value = []
+            else:
+                value = input(f'{column}: ')
+
+            insert_dict[column] = value
+    divider()
+    
+    product = pc.add_product(insert_dict)
+    if product is not None:
+        print_tablerow(product)
 
 
 def delete_product_by_id():

@@ -29,6 +29,10 @@ def get_columns():
     return pr.get_columns()
 
 
+def add_product(insert_dict):
+    return pr.add_product(insert_dict)
+
+
 def main():
     print(get_columns())
 
