@@ -176,7 +176,6 @@ def fix_orders():
                         order_dict['products'].append({
                             'product_name': product.product_name,
                             'retail_price': product.retail_price,
-                            'bought in shop': order_dict['shop_id']
                         })
         #del order_dict['id']
         del order_dict['customer_id']
