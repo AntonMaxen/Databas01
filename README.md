@@ -9,7 +9,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
+* [Made by](#made-by)
 <!--te-->
 
 ## Background ##
