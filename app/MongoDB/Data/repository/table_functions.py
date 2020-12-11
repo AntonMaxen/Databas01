@@ -1,5 +1,6 @@
 from app.MongoDB.Data.mongo_models import *
 from bson.objectid import ObjectId
+from app.MongoDB.Data.db import db
 
 
 def get_all_assets(mongo_object):
