@@ -33,6 +33,8 @@ Follow the [installation](#installation) to get started
 ### Prerequisites
 
 * Python 3+
+* Docker
+* Docker-compose
 
 ### Installation
 
@@ -44,19 +46,16 @@ git clone https://github.com/AntonMaxen/Databas01.git
 ```sh
 pip install requirements.txt 
 ```
-3. Install Docker
-https://docs.docker.com/get-docker/
-
-4. start docker containers
+3. start docker containers
 ```sh
 docker-compose up
 ```
-5. run alembic upgrade
+4. run alembic upgrade
 ```
 alembic upgrade head
 ```
-6. run setup_databases file in app
-7. Done
+5. run setup_databases file in app
+6. Done
 
 
 
