@@ -70,7 +70,8 @@ def refresh_row(mongo_object):
 
 
 if __name__ == "__main__":
-    asset = get_all_assets(Customer)[0]
-    update_asset_by_column(asset, "orders", 3)
+    asset = get_asset_by_id(Shop,  '5fd0cb03114a57f8b3e4ef30')
     print(asset)
+    update_asset_by_column(asset, 'employees', '5fd0cb00114a57f8b3e4ef04')
+
 

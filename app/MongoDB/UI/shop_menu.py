@@ -1,5 +1,6 @@
 from app.MongoDB.UI.menus import menu
 import app.MongoDB.BL.shop_controller as sc
+import app.MongoDB.BL.employee_controller as ec
 from app.MongoDB.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
@@ -69,8 +70,26 @@ def drop_shop_by_id():
 
 
 def update_employee_list():
-    pass
-
+    get_all_shops()
+    print('===================================')
+    print('Enter a shop id to choose that shop')
+    s_id = f_input()
+    running = True
+    while running:
+        employees = ec.get_all_employees()
+        print_list_of_tablerows(employees)
+        print('====================')
+        print('Enter employee id to add that to the shop of your choice')
+        value = f_input()
+        shop = sc.get_shop_by_id(s_id)
+        sc.update_shop_column(shop, 'employees', value)
+        print('Do you want to add more employees?\n'
+              '1: Yes\n'
+              '2: No')
+        if int(f_input()) == 1:
+            continue
+        else:
+            running = False
 
 def shop_menu():
     menu({
@@ -91,10 +110,14 @@ def shop_menu():
             "func": update_shop
         },
         "5": {
+            "info": "update the list of employees",
+            "func": update_employee_list
+        },
+        "6": {
             "info": "add a shop",
             "func": add_shop
         },
-        "6": {
+        "7": {
             "info": "drop shop by id",
             "func": drop_shop_by_id
         }

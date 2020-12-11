@@ -42,5 +42,15 @@ def employees_in_shop(s_id):
 
     return((str(employees).strip("[]''").replace(',', ''). replace("'", "")))
 
+
+def get_all_id():
+    shop_id = session.query(Shop.id).all()
+    return shop_id
+
+
+def test():
+    pass
+
+
 if __name__ == '__main__':
-    get_columns()
+    test()

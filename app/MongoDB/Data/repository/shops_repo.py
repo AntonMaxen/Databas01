@@ -30,20 +30,8 @@ def drop_shop(s_id):
     return tf.drop_row_by_id(Shop, s_id)
 
 
-def main():
-    print(get_columns())
-
-
-def update_shops_employee_list(mongo_object, column_name, value):
-    if column_name in mongo_object.__dict__:
-        mongo_object[column_name].append(value)
-    mongo_object.save()
-    return mongo_object
-
-
 def test():
-    new_list = update_shops_employee_list(Shop, 'employees', 4322)
-    print(new_list)
+    pass
 
 if __name__ == "__main__":
     test()
