@@ -24,9 +24,12 @@ def print_list_of_tablerows(table_rows):
 
 
 def print_tablerow(table_row):
-    row_dict = utils.modelobj_to_dict(table_row)
-    print_dict(row_dict)
-    divider()
+    if table_row is not None:
+        row_dict = utils.modelobj_to_dict(table_row)
+        print_dict(row_dict)
+        divider()
+    else:
+        print("Not found")
 
 
 if __name__ == '__main__':
