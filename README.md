@@ -58,9 +58,6 @@ alembic upgrade head
 6. Done
 
 
-
-
 <!-- USAGE EXAMPLES -->
-## Usage
-
-Work in progress
+## Made by
+Anton Maxén, Måns Ewards Öberg, Marcus Johnsson
