@@ -1,7 +1,7 @@
 from app.MongoDB.UI.menus import menu
 import app.MongoDB.BL.employee_controller as ec
 import app.MongoDB.BL.shop_controller as sc
-from app.MongoDB.UI.shop_menu import add_shop, get_all_shops, update_shops_employee_list
+from app.MongoDB.UI.shop_menu import add_shop, get_all_shops
 from app.MongoDB.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 

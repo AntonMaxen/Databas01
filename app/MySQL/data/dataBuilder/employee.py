@@ -1,7 +1,7 @@
-import app.MySQL.dataBuilder.generator.generate as gen
+import MySQL.data.dataBuilder.generator.generate as gen
 from app.MySQL.data.db import session
 from app.MySQL.data.model_imports import *
-import random
+
 
 class Employee:
     def __init__(self):
