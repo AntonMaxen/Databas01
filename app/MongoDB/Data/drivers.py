@@ -265,7 +265,7 @@ def delete_documents():
             print(f'Deleted {delete_obj.deleted_count}')
 
 
-def main():
+def migrate_to_mongodb():
     delete_documents()
     fix_employees()
     fix_shop()

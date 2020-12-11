@@ -1,5 +1,7 @@
 from app.MySQL.data.model_imports import *
+from app.MySQL.data.db import session
 import app.MySQL.data.repository.table_functions as tf
+import app.MySQL.UI.ui_functions as uf
 
 
 def get_all_customers():
@@ -30,9 +32,22 @@ def drop_customer(t_id, column_name="id"):
     tf.drop_row_by_id(Customer, t_id, column_name=column_name)
 
 
+def get_customers_cars(c_id):
+    customer = session.query(Customer, CustomerCar, Car). \
+        join(CustomerCar, Customer.id == CustomerCar.CustomerId). \
+        join(Car, CustomerCar.CarId == Car.id). \
+        filter(Customer.id == c_id). \
+        all()
+
+    return customer
+
+
+
 def main():
-    update_customer_column(1, 2, 3)
-    pass
+    customer = join_test(1)
+    for c in customer:
+        uf.print_tablerow(c.Car)
+        uf.print_tablerow(c.Customer)
 
 
 if __name__ == "__main__":

@@ -1,19 +1,17 @@
 import random
 from app.MySQL.data.db import session
 # dataBuilder imports
-from app.MySQL.dataBuilder.person import Person
-from app.MySQL.dataBuilder.company import CompanyPerson
-from app.MySQL.dataBuilder.car import Car as genCar
-from app.MySQL.dataBuilder.shop import Shop as genShop
-from app.MySQL.dataBuilder.product import Product as genProduct
-from app.MySQL.dataBuilder.contact_person import ContactPerson as genCP
-from app.MySQL.dataBuilder.employee import Employee as genEmployee
-from app.MySQL.dataBuilder.order import Order as genOrder
-from app.MySQL.dataBuilder.storage import Storage as genStorage
-from app.MySQL.dataBuilder.internal_order import InternalOrder as genInternalOrder
-from app.MySQL.dataBuilder.shops_storage import ShopStorage as genShopStorage
-from app.MySQL.dataBuilder.associate import Associate as genAs
-from app.MySQL.dataBuilder.compatability import Compatability as genComp
+from app.MySQL.data.dataBuilder.person import Person
+from app.MySQL.data.dataBuilder.company import CompanyPerson
+from app.MySQL.data.dataBuilder.car import Car as genCar
+from app.MySQL.data.dataBuilder.shop import Shop as genShop
+from app.MySQL.data.dataBuilder.product import Product as genProduct
+from app.MySQL.data.dataBuilder.contact_person import ContactPerson as genCP
+from app.MySQL.data.dataBuilder.employee import Employee as genEmployee
+from app.MySQL.data.dataBuilder.order import Order as genOrder
+from app.MySQL.data.dataBuilder.storage import Storage as genStorage
+from app.MySQL.data.dataBuilder.internal_order import InternalOrder as genInternalOrder
+from app.MySQL.data.dataBuilder.associate import Associate as genAs
 # model imports
 from app.MySQL.data.model_imports import *
 
@@ -116,9 +114,7 @@ def link_two_tables(table_obj_one={}, table_obj_two={}, relation_table={}, extra
     session.commit()
 
 
-def main():
-    generations = 50
-    quantity = 1
+def populate_database(quantity=50, generations=1):
     for _ in range(generations):
         populate_db_random(Customer, [Person, CompanyPerson], quantity)
         populate_db_random(Car, genCar, quantity)
@@ -180,4 +176,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    populate_database()
