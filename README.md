@@ -13,16 +13,16 @@
 <!--te-->
 
 ## Background ##
-Some cool background about the project
+Assignment in a database course, where we got to know about MySQL and MongoDB, using orm. We got criterias for a car sparepart dealership from a customer who wanted a database for his business.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-What does the project do?
+The project Builds a Mysql database with alembic and sqlalchemy using orm. It generates some dummy data and the migrates the mysql database to a document driven database Manager MongoDB with the help of pymongo. The database is built on a Multilayered structure (UI, BL, DATA) Where the user communicates with UI.
 
 ### Built With
-* [cool](https://example.com)
-* [coolstuff](https://example.com)
-* [coolerstuff](https://example.com)
+* [sqlalchemy](https://www.sqlalchemy.org/)
+* [Alembic](https://alembic.sqlalchemy.org/en/latest/)
+* [pymongo](https://pymongo.readthedocs.io/en/stable/)
 
 
 <!-- GETTING STARTED -->
@@ -44,6 +44,22 @@ git clone https://github.com/AntonMaxen/Databas01.git
 ```sh
 pip install requirements.txt 
 ```
+3. Install Docker
+https://docs.docker.com/get-docker/
+
+4. start docker containers
+```sh
+docker-compose up
+```
+5. run alembic upgrade
+```
+alembic upgrade head
+```
+6. run setup_databases file in app
+7. Done
+
+
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
