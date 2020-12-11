@@ -153,24 +153,20 @@ def fix_orders():
     customers = session.query(Customer).all()
     products = session.query(Product).all()
     order_products = session.query(OrderProduct).all()
-    products_storage = session.query(ShopStorage).all()
 
     for order in orders:
         order_dict = order.__dict__
         order_dict['employee_id'] = mm.Employee.find(id=order.employee_id).first_or_none()._id
         del order_dict['_sa_instance_state']
-        c = mm.Customer.find(id=order.customer_id).first_or_none()
-        if c is not None:
-            customer_id = c._id
 
-            for customer in customers:
-                if order_dict['customer_id'] == customer.id:
-                    order_dict['customer_info'] = ({
-                        'customer_id': customer_id,
-                        'first_name': customer.first_name,
-                        'last_name': customer.last_name,
-                        'address': customer.address_line_one,
-                        'phone': customer.phone
+        for customer in customers:
+            if order_dict['customer_id'] == customer.id:
+                order_dict['customer_info'] = ({
+                    'customer_id': customer.id,
+                    'first_name': customer.first_name,
+                    'last_name': customer.last_name,
+                    'address': customer.address_line_one,
+                    'phone': customer.phone
                     })
         order_dict['products'] = []
         for op in order_products:
@@ -178,12 +174,10 @@ def fix_orders():
                 for product in products:
                     if product.id == op.ProductId:
                         order_dict['products'].append({
-                            'product_id': product.id,
                             'product_name': product.product_name,
                             'retail_price': product.retail_price,
                             'bought in shop': order_dict['shop_id']
                         })
-
         #del order_dict['id']
         del order_dict['customer_id']
 
@@ -252,11 +246,11 @@ def associates_prod_list_fix():
     for msa in mm_associates:
         for mmp in mm_products:
             if mmp.id in msa.products:
-                print(msa.products, ' = ', mmp.id, ' => ', mmp._id)
+                #print(msa.products, ' = ', mmp.id, ' => ', mmp._id)
                 msa.products = [mmp._id]
                 msa.save()
             if mmp.associate == msa.id:
-                print(mmp.associate, ' = ', msa.id, ' => ', msa._id)
+                #print(mmp.associate, ' = ', msa.id, ' => ', msa._id)
                 mmp.associate = [msa._id]
                 mmp.save()
 

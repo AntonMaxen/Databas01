@@ -23,7 +23,10 @@ def print_dict(my_dict):
 def show_all_shops():
     shops = sc.show_all_shops()
     for shop in shops:
+        s_id = shop['id']
         print_dict(shop)
+        employees = sc.employees_in_shop(s_id)
+        print(f'Employees: {employees}')
         divider()
 
     print_amount_matches(shops)

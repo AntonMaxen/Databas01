@@ -37,5 +37,9 @@ def employees_in_shop(s_id):
     return sr.employees_in_shop(s_id)
 
 
+def get_all_id():
+    return sr.get_all_id()
+
+
 if __name__ == '__main__':
     show_all_shops()

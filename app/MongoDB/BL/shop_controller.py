@@ -29,10 +29,6 @@ def get_columns():
     return sr.get_columns()
 
 
-def update_shops_employee_list(shop, column_name, value):
-    return sr.update_shops_employee_list(shop, column_name, value)
-
-
 if __name__ == '__main__':
     pass
 

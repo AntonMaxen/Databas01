@@ -1,7 +1,7 @@
 from app.MongoDB.UI.menus import menu
 import app.MongoDB.BL.employee_controller as ec
 import app.MongoDB.BL.shop_controller as sc
-from app.MongoDB.UI.shop_menu import add_shop, get_all_shops
+from app.MongoDB.UI.shop_menu import get_all_shops
 from app.MongoDB.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
@@ -75,10 +75,10 @@ def add_employee():
     divider()
 
     employee = ec.add_employee(insert_dict)
-    print_tablerow(employee)
-
+    value = employee._id
     if employee is not None:
-        pass
+        shop = sc.get_shop_by_id(s_id)
+        sc.update_shop_column(shop, 'employees', value)
 
 
 def drop_employee_by_id():
