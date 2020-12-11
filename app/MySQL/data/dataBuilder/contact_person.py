@@ -1,4 +1,4 @@
-import MySQL.data.dataBuilder.generator.generate as ge
+import app.MySQL.data.dataBuilder.generator.generate as ge
 
 
 class ContactPerson:

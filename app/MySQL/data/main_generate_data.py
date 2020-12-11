@@ -1,17 +1,17 @@
 import random
 from app.MySQL.data.db import session
 # dataBuilder imports
-from MySQL.data.dataBuilder.person import Person
-from MySQL.data.dataBuilder.company import CompanyPerson
-from MySQL.data.dataBuilder.car import Car as genCar
-from MySQL.data.dataBuilder.shop import Shop as genShop
-from MySQL.data.dataBuilder.product import Product as genProduct
-from MySQL.data.dataBuilder.contact_person import ContactPerson as genCP
-from MySQL.data.dataBuilder.employee import Employee as genEmployee
-from MySQL.data.dataBuilder.order import Order as genOrder
-from MySQL.data.dataBuilder.storage import Storage as genStorage
-from MySQL.data.dataBuilder.internal_order import InternalOrder as genInternalOrder
-from MySQL.data.dataBuilder.associate import Associate as genAs
+from app.MySQL.data.dataBuilder.person import Person
+from app.MySQL.data.dataBuilder.company import CompanyPerson
+from app.MySQL.data.dataBuilder.car import Car as genCar
+from app.MySQL.data.dataBuilder.shop import Shop as genShop
+from app.MySQL.data.dataBuilder.product import Product as genProduct
+from app.MySQL.data.dataBuilder.contact_person import ContactPerson as genCP
+from app.MySQL.data.dataBuilder.employee import Employee as genEmployee
+from app.MySQL.data.dataBuilder.order import Order as genOrder
+from app.MySQL.data.dataBuilder.storage import Storage as genStorage
+from app.MySQL.data.dataBuilder.internal_order import InternalOrder as genInternalOrder
+from app.MySQL.data.dataBuilder.associate import Associate as genAs
 # model imports
 from app.MySQL.data.model_imports import *
 

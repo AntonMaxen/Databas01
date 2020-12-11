@@ -1,5 +1,5 @@
 import random
-import MySQL.data.dataBuilder.generator.generate as gen
+import app.MySQL.data.dataBuilder.generator.generate as gen
 
 
 class Person:

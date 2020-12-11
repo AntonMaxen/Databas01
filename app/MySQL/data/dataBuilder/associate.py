@@ -1,5 +1,5 @@
 import random
-import MySQL.data.dataBuilder.generator.generate as ge
+import app.MySQL.data.dataBuilder.generator.generate as ge
 from app.MySQL.data.db import session
 from app.MySQL.data.model_imports import *
 

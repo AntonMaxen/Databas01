@@ -1,4 +1,4 @@
-import MySQL.data.dataBuilder.generator.generate as gen
+import app.MySQL.data.dataBuilder.generator.generate as gen
 from app.MySQL.data.db import session
 from app.MySQL.data.model_imports import *
 
