@@ -1,16 +1,19 @@
-import app.MySQL.dataBuilder.generator.generate as gen
+import app.MySQL.data.dataBuilder.generator.generate as gen
 
 
-class Compatability:
+class ShopStorage:
     def __init__(self, x=1, y=1, z=1):
-            self.ProductId = x
-            self.ModelId = y
+
+            self.ProductId = y
+            self.ShopId = x
+            self.StorageId = z
 
     def __repr__(self):
         return (
             gen.build_repr(
+                ShopId=self.ShopId,
+                StorageId=self.StorageId,
                 ProductId=self.ProductId,
-                ModelId=self.ModelId,
             )
         )
 
@@ -18,11 +21,13 @@ class Compatability:
 def main():
     items = []
     quantity = 100
-    x, y = 1, 1
+    x, y, z = 1, 1, 1
     for _ in range(quantity):
-        items.append(Compatability(x, y))
+        items.append(ShopStorage(x, y, z))
         x += 1
         y += 1
+        z += 1
+
 
     for item in items:
         print(item.__dict__)

@@ -5,20 +5,23 @@ from app.MySQL.UI.customer_car_menu import combine_customer_car
 from app.MySQL.UI.ui_functions import f_input, print_amount_matches, divider, print_list_of_tablerows, print_tablerow
 
 
-def get_all_customers():
+def get_customer_by_id():
+    print("Enter a Customer Id")
+    c_id = f_input()
+    return cc.get_customer_by_id(c_id)
+
+def show_all_customers():
     customers = cc.get_all_customers()
     print_list_of_tablerows(customers)
     print_amount_matches(customers)
 
 
-def get_customer_by_id():
-    print("Enter a Customer Id")
-    c_id = f_input()
-    customer = cc.get_customer_by_id(c_id)
+def show_customer_by_id():
+    customer = get_customer_by_id()
     print_tablerow(customer)
 
 
-def get_customers_by_name():
+def show_customers_by_name():
     print("Enter a Customer Name")
     c_name = f_input()
     customers = cc.get_customers_by_name(c_name)
@@ -33,7 +36,7 @@ def search_customers_menu():
     menu({str(i+1): {"info": c, "func": inner(c)} for i, c in enumerate(cc.get_columns())})
 
 
-def get_customers_by_columnvalue(column_name):
+def show_customers_by_columnvalue(column_name):
     print(f"enter searchvalue for {column_name}")
     name = f_input()
     customers = cc.get_customers_by_columnvalue(column_name, name)
@@ -41,10 +44,17 @@ def get_customers_by_columnvalue(column_name):
     print_amount_matches(customers)
 
 
+def get_customers_cars():
+    customer = get_customer_by_id()
+    customers_cars = cc.get_customers_cars(customer.id)
+    print_tablerow(customers_cars[0].Customer)
+    for join_info in customers_cars:
+        print_tablerow(join_info.Car)
+        print_tablerow(join_info.CustomerCar)
+
+
 def update_customer():
-    print("enter a customer id: ")
-    c_id = f_input()
-    customer = cc.get_customer_by_id(c_id)
+    customer = get_customer_by_id()
 
     def inner(column, customer):
         return lambda: update_customer_column(column, customer)
@@ -65,11 +75,10 @@ def add_customer_car(customer):
         combine_customer_car(customer.id, car.id)
 
 
-def bind_add_customer_car(customer):
-    return lambda: add_customer_car(customer)
-
-
 def add_customer():
+    def inner(customer):
+        return lambda: add_customer_car(customer)
+
     insert_dict = {}
     for column in cc.get_columns():
         if column != "id":
@@ -82,14 +91,14 @@ def add_customer():
         menu({
             "1": {
                 "info": "add car",
-                "func": bind_add_customer_car(customer)
+                "func": inner(customer)
             }
         })
 
 
 def drop_customer_by_id():
     print("Enter a customer id to delete customer")
-    c_id = int(f_input())
+    c_id = f_input()
     cc.drop_customer(c_id)
 
 
@@ -97,15 +106,15 @@ def customer_menu():
     menu({
         "1": {
             "info": "get all customers",
-            "func": get_all_customers
+            "func": show_all_customers
         },
         "2": {
             "info": "get customer by id",
-            "func": get_customer_by_id
+            "func": show_customer_by_id
         },
         "3": {
             "info": "get customers by name",
-            "func": get_customers_by_name
+            "func": show_customers_by_name
         },
         "4": {
             "info": "search customers",
@@ -122,6 +131,10 @@ def customer_menu():
         "7": {
             "info": "drop customer by id",
             "func": drop_customer_by_id
+        },
+        "8": {
+            "info": "get a customers cars by id",
+            "func": get_customers_cars
         }
     })
 

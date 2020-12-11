@@ -33,6 +33,10 @@ def get_columns():
     return cr.get_columns()
 
 
+def get_customers_cars(c_id):
+    return cr.get_customers_cars(c_id)
+
+
 if __name__ == '__main__':
     pass
 
