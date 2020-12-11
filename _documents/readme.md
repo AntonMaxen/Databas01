@@ -5,12 +5,12 @@
  - [x] Orders
  - [x] Cars
  - [x] Customer_has_cars
- - [ ] Products
+ - [x] Products
  - [x] Order_has_products
  - [x] Storage
  - [x] shops_has_storage
- - [ ] Contact_persons
- - [ ] Associates
+ - [x] Contact_persons
+ - [x] Associates
  - [x] Products_has_associates
  - [x] Car_models
  - [x] compatibilitys
